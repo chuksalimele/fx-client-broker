@@ -266,7 +266,7 @@ class AccountHandler extends SharableTransportHandler {
         try {
             int account_number = msg.getInt(0);
             String stringified_order = msg.getString(1);
-            ManagedOrder order = new ManagedOrder(account_number, stringified_order);
+            ManagedOrder order = new ManagedOrder(msg.getIdentifier(), account_number, stringified_order);
             brokerAccount.sendMarketOrder(msg.getIdentifier(), order);
         } catch (SQLException | OrderException ex) {
             logger.error("An error occurred", ex);
@@ -290,7 +290,7 @@ class AccountHandler extends SharableTransportHandler {
         try {
             int account_number = msg.getInt(0);
             String strigified_order = msg.getString(1);
-            ManagedOrder order = new ManagedOrder(account_number, strigified_order);
+            ManagedOrder order = new ManagedOrder(msg.getIdentifier(), account_number, strigified_order);
             brokerAccount.placePendingOrder(msg.getIdentifier(), order);
         } catch (SQLException | OrderException ex) {
             logger.error("An error occurred", ex);

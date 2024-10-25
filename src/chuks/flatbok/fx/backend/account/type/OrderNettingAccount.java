@@ -14,8 +14,12 @@ import static chuks.flatbok.fx.common.account.order.ManagedOrder.FX_LOT_QTY;
 import chuks.flatbok.fx.common.account.order.SymbolInfo;
 import chuks.flatbok.fx.common.account.persist.OrderDB;
 import chuks.flatbok.fx.backend.listener.OrderActionListener;
+import chuks.flatbok.fx.common.account.order.OrderException;
+import chuks.flatbok.fx.common.account.order.OrderIDFamily;
 import static chuks.flatbok.fx.common.account.order.OrderIDFamily.getAccountNumberFromOrderID;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
 import quickfix.fix44.NewOrderSingle;
 
@@ -232,7 +236,7 @@ public class OrderNettingAccount extends Broker {
             // Send an order in the opposite direction
             // of the open position to close the open postion
             NewOrderSingle newOrder = new NewOrderSingle(
-                    new ClOrdID(order.markForCloseAndGetID()), // Unique order ID                
+                    new ClOrdID(order.markForCloseAndGetID(req_identifier)), // Unique order ID                
                     new Side(opposingSide(order.getSide())), // Opposite of the original position
                     new TransactTime(),
                     new OrdType(OrdType.MARKET) // Market order to close the position
@@ -243,7 +247,7 @@ public class OrderNettingAccount extends Broker {
             Session.sendToTarget(newOrder, tradingSessionID);
 
         } catch (SessionNotFound | SQLException ex) {
-            logger.error("Could not close position", ex);
+            logger.error("Could not close position - " +ex.getMessage(), ex);
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
                     .onOrderRemoteError(req_identifier, order, "Could not close position - Something went wrong!");
@@ -284,11 +288,11 @@ public class OrderNettingAccount extends Broker {
                 return;
             }
 
-            order.modifyOrder(target_price, stoploss_price);
+            order.modifyOrder(req_identifier, target_price, stoploss_price);
             setStopLoss(null, order);
             setTakeProfit(req_identifier, order);
         } catch (SQLException ex) {
-            logger.error("Could not modify order", ex);
+            logger.error("Could not modify order - " +ex.getMessage(), ex);
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
                     .onOrderRemoteError(req_identifier, order, "Could not modify order - Somethin went wrong!");
@@ -329,7 +333,6 @@ public class OrderNettingAccount extends Broker {
         //TODO - IMPLEMENT MODIFICATION OF OPEN PRICE TOO FOR PENDING 
         //ORDERS AS IT IS IN MT4 AND MT5
         //CURRENTLY ONLY TARGET AND STOPLOSS CAN BE MODIFIED
-        
         ManagedOrder pend_order = this.ordersPending.get(clOrdId);
 
         try {
@@ -343,14 +346,14 @@ public class OrderNettingAccount extends Broker {
             }
 
             //we only modify locally
-            pend_order.modifyOrder(target_price, stoploss_price);
+            pend_order.modifyOrder(req_identifier, target_price, stoploss_price);
 
             orderActionListenersMap
                     .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
                     .onModifiedPendingOrder(req_identifier, pend_order);
         } catch (SQLException ex) {
 
-            logger.error("Could not modify pending order", ex);
+            logger.error("Could not modify pending order - " +ex.getMessage(), ex);
             orderActionListenersMap
                     .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
                     .onOrderRemoteError(req_identifier, pend_order, "Could not modify pending order - Something went wrong!");
@@ -371,12 +374,27 @@ public class OrderNettingAccount extends Broker {
             return;
         }
 
-        //We simply delete the pending order locally
-        this.ordersPending.remove(clOrdId);
+        try {
 
-        orderActionListenersMap
-                .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
-                .onDeletedPendingOrder(req_identifier, pend_order);
+            //We simply delete the pending order locally
+            this.ordersPending.remove(clOrdId);
+            //now make the order identifiable at the client end 
+            String clOrderID = pend_order.markForDeleteAndGetID(req_identifier);
+            pend_order.setOrderID(clOrderID); //important
+
+            req_identifier = pend_order.getDeleteOrderRequestIdentifier();
+
+            orderActionListenersMap
+                    .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
+                    .onDeletedPendingOrder(req_identifier, pend_order);
+        } catch (SQLException ex) {
+            
+            logger.error("Could not delet pending order - "+ ex.getMessage(), ex);            
+            orderActionListenersMap
+                    .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
+                    .onOrderRemoteError(req_identifier, pend_order, "Could not delet pending order - Something went wrong!");            
+        }
+
     }
 
     @Override
@@ -390,8 +408,9 @@ public class OrderNettingAccount extends Broker {
             if (order.getOrderID().equals(clOrdID)) {
                 //is market order so add
                 ordersOpen.putIfAbsent(order.getOrderID(), sentMarketOrders.get(clOrdID));
-                
+
                 String req_identifier = order.getMarketOrderRequestIdentifier();
+
                 //notify new open position    
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
@@ -401,7 +420,7 @@ public class OrderNettingAccount extends Broker {
             if (order.getTargetOrderIDList().contains(clOrdID)) {
                 //is target order so just ensure it is added
                 ordersOpen.putIfAbsent(order.getOrderID(), sentMarketOrders.get(clOrdID));
-                
+
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify target modified
                 orderActionListenersMap
@@ -435,7 +454,7 @@ public class OrderNettingAccount extends Broker {
             if (order.getOrderID().equals(clOrdID)) {
                 //is market order
                 sentMarketOrders.remove(clOrdID);
-                
+
                 String req_identifier = order.getMarketOrderRequestIdentifier();
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
@@ -446,7 +465,7 @@ public class OrderNettingAccount extends Broker {
                 //is target order so just remove
                 order.removeTargetOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
-                
+
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
@@ -457,7 +476,7 @@ public class OrderNettingAccount extends Broker {
                 //is stoploss order so just remove
                 order.removeStoplossOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
-                
+
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
@@ -468,7 +487,7 @@ public class OrderNettingAccount extends Broker {
                 //is close order so just remove
                 order.removeCloseOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
-                
+
                 String req_identifier = order.getCloseOrderRequestIdentifier();
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
@@ -489,7 +508,7 @@ public class OrderNettingAccount extends Broker {
             if (order.getStoplossOrderIDCancelProcessingList().contains(clOrdID)) {
                 order.removeStoplossOrderIDCancelProcessingList(clOrdID);
                 order.removeStoplossOrderIDList(clOrdID);
-                
+
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify stoploss modified
                 orderActionListenersMap
@@ -505,7 +524,7 @@ public class OrderNettingAccount extends Broker {
             if (order.getTargetOrderIDCancelProcessingList().contains(clOrdID)) {
                 order.removeTargetOrderIDCancelProcessingList(clOrdID);
                 order.removeTargetOrderIDList(clOrdID);
-                
+
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify target modified
                 orderActionListenersMap
@@ -695,13 +714,30 @@ public class OrderNettingAccount extends Broker {
                         && symbolInfo.getPrice() <= order.getOpenPrice())) {
 
                     this.ordersPending.remove(order.getOrderID());
-                    order.convertToMarketOrder();
+                    //order.convertToMarketOrder();//@Deprecated
                     String req_identifier = order.getMarketOrderRequestIdentifier();
-                    this.sendMarketOrder(req_identifier, order);
-                    //notify pending order triggered             
-                    orderActionListenersMap
-                            .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                            .onTriggeredPendingOrder(req_identifier, order);
+                    ManagedOrder mktOrder;
+                    try {
+                        mktOrder = new ManagedOrder(req_identifier,
+                                order.getAccountNumber(),
+                                symbolInfo,
+                                order.getSide(),
+                                order.getTargetPrice(),
+                                order.getStoplossPrice());
+
+                        //String req_identifier = mktOrder.getMarketOrderRequestIdentifier();
+                        this.sendMarketOrder(req_identifier, mktOrder);
+                        //notify pending order triggered             
+                        orderActionListenersMap
+                                .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
+                                .onTriggeredPendingOrder(req_identifier, order);
+                    } catch (OrderException ex) {
+                        logger.error("Could not trigger pending order - "+ex.getMessage(), ex);
+                        orderActionListenersMap
+                                .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
+                                .onOrderRemoteError(req_identifier, order, "Could not trigger pending order");
+                        continue;
+                    }
                 }
 
                 break;

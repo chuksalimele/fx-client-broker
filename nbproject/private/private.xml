@@ -3,35 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/contract/BrokerAccount.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/config/Config.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/logback.xml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/config/Error.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/main/Main.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/listener/TraderAccountAdapter.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/listener/SymbolUpdateAdapter.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/quickfix.properties</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/channel/AccountServer.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/listener/ConnectionAdapter.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/listener/AccountListener.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/log/filter/AcceptMarkerFilter.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/type/OrderNettingAccount.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/persist/TraderDB.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/persist/AdminDB.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/Broker.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/custom/message/AccountInfoResponse.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/contract/Identifier.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/log/filter/DenyMarkerLevelFilter.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/listener/OrderActionListener.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/channel/AccountHandler.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/listener/SymbolUpdateListener.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/listener/ConnectionListener.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/contract/Client.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/listener/OrderActionAdapter.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/factory/TraderAccountFactory.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/type/HedgeAccount.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/account/contract/BrokerOperation.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/fix-client-broker/src/chuks/flatbok/fx/backend/config/LogMarker.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/fx-client-broker/src/chuks/flatbok/fx/backend/listener/OrderActionListener.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/fx-client-broker/src/chuks/flatbok/fx/backend/channel/AccountHandler.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/fx-client-broker/src/chuks/flatbok/fx/backend/account/Broker.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/fx-client-broker/src/chuks/flatbok/fx/backend/account/type/HedgeAccount.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/fx-client-broker/src/chuks/flatbok/fx/backend/account/Client.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/fx-client-broker/src/chuks/flatbok/fx/backend/account/type/OrderNettingAccount.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/fx-client-broker/src/chuks/flatbok/fx/backend/account/contract/BrokerOperation.java</file>
         </group>
     </open-files>
 </project-private>
