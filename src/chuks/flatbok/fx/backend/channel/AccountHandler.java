@@ -5,8 +5,8 @@
 package chuks.flatbok.fx.backend.channel;
 
 import chuks.flatbok.fx.backend.account.contract.BrokerAccount;
-import chuks.flatbok.fx.backend.account.contract.Client;
-import static chuks.flatbok.fx.backend.account.contract.Client.NO_ACCOUNT_NUMBER;
+import chuks.flatbok.fx.backend.account.Client;
+import static chuks.flatbok.fx.backend.account.Client.NO_ACCOUNT_NUMBER;
 import chuks.flatbok.fx.common.account.profile.TraderAccountProfile;
 import chuks.flatbok.fx.backend.account.persist.AdminDB;
 import chuks.flatbok.fx.common.account.order.ManagedOrder;
@@ -267,7 +267,7 @@ class AccountHandler extends SharableTransportHandler {
             int account_number = msg.getInt(0);
             String stringified_order = msg.getString(1);
             ManagedOrder order = new ManagedOrder(account_number, stringified_order);
-            brokerAccount.sendMarketOrder(order);
+            brokerAccount.sendMarketOrder(msg.getIdentifier(), order);
         } catch (SQLException | OrderException ex) {
             logger.error("An error occurred", ex);
         }
@@ -277,13 +277,13 @@ class AccountHandler extends SharableTransportHandler {
         String clOrderID = msg.getString(0);
         double target_price = msg.getDouble(1);
         double stoploss_price = msg.getDouble(2);
-        brokerAccount.modifyOpenOrder(clOrderID, target_price, stoploss_price);
+        brokerAccount.modifyOpenOrder(msg.getIdentifier(), clOrderID, target_price, stoploss_price);
     }
 
     private void handleSendClosePosition(ChannelMessage msg) {
         String clOrderID = msg.getString(0);
         double lotSize = msg.getDouble(1);
-        brokerAccount.sendClosePosition(clOrderID, lotSize);
+        brokerAccount.sendClosePosition(msg.getIdentifier(), clOrderID, lotSize);
     }
 
     private void handlePlacePendingOrder(ChannelMessage msg) {
@@ -291,7 +291,7 @@ class AccountHandler extends SharableTransportHandler {
             int account_number = msg.getInt(0);
             String strigified_order = msg.getString(1);
             ManagedOrder order = new ManagedOrder(account_number, strigified_order);
-            brokerAccount.placePendingOrder(order);
+            brokerAccount.placePendingOrder(msg.getIdentifier(), order);
         } catch (SQLException | OrderException ex) {
             logger.error("An error occurred", ex);
         }
@@ -302,12 +302,12 @@ class AccountHandler extends SharableTransportHandler {
         double open_price = msg.getDouble(1);
         double target_price = msg.getDouble(2);
         double stoploss_price = msg.getDouble(3);
-        brokerAccount.modifyPendingOrder(clOrderID, open_price, target_price, stoploss_price);
+        brokerAccount.modifyPendingOrder(msg.getIdentifier(), clOrderID, open_price, target_price, stoploss_price);
     }
 
     private void handleDeletePendingOrder(ChannelMessage msg) {
         String clOrderID = msg.getString(0);
-        brokerAccount.deletePendingOrder(clOrderID);
+        brokerAccount.deletePendingOrder(msg.getIdentifier(), clOrderID);
     }
 
     private void handleGetSupportedSymbols() {

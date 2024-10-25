@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package chuks.flatbok.fx.backend.account.contract;
+package chuks.flatbok.fx.backend.account;
 
+import chuks.flatbok.fx.backend.account.contract.Identifier;
 import chuks.flatbok.fx.common.account.profile.TraderAccountProfile;
 import chuks.flatbok.fx.common.account.order.ManagedOrder;
 import chuks.flatbok.fx.common.account.order.SymbolInfo;
@@ -19,6 +20,7 @@ import chuks.flatbok.fx.backend.listener.AccountListener;
 import chuks.flatbok.fx.common.account.profile.AdminProfile;
 import chuks.flatbok.fx.common.util.OnceAccessStore;
 import chuks.flatbok.fx.transport.message.MessageFactory;
+import java.util.UUID;
 
 /**
  *
@@ -59,15 +61,15 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
         return this.ctx;
     }
 
-    void handleOrderEvent(MessageType event, ManagedOrder order) {
+    void handleOrderEvent(MessageType event, String req_identifier, ManagedOrder order) {
         if (order.getAccountNumber() == this.idf.getAccountNumber()) {            
             ctx.writeAndFlush(MessageFactory
-                    .create(event)
+                    .create(event, req_identifier)
                     .assign(order.stringify()));
         }
     }
 
-    void handleOrderlistEvent(MessageType event, List<ManagedOrder> orders) {
+    void handleOrderlistEvent(MessageType event, String req_identifier, List<ManagedOrder> orders) {
 
         List<String> subOrdersStr = new LinkedList();
         for (int i = 0; i < orders.size(); i++) {
@@ -78,7 +80,7 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
         }
         ctx.writeAndFlush(
                 MessageFactory
-                        .create(event)
+                        .create(event, req_identifier)
                         .assign(subOrdersStr.toArray()));
 
     }
@@ -126,87 +128,88 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
     }
 
     @Override
-    public Identifier onNewMarketOrder(ManagedOrder order) {
-        handleOrderEvent(MessageType.NEW_MARKET_ORDER, order);
+    public Identifier onNewMarketOrder(String req_identifier, ManagedOrder order) {
+        handleOrderEvent(MessageType.NEW_MARKET_ORDER, req_identifier, order);
         return idf;
     }
 
     @Override
-    public Identifier onClosedMarketOrder(ManagedOrder order) {
-        handleOrderEvent(MessageType.CLOSED_MARKET_ORDER, order);
+    public Identifier onClosedMarketOrder(String req_identifier, ManagedOrder order) {
+        handleOrderEvent(MessageType.CLOSED_MARKET_ORDER, req_identifier, order);
         return idf;
     }
 
     @Override
-    public Identifier onModifiedMarketOrder(ManagedOrder order) {
-        handleOrderEvent(MessageType.MODIFIED_MARKET_ORDER, order);
+    public Identifier onModifiedMarketOrder(String req_identifier, ManagedOrder order) {
+        handleOrderEvent(MessageType.MODIFIED_MARKET_ORDER, req_identifier, order);
         return idf;
     }
 
     @Override
-    public Identifier onTriggeredPendingOrder(ManagedOrder order) {
-        handleOrderEvent(MessageType.TRIGGERED_PENDING_ORDER, order);
+    public Identifier onTriggeredPendingOrder(String req_identifier, ManagedOrder order) {
+        handleOrderEvent(MessageType.TRIGGERED_PENDING_ORDER, req_identifier, order);
         return idf;
     }
 
     @Override
-    public Identifier onNewPendingOrder(ManagedOrder order) {
-        handleOrderEvent(MessageType.NEW_PENDING_ORDER, order);
+    public Identifier onNewPendingOrder(String req_identifier, ManagedOrder order) {
+        handleOrderEvent(MessageType.NEW_PENDING_ORDER, req_identifier, order);
         return idf;
     }
 
     @Override
-    public Identifier onDeletedPendingOrder(ManagedOrder order) {
-        handleOrderEvent(MessageType.DELETED_PENDING_ORDER, order);
+    public Identifier onDeletedPendingOrder(String req_identifier, ManagedOrder order) {
+        handleOrderEvent(MessageType.DELETED_PENDING_ORDER, req_identifier, order);
         return idf;
     }
 
     @Override
-    public Identifier onModifiedPendingOrder(ManagedOrder order) {
-        handleOrderEvent(MessageType.MODIFIED_PENDING_ORDER, order);
+    public Identifier onModifiedPendingOrder(String req_identifier, ManagedOrder order) {
+        handleOrderEvent(MessageType.MODIFIED_PENDING_ORDER, req_identifier, order);
         return idf;
     }
 
     @Override
-    public Identifier onOrderRemoteError(ManagedOrder order, String errMsg) {
+    public Identifier onOrderRemoteError(String req_identifier, ManagedOrder order, String errMsg) {
         if (order.getAccountNumber() == this.idf.getAccountNumber()) {
             ctx.writeAndFlush(MessageFactory
-                    .create(MessageType.ORDER_REMOTE_ERROR)
+                    .create(MessageType.ORDER_REMOTE_ERROR, req_identifier)
                     .assign(order.stringify(), errMsg));
         }
         return idf;
     }
 
     @Override
-    public Identifier onOrderNotAvailable(int account_number, String errMsg) {
+    public Identifier onOrderNotAvailable(String req_identifier, int account_number, String errMsg) {
         if (account_number == this.idf.getAccountNumber()) {
             ctx.writeAndFlush(MessageFactory
-                    .create(MessageType.ORDER_NOT_AVAILABLE)
+                    .create(MessageType.ORDER_NOT_AVAILABLE, req_identifier)
                     .assign(errMsg));
         }
+        
         return idf;
     }
 
     @Override
-    public Identifier onAddAllOpenOrders(int account_number, List<ManagedOrder> orders) {
+    public Identifier onAddAllOpenOrders(String req_identifier, int account_number, List<ManagedOrder> orders) {
         if (account_number == this.idf.getAccountNumber()) {
-            handleOrderlistEvent(MessageType.ADD_ALL_OPEN_ORDERS, orders);
+            handleOrderlistEvent(MessageType.ADD_ALL_OPEN_ORDERS, req_identifier, orders);
         }
         return idf;
     }
 
     @Override
-    public Identifier onAddAllPendingOrders(int account_number, List<ManagedOrder> orders) {
+    public Identifier onAddAllPendingOrders(String req_identifier, int account_number, List<ManagedOrder> orders) {
         if (account_number == this.idf.getAccountNumber()) {
-            handleOrderlistEvent(MessageType.ADD_ALL_PENDING_ORDERS, orders);
+            handleOrderlistEvent(MessageType.ADD_ALL_PENDING_ORDERS, req_identifier, orders);
         }
         return idf;
     }
 
     @Override
-    public Identifier onAddAllHistoryOrders(int account_number, List<ManagedOrder> orders) {
+    public Identifier onAddAllHistoryOrders(int account_number, List<ManagedOrder> orders, String req_identifier) {
         if (account_number == this.idf.getAccountNumber()) {
-            handleOrderlistEvent(MessageType.ADD_ALL_HISTORY_ORDERS, orders);
+            handleOrderlistEvent(MessageType.ADD_ALL_HISTORY_ORDERS, req_identifier, orders);
         }
 
         return idf;

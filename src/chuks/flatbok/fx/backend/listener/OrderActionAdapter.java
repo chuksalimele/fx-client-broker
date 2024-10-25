@@ -34,62 +34,62 @@ import java.util.List;
     }
      
     @Override
-    public Identifier onNewMarketOrder(ManagedOrder order) {
+    public Identifier onNewMarketOrder(String req_identifier, ManagedOrder order) {
         return idf;
     }
 
     @Override
-    public Identifier onClosedMarketOrder(ManagedOrder order) {        
+    public Identifier onClosedMarketOrder(String req_identifier, ManagedOrder order) {        
         return idf;
     }
 
     @Override
-    public Identifier onModifiedMarketOrder(ManagedOrder order) {        
+    public Identifier onModifiedMarketOrder(String req_identifier, ManagedOrder order) {        
         return idf;
     }
 
     @Override
-    public Identifier onTriggeredPendingOrder(ManagedOrder order) {        
+    public Identifier onTriggeredPendingOrder(String req_identifier, ManagedOrder order) {        
         return idf;
     }
 
     @Override
-    public Identifier onNewPendingOrder(ManagedOrder order) {        
+    public Identifier onNewPendingOrder(String req_identifier, ManagedOrder order) {        
         return idf;
     }
 
     @Override
-    public Identifier onDeletedPendingOrder(ManagedOrder order) {        
+    public Identifier onDeletedPendingOrder(String req_identifier, ManagedOrder order) {        
         return idf;
     }
 
     @Override
-    public Identifier onModifiedPendingOrder(ManagedOrder order) {        
+    public Identifier onModifiedPendingOrder(String req_identifier, ManagedOrder order) {        
         return idf;
     }
 
     @Override
-    public Identifier onOrderRemoteError(ManagedOrder order, String errMsg) {
+    public Identifier onOrderRemoteError(String req_identifier, ManagedOrder order, String errMsg) {
         return idf;
     }
 
     @Override
-    public Identifier onOrderNotAvailable(int account_number, String errMsg) {
+    public Identifier onOrderNotAvailable(String req_identifier, int account_number, String errMsg) {
         return idf;
     }    
 
     @Override
-    public Identifier onAddAllHistoryOrders(int account_number, List<ManagedOrder> order) {
+    public Identifier onAddAllHistoryOrders(int account_number, List<ManagedOrder> order, String req_identifier) {
         return idf;
     }
 
     @Override
-    public Identifier onAddAllOpenOrders(int account_number, List<ManagedOrder> order) {
+    public Identifier onAddAllOpenOrders(String req_identifier, int account_number, List<ManagedOrder> order) {
         return idf;
     }
 
     @Override
-    public Identifier onAddAllPendingOrders(int account_number, List<ManagedOrder> order) {
+    public Identifier onAddAllPendingOrders(String req_identifier, int account_number, List<ManagedOrder> order) {
         return idf;
     }
 

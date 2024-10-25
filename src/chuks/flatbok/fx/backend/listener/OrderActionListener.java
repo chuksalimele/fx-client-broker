@@ -13,16 +13,23 @@ import java.util.List;
  * @author user
  */
 public interface OrderActionListener {    
-    Identifier onNewMarketOrder(ManagedOrder order);
-    Identifier onClosedMarketOrder(ManagedOrder order);
-    Identifier onModifiedMarketOrder(ManagedOrder order);
-    Identifier onTriggeredPendingOrder(ManagedOrder order);
-    Identifier onNewPendingOrder(ManagedOrder order);
-    Identifier onDeletedPendingOrder(ManagedOrder order);
-    Identifier onModifiedPendingOrder(ManagedOrder order);
-    Identifier onOrderRemoteError(ManagedOrder order, String errMsg);
-    Identifier onOrderNotAvailable(int account_number, String errMsg);
-    Identifier onAddAllOpenOrders(int account_number, List<ManagedOrder> order);
-    Identifier onAddAllPendingOrders(int account_number, List<ManagedOrder> order);
-    Identifier onAddAllHistoryOrders(int account_number, List<ManagedOrder> order);
+    Identifier onNewMarketOrder(String req_identifier, ManagedOrder order);
+    Identifier onClosedMarketOrder(String req_identifier, ManagedOrder order);
+    Identifier onModifiedMarketOrder(String req_identifier, ManagedOrder order);
+
+    /**
+     * 
+     * @param req_identifier may not be neccessary of onTriggeredPendingOrder
+     * @param order
+     * @return 
+     */
+    Identifier onTriggeredPendingOrder(String req_identifier, ManagedOrder order);
+    Identifier onNewPendingOrder(String req_identifier, ManagedOrder order);
+    Identifier onDeletedPendingOrder(String req_identifier, ManagedOrder order);
+    Identifier onModifiedPendingOrder(String req_identifier, ManagedOrder order);
+    Identifier onOrderRemoteError(String req_identifier, ManagedOrder order, String errMsg);
+    Identifier onOrderNotAvailable(String req_identifier, int account_number, String errMsg);
+    Identifier onAddAllOpenOrders(String req_identifier, int account_number, List<ManagedOrder> order);
+    Identifier onAddAllPendingOrders(String req_identifier, int account_number, List<ManagedOrder> order);
+    Identifier onAddAllHistoryOrders(int account_number, List<ManagedOrder> order, String req_identifier);
 }

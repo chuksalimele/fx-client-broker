@@ -19,7 +19,6 @@ import quickfix.*;
 import quickfix.field.*;
 import quickfix.fix44.*;
 import chuks.flatbok.fx.backend.account.contract.BrokerAccount;
-import chuks.flatbok.fx.backend.account.contract.Client;
 import chuks.flatbok.fx.common.account.profile.TraderAccountProfile;
 import chuks.flatbok.fx.backend.account.persist.TraderDB;
 import chuks.flatbok.fx.backend.listener.ConnectionAdapter;
@@ -196,15 +195,15 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
         orderActionListenersMap
                 .getOrDefault(account_number, DO_NOTHING_OAL)
-                .onAddAllOpenOrders(account_number, new LinkedList(this.ordersOpen.values()));
+                .onAddAllOpenOrders(null, account_number, new LinkedList(this.ordersOpen.values()));
 
         orderActionListenersMap
                 .getOrDefault(account_number, DO_NOTHING_OAL)
-                .onAddAllHistoryOrders(account_number, new LinkedList(this.ordersOpen.values()));
+                .onAddAllHistoryOrders(account_number, new LinkedList(this.ordersOpen.values()), null);
 
         orderActionListenersMap
                 .getOrDefault(account_number, DO_NOTHING_OAL)
-                .onAddAllPendingOrders(account_number, new LinkedList(this.ordersOpen.values()));
+                .onAddAllPendingOrders(null, account_number, new LinkedList(this.ordersOpen.values()));
 
     }
 
@@ -802,7 +801,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     abstract protected void onExecutedOrder(String clOrdID, double price);
 
     @Override
-    public void sendMarketOrder(ManagedOrder order) {
+    public void sendMarketOrder(String req_identifier, ManagedOrder order) {
         try {
             quickfix.fix44.NewOrderSingle newOrder = new quickfix.fix44.NewOrderSingle(
                     new ClOrdID(order.getOrderID()),
@@ -820,7 +819,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             logger.error("Could not send market order", ex);
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not send market order - Something Went Wrong!");
+                    .onOrderRemoteError(null, order, "Could not send market order - Something Went Wrong!");
         }
     }
 
@@ -836,7 +835,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     }
 
     @Override
-    public void placePendingOrder(ManagedOrder order) {
+    public void placePendingOrder(String req_identifier, ManagedOrder order) {
     }
 
     public void cancelOrder(String clOrdId, String symbol, char side, double lot_size) {
@@ -863,13 +862,13 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
      *
      */
     @Override
-    abstract public void modifyOpenOrder(String clOrdId, double target_price, double stoploss_price);
+    abstract public void modifyOpenOrder(String req_identifier, String clOrdId, double target_price, double stoploss_price);
 
     @Override
-    abstract public void deletePendingOrder(String clOrdId);
+    abstract public void deletePendingOrder(String req_identifier, String clOrdId);
 
     @Override
-    abstract public void sendClosePosition(String clOrdId, double lot_size);
+    abstract public void sendClosePosition(String req_identifier, String clOrdId, double lot_size);
 
     public boolean isQuoteSessionLogon() {
         Session session = Session.lookupSession(quoteSessionID);

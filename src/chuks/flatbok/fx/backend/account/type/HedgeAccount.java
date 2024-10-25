@@ -44,14 +44,14 @@ public class HedgeAccount extends Broker {
     }
 
     @Override
-    public void sendMarketOrder(ManagedOrder order) {
+    public void sendMarketOrder(String req_identifier, ManagedOrder order) {
         try {
             Session session = Session.lookupSession(tradingSessionID);
             if (session == null) {
                 logger.error("Session not found. Cannot send market order.");
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, "Could not send market order - Something went wrong!");
+                        .onOrderRemoteError(req_identifier, order, "Could not send market order - Something went wrong!");
 
                 return;
             }
@@ -61,7 +61,7 @@ public class HedgeAccount extends Broker {
 
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, "Could not send market order - Something went wrong!");
+                        .onOrderRemoteError(req_identifier, order, "Could not send market order - Something went wrong!");
                 return;
             }
 
@@ -93,28 +93,28 @@ public class HedgeAccount extends Broker {
             logger.error("Could not send market order", ex);
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not send market order - Something Went Wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not send market order - Something Went Wrong!");
         }
     }
 
     @Override
-    public void deletePendingOrder(String clOrdId) {
+    public void deletePendingOrder(String req_identifier, String clOrdId) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void sendClosePosition(String clOrdId, double lot_size) {
+    public void sendClosePosition(String req_identifier, String clOrdId, double lot_size) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void modifyOpenOrder(String clOrdId, double target_price, double stoploss_price) {
+    public void modifyOpenOrder(String req_identifier, String clOrdId, double target_price, double stoploss_price) {
         ManagedOrder order = this.ordersOpen.get(clOrdId);
         try {
             // Create a new OrderCancelReplaceRequest message
             OrderCancelReplaceRequest replaceRequest = new OrderCancelReplaceRequest(
                     new OrigClOrdID(clOrdId), // The original order's ID
-                    new ClOrdID(OrderIDFamily.createModifyOrderID(clOrdId)), // New order ID for replacement
+                    new ClOrdID(OrderIDFamily.createModifyHedgeOrderID(clOrdId, req_identifier)), // New order ID for replacement
                     new Side(order.getSide()), // Side (Buy or Sell)
                     new TransactTime(),// Transaction time (current time)
                     new OrdType(OrdType.MARKET)                    
@@ -141,17 +141,17 @@ public class HedgeAccount extends Broker {
             logger.error("Could not send modify order", ex);
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not modify market order - Something Went Wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not modify market order - Something Went Wrong!");
         }
     }
 
     @Override
-    public void placePendingOrder(ManagedOrder order) {
+    public void placePendingOrder(String req_identifier, ManagedOrder order) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void modifyPendingOrder(String clOrdId, double open_price, double target_price, double stoploss_price) {
+    public void modifyPendingOrder(String req_identifier, String clOrdId, double open_price, double target_price, double stoploss_price) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

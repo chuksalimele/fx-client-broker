@@ -32,13 +32,13 @@ public class OrderNettingAccount extends Broker {
     }
 
     @Override
-    public void sendMarketOrder(ManagedOrder order) {
+    public void sendMarketOrder(String req_identifier, ManagedOrder order) {
         Session session = Session.lookupSession(tradingSessionID);
         if (session == null) {
             logger.error("Session not found. Cannot send market order.");
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not send market order - Something went wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not send market order - Something went wrong!");
 
             return;
         }
@@ -48,7 +48,7 @@ public class OrderNettingAccount extends Broker {
 
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not send market order - Something went wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not send market order - Something went wrong!");
             return;
         }
 
@@ -65,7 +65,7 @@ public class OrderNettingAccount extends Broker {
                 logger.error(err_msg);
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, err_msg);
+                        .onOrderRemoteError(req_identifier, order, err_msg);
                 return;
             }
         }
@@ -83,23 +83,23 @@ public class OrderNettingAccount extends Broker {
                 logger.error(err_msg);
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, err_msg);
+                        .onOrderRemoteError(req_identifier, order, err_msg);
                 return;
             }
         }
 
-        super.sendMarketOrder(order);
+        super.sendMarketOrder(req_identifier, order);
 
         if (order.getStoplossPrice() > 0) {
-            setStopLoss(order);
+            setStopLoss(req_identifier, order);
         }
         if (order.getTargetPrice() > 0) {
-            setTakeProfit(order);
+            setTakeProfit(req_identifier, order);
         }
         this.sentMarketOrders.put(order.getOrderID(), order);
     }
 
-    private void setStopLoss(ManagedOrder order) {
+    private void setStopLoss(String req_identifier, ManagedOrder order) {
 
         try {
             //first cancel any previous stoploss orders attached to the market order
@@ -143,11 +143,11 @@ public class OrderNettingAccount extends Broker {
             logger.error("Session is not logged on. Cannot send order.");
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not set stoploss - Something went wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not set stoploss - Something went wrong!");
         }
     }
 
-    private void setTakeProfit(ManagedOrder order) {
+    private void setTakeProfit(String req_identifier, ManagedOrder order) {
         try {
 
             //first cancel any previous target orders attached to the market order
@@ -193,12 +193,12 @@ public class OrderNettingAccount extends Broker {
             logger.error("Could not set target", ex);
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not set target - Something went wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not set target - Something went wrong!");
         }
     }
 
     @Override
-    public void sendClosePosition(String clOrdId, double lot_size) {
+    public void sendClosePosition(String req_identifier, String clOrdId, double lot_size) {
 
         ManagedOrder order = this.ordersOpen.get(clOrdId);
         if (order == null) {
@@ -206,7 +206,7 @@ public class OrderNettingAccount extends Broker {
             int account_number = getAccountNumberFromOrderID(clOrdId);
             orderActionListenersMap
                     .getOrDefault(account_number, DO_NOTHING_OAL)
-                    .onOrderNotAvailable(account_number, "Cannot perform close position operation. Order not open.");
+                    .onOrderNotAvailable(req_identifier, account_number, "Cannot perform close position operation. Order not open.");
             return;
         }
 
@@ -216,7 +216,7 @@ public class OrderNettingAccount extends Broker {
 
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not close position - Something went wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not close position - Something went wrong!");
             return;
         }
 
@@ -224,7 +224,7 @@ public class OrderNettingAccount extends Broker {
             logger.error("Session is not logged on. Cannot send order.");
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not close position - Something went wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not close position - Something went wrong!");
             return;
         }
 
@@ -246,13 +246,13 @@ public class OrderNettingAccount extends Broker {
             logger.error("Could not close position", ex);
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not close position - Something went wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not close position - Something went wrong!");
 
         }
     }
 
     @Override
-    public void modifyOpenOrder(String clOrdId, double target_price, double stoploss_price) {
+    public void modifyOpenOrder(String req_identifier, String clOrdId, double target_price, double stoploss_price) {
         ManagedOrder order = this.ordersOpen.get(clOrdId);
         try {
 
@@ -261,7 +261,7 @@ public class OrderNettingAccount extends Broker {
                 int account_number = getAccountNumberFromOrderID(clOrdId);
                 orderActionListenersMap
                         .getOrDefault(account_number, DO_NOTHING_OAL)
-                        .onOrderNotAvailable(account_number, "Cannot perform modify position operation. Order not open.");
+                        .onOrderNotAvailable(req_identifier, account_number, "Cannot perform modify position operation. Order not open.");
                 return;
             }
 
@@ -270,7 +270,7 @@ public class OrderNettingAccount extends Broker {
                 logger.error("Could not modify order");
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, "Could not modify order - Something went wrong!");
+                        .onOrderRemoteError(req_identifier, order, "Could not modify order - Something went wrong!");
 
                 return;
             }
@@ -279,19 +279,19 @@ public class OrderNettingAccount extends Broker {
                 logger.error("Session is not logged on. Could not modify order.");
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, "Could not modify order - Something went wrong!");
+                        .onOrderRemoteError(req_identifier, order, "Could not modify order - Something went wrong!");
 
                 return;
             }
 
             order.modifyOrder(target_price, stoploss_price);
-            setStopLoss(order);
-            setTakeProfit(order);
+            setStopLoss(null, order);
+            setTakeProfit(req_identifier, order);
         } catch (SQLException ex) {
             logger.error("Could not modify order", ex);
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(order, "Could not modify order - Somethin went wrong!");
+                    .onOrderRemoteError(req_identifier, order, "Could not modify order - Somethin went wrong!");
 
         }
 
@@ -307,10 +307,11 @@ public class OrderNettingAccount extends Broker {
      * target to the LP server
      *
      *
+     * @param req_identifier
      * @param pend_order
      */
     @Override
-    public void placePendingOrder(ManagedOrder pend_order) {
+    public void placePendingOrder(String req_identifier, ManagedOrder pend_order) {
 
         //We simply store the pending orders locally and
         //trigger it by sending it as market order when
@@ -319,11 +320,11 @@ public class OrderNettingAccount extends Broker {
 
         orderActionListenersMap
                 .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
-                .onNewPendingOrder(pend_order);
+                .onNewPendingOrder(req_identifier, pend_order);
     }
 
     @Override
-    public void modifyPendingOrder(String clOrdId, double open_price, double target_price, double stoploss_price) {
+    public void modifyPendingOrder(String req_identifier, String clOrdId, double open_price, double target_price, double stoploss_price) {
 
         //TODO - IMPLEMENT MODIFICATION OF OPEN PRICE TOO FOR PENDING 
         //ORDERS AS IT IS IN MT4 AND MT5
@@ -337,7 +338,7 @@ public class OrderNettingAccount extends Broker {
                 int account_number = getAccountNumberFromOrderID(clOrdId);
                 orderActionListenersMap
                         .getOrDefault(account_number, DO_NOTHING_OAL)
-                        .onOrderNotAvailable(account_number, "Cannot perform modify pending order operation. Order not pending.");
+                        .onOrderNotAvailable(req_identifier, account_number, "Cannot perform modify pending order operation. Order not pending.");
                 return;
             }
 
@@ -346,19 +347,19 @@ public class OrderNettingAccount extends Broker {
 
             orderActionListenersMap
                     .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onModifiedPendingOrder(pend_order);
+                    .onModifiedPendingOrder(req_identifier, pend_order);
         } catch (SQLException ex) {
 
             logger.error("Could not modify pending order", ex);
             orderActionListenersMap
                     .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(pend_order, "Could not modify pending order - Something went wrong!");
+                    .onOrderRemoteError(req_identifier, pend_order, "Could not modify pending order - Something went wrong!");
         }
 
     }
 
     @Override
-    public void deletePendingOrder(String clOrdId) {
+    public void deletePendingOrder(String req_identifier, String clOrdId) {
 
         ManagedOrder pend_order = ordersPending.get(clOrdId);
         if (pend_order == null) {
@@ -366,7 +367,7 @@ public class OrderNettingAccount extends Broker {
             int account_number = getAccountNumberFromOrderID(clOrdId);
             orderActionListenersMap
                     .getOrDefault(account_number, DO_NOTHING_OAL)
-                    .onOrderNotAvailable(account_number, "Cannot perform delete pending order operation. Order not pending.");
+                    .onOrderNotAvailable(req_identifier, account_number, "Cannot perform delete pending order operation. Order not pending.");
             return;
         }
 
@@ -375,7 +376,7 @@ public class OrderNettingAccount extends Broker {
 
         orderActionListenersMap
                 .getOrDefault(pend_order.getAccountNumber(), DO_NOTHING_OAL)
-                .onDeletedPendingOrder(pend_order);
+                .onDeletedPendingOrder(req_identifier, pend_order);
     }
 
     @Override
@@ -389,20 +390,23 @@ public class OrderNettingAccount extends Broker {
             if (order.getOrderID().equals(clOrdID)) {
                 //is market order so add
                 ordersOpen.putIfAbsent(order.getOrderID(), sentMarketOrders.get(clOrdID));
-
+                
+                String req_identifier = order.getMarketOrderRequestIdentifier();
                 //notify new open position    
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onNewMarketOrder(order);
+                        .onNewMarketOrder(req_identifier, order);
             }
 
             if (order.getTargetOrderIDList().contains(clOrdID)) {
                 //is target order so just ensure it is added
                 ordersOpen.putIfAbsent(order.getOrderID(), sentMarketOrders.get(clOrdID));
+                
+                String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify target modified
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onModifiedMarketOrder(order);
+                        .onModifiedMarketOrder(req_identifier, order);
 
             }
 
@@ -410,10 +414,11 @@ public class OrderNettingAccount extends Broker {
                 //is stoploss order so just ensure it is added
                 ordersOpen.putIfAbsent(order.getOrderID(), sentMarketOrders.get(clOrdID));
 
+                String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify stoploss modified                
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onModifiedMarketOrder(order);
+                        .onModifiedMarketOrder(req_identifier, order);
             }
 
         }
@@ -430,36 +435,44 @@ public class OrderNettingAccount extends Broker {
             if (order.getOrderID().equals(clOrdID)) {
                 //is market order
                 sentMarketOrders.remove(clOrdID);
+                
+                String req_identifier = order.getMarketOrderRequestIdentifier();
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, "Market order rejected: " + errMsg);
+                        .onOrderRemoteError(req_identifier, order, "Market order rejected: " + errMsg);
             }
 
             if (order.getTargetOrderIDList().contains(clOrdID)) {
                 //is target order so just remove
                 order.removeTargetOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
+                
+                String req_identifier = order.getModifyOrderRequestIdentifier();
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, "Target rejected: " + errMsg);
+                        .onOrderRemoteError(req_identifier, order, "Target rejected: " + errMsg);
             }
 
             if (order.getStoplossOrderIDList().contains(clOrdID)) {
                 //is stoploss order so just remove
                 order.removeStoplossOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
+                
+                String req_identifier = order.getModifyOrderRequestIdentifier();
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, "Stoploss rejected: " + errMsg);
+                        .onOrderRemoteError(req_identifier, order, "Stoploss rejected: " + errMsg);
             }
 
             if (order.getCloseOrderIDList().contains(clOrdID)) {
                 //is close order so just remove
                 order.removeCloseOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
+                
+                String req_identifier = order.getCloseOrderRequestIdentifier();
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(order, "Close rejected: " + errMsg);
+                        .onOrderRemoteError(req_identifier, order, "Close rejected: " + errMsg);
             }
 
         }
@@ -476,10 +489,12 @@ public class OrderNettingAccount extends Broker {
             if (order.getStoplossOrderIDCancelProcessingList().contains(clOrdID)) {
                 order.removeStoplossOrderIDCancelProcessingList(clOrdID);
                 order.removeStoplossOrderIDList(clOrdID);
+                
+                String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify stoploss modified
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onModifiedMarketOrder(order);
+                        .onModifiedMarketOrder(req_identifier, order);
                 logger.debug("cancel stoploss completed : ID " + clOrdID);
 
                 break;
@@ -490,10 +505,12 @@ public class OrderNettingAccount extends Broker {
             if (order.getTargetOrderIDCancelProcessingList().contains(clOrdID)) {
                 order.removeTargetOrderIDCancelProcessingList(clOrdID);
                 order.removeTargetOrderIDList(clOrdID);
+                
+                String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify target modified
                 orderActionListenersMap
                         .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onModifiedMarketOrder(order);
+                        .onModifiedMarketOrder(req_identifier, order);
                 logger.debug("cancel target completed : ID " + clOrdID);
 
                 break;
@@ -555,7 +572,8 @@ public class OrderNettingAccount extends Broker {
                 OrderActionListener listener = orderActionListenersMap
                         .get(order.getAccountNumber());
                 if (listener != null) {
-                    listener.onClosedMarketOrder(order);
+                    String req_identifier = order.getCloseOrderRequestIdentifier();
+                    listener.onClosedMarketOrder(req_identifier, order);
                     this.ordersOpen.remove(order.getOrderID());
                     OrderDB.removeOpenOrder(order.getOrderID());
                     OrderDB.insertHistoryOrder(order);
@@ -599,7 +617,8 @@ public class OrderNettingAccount extends Broker {
                 OrderActionListener listener = orderActionListenersMap
                         .get(order.getAccountNumber());
                 if (listener != null) {
-                    listener.onClosedMarketOrder(order);
+                    String req_identifier = order.getCloseOrderRequestIdentifier();
+                    listener.onClosedMarketOrder(req_identifier, order);
                     this.ordersOpen.remove(order.getOrderID());
                     OrderDB.removeOpenOrder(order.getOrderID());
                     OrderDB.insertHistoryOrder(order);
@@ -644,7 +663,8 @@ public class OrderNettingAccount extends Broker {
                 OrderActionListener listener = orderActionListenersMap
                         .get(order.getAccountNumber());
                 if (listener != null) {
-                    listener.onClosedMarketOrder(order);
+                    String req_identifier = order.getCloseOrderRequestIdentifier();
+                    listener.onClosedMarketOrder(req_identifier, order);
                     this.ordersOpen.remove(order.getOrderID());
                     OrderDB.removeOpenOrder(order.getOrderID());
                     OrderDB.insertHistoryOrder(order);
@@ -676,11 +696,12 @@ public class OrderNettingAccount extends Broker {
 
                     this.ordersPending.remove(order.getOrderID());
                     order.convertToMarketOrder();
-                    this.sendMarketOrder(order);
+                    String req_identifier = order.getMarketOrderRequestIdentifier();
+                    this.sendMarketOrder(req_identifier, order);
                     //notify pending order triggered             
                     orderActionListenersMap
                             .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                            .onTriggeredPendingOrder(order);
+                            .onTriggeredPendingOrder(req_identifier, order);
                 }
 
                 break;
