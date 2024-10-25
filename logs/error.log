@@ -1,0 +1,4 @@
+2024-10-10 09:41:27 [main] ERROR c.f.f.backend.channel.AccountHandler - This is an error
+2024-10-10 09:41:56 [main] ERROR c.f.f.backend.channel.AccountHandler - The is the error i caught
+java.lang.IllegalStateException: The is another error
+	at chuks.flatbok.fx.backend.channel.AccountHandler.main(AccountHandler.java:738)
