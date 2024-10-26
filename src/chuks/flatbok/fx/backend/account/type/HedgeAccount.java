@@ -8,7 +8,7 @@ import chuks.flatbok.fx.backend.account.Broker;
 import chuks.flatbok.fx.common.account.order.ManagedOrder;
 import chuks.flatbok.fx.backend.account.contract.RetailAccountBuilder;
 import static chuks.flatbok.fx.common.account.order.ManagedOrder.FX_LOT_QTY;
-import chuks.flatbok.fx.common.account.order.OrderIDFamily;
+import chuks.flatbok.fx.common.account.order.OrderIDUtil;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -114,7 +114,7 @@ public class HedgeAccount extends Broker {
             // Create a new OrderCancelReplaceRequest message
             OrderCancelReplaceRequest replaceRequest = new OrderCancelReplaceRequest(
                     new OrigClOrdID(clOrdId), // The original order's ID
-                    new ClOrdID(OrderIDFamily.createModifyHedgeOrderID(clOrdId, req_identifier)), // New order ID for replacement
+                    new ClOrdID(OrderIDUtil.createModifyHedgeOrderID(clOrdId, req_identifier)), // New order ID for replacement
                     new Side(order.getSide()), // Side (Buy or Sell)
                     new TransactTime(),// Transaction time (current time)
                     new OrdType(OrdType.MARKET)                    
