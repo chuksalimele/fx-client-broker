@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+     <!-- Define the user home directory as a property -->
+    <property name="LOG_DIR" value="${user.home}/logs"/>
+        <!-- Register the custom listener -->
+    <contextListener class="chuks.flatbook.fx.backend.log.listener.LogbackStartupListener"/>
     
     <!-- Console Appender (optional for debugging) -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -10,7 +14,7 @@
 
     <!-- INFO file Appender for logs without markers -->
     <appender name="infoFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/info.log</file>
+        <file>${LOG_DIR}/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
@@ -21,14 +25,14 @@
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n%throwable</pattern>
         </encoder>
-        <filter class="chuks.flatbok.fx.backend.log.filter.DenyMarkerLevelFilter">
+        <filter class="chuks.flatbook.fx.backend.log.filter.DenyMarkerLevelFilter">
             <level>INFO</level>
         </filter>
     </appender>
     
     <!-- WARN file Appender for logs without markers -->
     <appender name="warnFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/warn.log</file>
+        <file>${LOG_DIR}/warn.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/warn.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
@@ -39,14 +43,14 @@
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n%throwable</pattern>
         </encoder>
-        <filter class="chuks.flatbok.fx.backend.log.filter.DenyMarkerLevelFilter">
+        <filter class="chuks.flatbook.fx.backend.log.filter.DenyMarkerLevelFilter">
             <level>WARN</level>
         </filter>
     </appender>    
     
     <!-- DEBUG file Appender for logs without markers -->
     <appender name="debugFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/debug.log</file>
+        <file>${LOG_DIR}/debug.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
@@ -57,14 +61,14 @@
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n%throwable</pattern>
         </encoder>
-        <filter class="chuks.flatbok.fx.backend.log.filter.DenyMarkerLevelFilter">
+        <filter class="chuks.flatbook.fx.backend.log.filter.DenyMarkerLevelFilter">
             <level>DEBUG</level>
         </filter>
     </appender> 
     
     <!-- ERROR file Appender for logs without markers -->
     <appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/error.log</file>
+        <file>${LOG_DIR}/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
@@ -75,16 +79,16 @@
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n%throwable</pattern>
         </encoder>
-        <filter class="chuks.flatbok.fx.backend.log.filter.DenyMarkerLevelFilter">
+        <filter class="chuks.flatbook.fx.backend.log.filter.DenyMarkerLevelFilter">
             <level>ERROR</level>
         </filter>
     </appender> 
 
     <!-- Appender for REJECTED IP logs -->
     <appender name="rejectedIPsFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/rejected_ips.log</file>
+        <file>${LOG_DIR}/rejected_ips.log</file>
         <!-- Filter to accept only logs with REJECTED IP marker -->
-        <filter class="chuks.flatbok.fx.backend.log.filter.AcceptMarkerFilter">
+        <filter class="chuks.flatbook.fx.backend.log.filter.AcceptMarkerFilter">
             <!-- NOTE the child tag of the filter element must match
             the name of this filter class setter method. e.g if the filter
             class has a setter method called setMyMethodName the child
@@ -106,9 +110,9 @@
 
     <!-- Appender for SUSPICIOUS IP logs -->
     <appender name="suspiciousIPsFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/suspicious_ips.log</file>
+        <file>${LOG_DIR}/suspicious_ips.log</file>
         <!-- Filter to accept only logs with SUSPICIOUS IP marker -->
-        <filter class="chuks.flatbok.fx.backend.log.filter.AcceptMarkerFilter">
+        <filter class="chuks.flatbook.fx.backend.log.filter.AcceptMarkerFilter">
             <!-- NOTE the child tag of the filter element must match
             the name of this filter class setter method. e.g if the filter
             class has a setter method called setMyMethodName the child
