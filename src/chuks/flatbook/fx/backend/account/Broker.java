@@ -33,6 +33,8 @@ import chuks.flatbook.fx.backend.listener.AccountListener;
 import chuks.flatbook.fx.common.account.profile.AdminProfile;
 import chuks.flatbook.fx.common.account.profile.BasicAccountProfile;
 import chuks.flatbook.fx.common.account.profile.UserType;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -129,11 +131,11 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     }
 
     BasicAccountProfile byUserType(int account_number, UserType user_type) {
-        if(user_type == null){
+        if (user_type == null) {
             logger.warn("UNKNOWN USER TYPE - THIS SHOULD NOT HAPPEN AT ALL");
             return null;
         }
-        
+
         switch (user_type) {
             case UserType.TRADER -> {
                 return UsersMap.get(account_number);
@@ -581,7 +583,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         switch (execType) {
             case ExecType.NEW -> {
 
-                logger.debug("Order accepted: " + message);
+                logger.debug("New Order: " + message);
                 String clOrdID = message.getClOrdID().getValue();
                 onNewOrder(clOrdID);
             }
@@ -621,10 +623,12 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
                 String clOrdID = message.getClOrdID().getValue();
                 //onReplacedOrder(clOrdID);
             }
-        }
+            case ExecType.ORDER_STATUS -> {
+                logger.debug("Order Status: " + message);
 
-        switch (orderStatus) {
-            // case OrdStatus.
+                orderMassStatusReport(message);
+
+            }
         }
 
     }
@@ -659,35 +663,107 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         //TODO
     }
 
-    public void onMessage(PositionReport message, SessionID sessionId) throws FieldNotFound {
+    public void onMessage(PositionReport positionReport, SessionID sessionId) throws FieldNotFound {
 
-        String posMaintRptID = message.getString(PosMaintRptID.FIELD);
-        String posReqID = message.getString(PosReqID.FIELD);
-        String account = message.getAccount().getValue();
-        String symbol = message.getString(Symbol.FIELD);
-        logger.debug("Position Report for Account: " + account);
+        // Body Fields in PositionReport
+        String account = positionReport.getString(Account.FIELD);                      // tag 1
+        String symbol = positionReport.getString(Symbol.FIELD);                        // tag 55
+        int noPartyIDs = positionReport.getInt(NoPartyIDs.FIELD);                      // tag 453
+        int accountType = positionReport.getInt(AccountType .FIELD);                      // tag 581
+        String posReqID = positionReport.getString(PosReqID.FIELD);          // tag 710
+        String clearingBusinessDate = positionReport.getString(ClearingBusinessDate.FIELD);       // tag 715
+        String settlSessID = positionReport.getString(SettlSessID.FIELD);              // tag 716
+        String posMaintRptID = positionReport.getString(PosMaintRptID.FIELD);          // tag 721
+        int posReqResult = positionReport.getInt(PosReqResult.FIELD);                      // tag 728
+        double settlPrice = positionReport.getDouble(SettlPrice.FIELD);                // tag 730
+        int settlPriceType = positionReport.getInt(SettlPriceType.FIELD);            // tag 731
+        double priorSettlPrice = positionReport.getDouble(PriorSettlPrice.FIELD);  // tag 734
 
-        // Accessing the NoPositions group
-        if (message.isSetField(NoPositions.FIELD)) {
-            int noPositionsCount = message.getInt(NoPositions.FIELD);
-            for (int i = 1; i <= noPositionsCount; i++) {
-                Group positionGroup = message.getGroup(i, NoPositions.FIELD);
-                //String symbol = positionGroup.isSetField(Symbol.FIELD) ? positionGroup.getString(Symbol.FIELD) : "N/A";
-                double longQty = positionGroup.isSetField(LongQty.FIELD) ? positionGroup.getDouble(LongQty.FIELD) : 0.0;
-                double shortQty = positionGroup.isSetField(ShortQty.FIELD) ? positionGroup.getDouble(ShortQty.FIELD) : 0.0;
+        // Nested Group Fields (PositionAmountData group, e.g., tags 702, 703, 704)
+        int noPositions = positionReport.getInt(NoPositions.FIELD);                    // tag 702
+        String posType = positionReport.getString(PosType.FIELD);                      // tag 703
+        double longQty = positionReport.getDouble(LongQty.FIELD);                      // tag 704
+        double shortQty = positionReport.getDouble(ShortQty.FIELD);                    // tag 705
+        int noPosAmt = positionReport.getInt(NoPosAmt.FIELD);                         // tag 753
 
-                logger.debug("Symbol: " + symbol);
-                logger.debug("Long Quantity: " + longQty);
-                logger.debug("Short Quantity: " + shortQty);
-            }
+        // Position Amount Data Group Fields (e.g., tags 707, 708)
+        String posAmtType = positionReport.getString(PosAmtType.FIELD);                // tag 707
+        double posAmt = positionReport.getDouble(PosAmt.FIELD);                        // tag 708
+
+
+        // Print out all values for verification
+        System.out.println("Position Report Fields:");
+
+        System.out.println("Account: " + account);
+        System.out.println("Symbol: " + symbol);
+        System.out.println("NoPartyIDs: " + noPartyIDs);
+        System.out.println("AccountType: " + accountType);
+        System.out.println("PosReqID: " + posReqID);
+        System.out.println("ClearingBusinessDate: " + clearingBusinessDate);
+        System.out.println("SettlSessID: " + settlSessID);
+        System.out.println("PosMaintRptID: " + posMaintRptID);
+        System.out.println("PosReqResult: " + posReqResult);        
+        System.out.println("SettlPrice: " + settlPrice);
+        System.out.println("SettlPriceType: " + settlPriceType);
+        System.out.println("PriorSettlPrice: " + priorSettlPrice);
+        System.out.println("NoPositions: " + noPositions);
+        System.out.println("PosType: " + posType);
+        System.out.println("LongQty: " + longQty);
+        System.out.println("ShortQty: " + shortQty);
+        System.out.println("noPosAmt: " + noPosAmt);
+        System.out.println("PosAmtType: " + posAmtType);
+        System.out.println("PosAmt: " + posAmt);
+    }
+
+    private void orderMassStatusReport(ExecutionReport executionReport) {
+        try {
+            // Accessing fields from ExecutionReport
+            String account = executionReport.getString(Account.FIELD);                      // tag 1
+            double avgPx = executionReport.getDouble(AvgPx.FIELD);                          // tag 6
+            String clOrdID = executionReport.getString(ClOrdID.FIELD);                      // tag 11
+            int cumQty = executionReport.getInt(CumQty.FIELD);                              // tag 14
+            String execID = executionReport.getString(ExecID.FIELD);                        // tag 17
+            double lastPx = executionReport.getDouble(LastPx.FIELD);                        // tag 31
+            String orderID = executionReport.getString(OrderID.FIELD);                      // tag 37
+            double orderQty = executionReport.getDouble(OrderQty.FIELD);                    // tag 38
+            char ordStatus = executionReport.getChar(OrdStatus.FIELD);                      // tag 39
+            char side = executionReport.getChar(Side.FIELD);                                // tag 54
+            String symbol = executionReport.getString(Symbol.FIELD);                        // tag 55
+            char timeInForce = executionReport.getChar(TimeInForce.FIELD);                  // tag 59
+            char execType = executionReport.getChar(ExecType.FIELD);                        // tag 150
+            double leavesQty = executionReport.getDouble(LeavesQty.FIELD);                  // tag 151
+            String expireDate = executionReport.getString(ExpireDate.FIELD);                // tag 432
+            String text = executionReport.getString(Text.FIELD);                            // tag 58
+            String massStatusReqID = executionReport.getString(MassStatusReqID.FIELD);       // tag 584
+            int totNumReports = executionReport.getInt(TotNumReports.FIELD);                 // tag 911
+            boolean lastRptRequested = executionReport.getBoolean(LastRptRequested.FIELD); // tag 912
+
+            // Print all values
+            System.out.println("Execution Report Fields:");
+
+            System.out.println("Account: " + account);
+            System.out.println("AvgPx: " + avgPx);
+            System.out.println("ClOrdID: " + clOrdID);
+            System.out.println("CumQty: " + cumQty);
+            System.out.println("ExecID: " + execID);
+            System.out.println("LastPx: " + lastPx);
+            System.out.println("OrderID: " + orderID);
+            System.out.println("OrderQty: " + orderQty);
+            System.out.println("OrdStatus: " + ordStatus);
+            System.out.println("Side: " + side);
+            System.out.println("Symbol: " + symbol);
+            System.out.println("TimeInForce: " + timeInForce);
+            System.out.println("ExecType: " + execType);
+            System.out.println("LeavesQty: " + leavesQty);
+            System.out.println("ExpireDate: " + expireDate);
+            System.out.println("Text: " + text);
+            System.out.println("massStatusReqID: " + massStatusReqID);
+            System.out.println("totNumReports: " + totNumReports);
+            System.out.println("lastRptRequested: " + lastRptRequested);
+
+        } catch (FieldNotFound ex) {
+            Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        //List<PositionReport.NoPositions> positions = message.getGroups(PositionReport.NoPosAmt.);
-        //for (PositionReport.NoPositions pos : positions) {
-        //String symbol = pos.getString(Symbol.FIELD);
-        //double positionQty = pos.get(new PosQty()).getValue();
-        //logger.debug("Symbol: " + symbol + ", Position Quantity: " + positionQty);
-        //}
     }
 
     private void processMarketDataEntry(Symbol symbol, Group group, int refresh_type) throws FieldNotFound {
@@ -762,32 +838,36 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public void sendRequestCurrentOpenPositions() {
-        RequestForPositions request = new RequestForPositions();
-        request.set(new PosReqID("open-positions-" + System.currentTimeMillis())); // Unique request ID
-        request.set(new PosReqType(PosReqType.POSITIONS)); // Request type for positions
-        //request.set(new Account(account_name)); //COME BACK!!! The account for which positions are requested
-        request.set(new AccountType(AccountType.ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS));
-        request.set(new ClearingBusinessDate());
-        request.set(new TransactTime());
         try {
+            RequestForPositions request = new RequestForPositions();
+            request.set(new PosReqID("open-positions-" + System.currentTimeMillis())); // Unique request ID
+            request.set(new PosReqType(PosReqType.POSITIONS)); // Request type for positions
+            request.set(new Account(settings.getString("Account"))); //The account for which positions are requested
+            request.setField(new StringField(715, "CURRENT"));//According to LP doc : ClearingBusinessDate, Local DateTime – currently not used ‘CURRENT’ or any other text will fit the requirements
+            request.set(new AccountType(AccountType.ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS));
+            request.set(new ClearingBusinessDate());
+            request.set(new TransactTime());
+
             Session.sendToTarget(request, tradingSessionID);
-        } catch (quickfix.SessionNotFound ex) {
-            logger.error("An error occurred", ex);
+
+        } catch (SessionNotFound | ConfigError ex) {
+            logger.error(ex.getMessage(), ex);
         }
+
     }
 
     @Override
     public void sendRequestActiveOrders() {
-        OrderMassStatusRequest request = new OrderMassStatusRequest(
-                new MassStatusReqID("active-orders-" + System.currentTimeMillis()
-                ), new MassStatusReqType(6)
-        );
-
-        //request.set(new Account(account_name)); //COME BACK!!! The account for which positions are requested
         try {
+            OrderMassStatusRequest request = new OrderMassStatusRequest();
+            request.set(new MassStatusReqID("active-orders-" + System.currentTimeMillis()));
+            request.set(new MassStatusReqType(6));
+            request.set(new Account(settings.getString("Account"))); //The account for which positions are requested
+
             Session.sendToTarget(request, tradingSessionID);
-        } catch (quickfix.SessionNotFound ex) {
-            logger.error("An error occurred", ex);
+
+        } catch (SessionNotFound | ConfigError ex) {
+            logger.error(ex.getMessage(), ex);
         }
 
     }
