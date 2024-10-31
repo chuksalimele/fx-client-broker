@@ -2,9 +2,7 @@
 <configuration>
      <!-- Define the user home directory as a property -->
     <property name="LOG_DIR" value="${user.home}/logs"/>
-        <!-- Register the custom listener -->
-    <contextListener class="chuks.flatbook.fx.backend.log.listener.LogbackStartupListener"/>
-    
+        
     <!-- Console Appender (optional for debugging) -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>

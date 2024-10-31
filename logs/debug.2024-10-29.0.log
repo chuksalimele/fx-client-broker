@@ -1,0 +1,1036 @@
+2024-10-29 08:49:57 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.sqlite.JDBC found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e
+2024-10-29 08:49:57 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.sqlite.JDBC"
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlite:fix_client_data_db.db
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................50
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................50
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................none
+2024-10-29 08:49:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@283c6e5
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=2, active=1, idle=1, waiting=0)
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@87bad95
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=3, active=1, idle=2, waiting=0)
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4d7932fe
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@51d1715a
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=5, active=1, idle=4, waiting=0)
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7cfef9b5
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=6, active=1, idle=5, waiting=0)
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@29bce4ba
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=7, active=1, idle=6, waiting=0)
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2d56cdb1
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@775732e0
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=9, active=1, idle=8, waiting=0)
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7cef5eee
+2024-10-29 08:49:59 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=1, idle=9, waiting=0)
+2024-10-29 08:49:59 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@32b8ecfd
+2024-10-29 08:50:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=11, active=1, idle=10, waiting=0)
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2918945e
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=12, active=1, idle=11, waiting=0)
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@671673af
+2024-10-29 08:50:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=13, active=1, idle=12, waiting=0)
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6188498d
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=14, active=1, idle=13, waiting=0)
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@14a28e45
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=15, active=1, idle=14, waiting=0)
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@797552eb
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=16, active=1, idle=15, waiting=0)
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2d2add61
+2024-10-29 08:50:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=17, active=1, idle=16, waiting=0)
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@e4d2d68
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=18, active=1, idle=17, waiting=0)
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@e9d5a42
+2024-10-29 08:50:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=19, active=1, idle=18, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@5dacb370
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=20, active=1, idle=19, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2696bc71
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=21, active=1, idle=20, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@41d7f3a6
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=22, active=1, idle=21, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@257cfe94
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=23, active=1, idle=22, waiting=0)
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1df3ee78
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=24, active=1, idle=23, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@e15ac83
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=25, active=1, idle=24, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@70a13424
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=26, active=1, idle=25, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@326becfa
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=27, active=1, idle=26, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@306944e1
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=28, active=1, idle=27, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@133b97db
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=29, active=1, idle=28, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6a42918c
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=30, active=1, idle=29, waiting=0)
+2024-10-29 08:50:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@723bc02
+2024-10-29 08:50:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:02 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:02 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@1ebd319f
+2024-10-29 08:50:02 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=31, active=0, idle=31, waiting=0)
+2024-10-29 08:50:02 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7d97ae4b
+2024-10-29 08:51:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.sqlite.JDBC found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e
+2024-10-29 08:51:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.sqlite.JDBC"
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlite:fix_client_data_db.db
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................50
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................50
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................none
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1aa89286
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=2, active=1, idle=1, waiting=0)
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1050f9f6
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=3, active=1, idle=2, waiting=0)
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@55526598
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@b30e116
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=5, active=1, idle=4, waiting=0)
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@64cd95a4
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=6, active=1, idle=5, waiting=0)
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@73454f82
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=7, active=1, idle=6, waiting=0)
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@357d9ad7
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3949f53f
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=9, active=1, idle=8, waiting=0)
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@31212707
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=1, idle=9, waiting=0)
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@684147fe
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=11, active=1, idle=10, waiting=0)
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3133c303
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=12, active=1, idle=11, waiting=0)
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@47a53817
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 08:51:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.sqlite.JDBC found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.sqlite.JDBC"
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlite:fix_client_data_db.db
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................50
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................50
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................none
+2024-10-29 16:03:59 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@77ecdd1b
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=2, active=1, idle=1, waiting=0)
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7d14b66b
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=3, active=1, idle=2, waiting=0)
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@381637ad
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@298331b1
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=5, active=1, idle=4, waiting=0)
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@9646e9a
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=6, active=1, idle=5, waiting=0)
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@511b3633
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=7, active=1, idle=6, waiting=0)
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@5839c8e2
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+2024-10-29 16:04:00 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@688764ed
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=9, active=1, idle=8, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@423dc7d9
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=1, idle=9, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4a1fdb03
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=11, active=1, idle=10, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@5c77747a
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=12, active=1, idle=11, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@f84d315
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=13, active=1, idle=12, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@23abde33
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=14, active=1, idle=13, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@17d8de86
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=15, active=1, idle=14, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@70ebbca3
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=16, active=1, idle=15, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@59ded5d0
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=17, active=1, idle=16, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@24f9c29e
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=18, active=1, idle=17, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@75840469
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=19, active=1, idle=18, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@58a7a0de
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=20, active=1, idle=19, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@77788e4f
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=21, active=1, idle=20, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1d7f4f0c
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=22, active=1, idle=21, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@488da786
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=23, active=1, idle=22, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2d495f19
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=24, active=1, idle=23, waiting=0)
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1e70a609
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=25, active=0, idle=25, waiting=0)
+2024-10-29 16:04:01 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@79908de4
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.sqlite.JDBC found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.sqlite.JDBC"
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlite:fix_client_data_db.db
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-10-29 22:05:33 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................50
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................50
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................none
+2024-10-29 22:05:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@37faad6a
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=2, active=1, idle=1, waiting=0)
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3d02c61a
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=3, active=1, idle=2, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@78004fde
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1af32c49
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=5, active=1, idle=4, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4932509f
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=6, active=1, idle=5, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@622b6db5
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=7, active=1, idle=6, waiting=0)
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@182fb091
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1b3d56b9
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=9, active=1, idle=8, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@40d04be9
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=1, idle=9, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@792fc083
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=11, active=1, idle=10, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1c614c0f
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=12, active=1, idle=11, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6d1859a4
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=13, active=1, idle=12, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2f55c8ed
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=14, active=1, idle=13, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@28f93e5c
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=15, active=1, idle=14, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3eee1e78
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=16, active=1, idle=15, waiting=0)
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1114a578
+2024-10-29 22:05:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=17, active=1, idle=16, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@10870517
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=18, active=1, idle=17, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@71edd285
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=19, active=1, idle=18, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3f3e1f1e
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=20, active=1, idle=19, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@b3552e4
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=21, active=1, idle=20, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@23b25128
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=22, active=1, idle=21, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3cd4c621
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=23, active=1, idle=22, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@735df84a
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=24, active=1, idle=23, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@52de36b7
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=25, active=1, idle=24, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@63d406d5
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=26, active=1, idle=25, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@792b3140
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=27, active=1, idle=26, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@65a81987
+2024-10-29 22:05:36 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=28, active=0, idle=28, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@46e0e00b
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=29, active=0, idle=29, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@541b4ac
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=30, active=0, idle=30, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@25403475
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=31, active=0, idle=31, waiting=0)
+2024-10-29 22:05:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@81757b
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.sqlite.JDBC found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.sqlite.JDBC"
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlite:fix_client_data_db.db
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................50
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................50
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................none
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@662a7d30
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=2, active=1, idle=1, waiting=0)
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6cd21640
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=3, active=1, idle=2, waiting=0)
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@29d095be
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1ca6ae49
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=5, active=1, idle=4, waiting=0)
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@18b31bef
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=6, active=1, idle=5, waiting=0)
+2024-10-29 22:06:11 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@642f7eaf
+2024-10-29 22:06:11 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=7, active=0, idle=7, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@49ff6af1
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@60824161
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=9, active=1, idle=8, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@60ee42fd
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=1, idle=9, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7f2b9249
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=11, active=1, idle=10, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4db1d7bf
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=12, active=1, idle=11, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3f4a1e21
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=13, active=1, idle=12, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2da14a9f
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=14, active=1, idle=13, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@e3b2cb8
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=15, active=1, idle=14, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4df40eef
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=16, active=0, idle=16, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2220ba66
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=17, active=0, idle=17, waiting=0)
+2024-10-29 22:06:12 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@5f2e90f
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.sqlite.JDBC found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.sqlite.JDBC"
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlite:fix_client_data_db.db
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................50
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................50
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................none
+2024-10-29 22:10:34 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@66b5cc29
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=2, active=1, idle=1, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6c4da759
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=3, active=1, idle=2, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@294f24b4
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@61d37130
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=5, active=1, idle=4, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@182c2dd3
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=6, active=1, idle=5, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@195a26e0
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=7, active=1, idle=6, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4960dbfb
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@33c06916
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=9, active=1, idle=8, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4a7b9808
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=1, idle=9, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@25eca81
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=11, active=1, idle=10, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4d2e6632
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=12, active=1, idle=11, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7d963e58
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=13, active=1, idle=12, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6b3b523a
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=14, active=1, idle=13, waiting=0)
+2024-10-29 22:10:35 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1f45971e
+2024-10-29 22:10:35 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:10:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=15, active=0, idle=15, waiting=0)
+2024-10-29 22:10:36 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@21647d32
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class org.sqlite.JDBC found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."org.sqlite.JDBC"
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................600000
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlite:fix_client_data_db.db
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - keepaliveTime...................0
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................50
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................50
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................none
+2024-10-29 22:12:36 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@12364119
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=2, active=1, idle=1, waiting=0)
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@18ce2a69
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=3, active=1, idle=2, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@5dcca714
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=4, active=1, idle=3, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7dd21b3d
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=5, active=1, idle=4, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@6cdb597d
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=6, active=1, idle=5, waiting=0)
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@52fbbed
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=7, active=0, idle=7, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3de3585b
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@5005b729
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=9, active=1, idle=8, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@66231ce5
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=10, active=1, idle=9, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@1e2b331f
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=11, active=1, idle=10, waiting=0)
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@39ad8101
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=12, active=1, idle=11, waiting=0)
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@446cc5e2
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=13, active=1, idle=12, waiting=0)
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3ad63dbe
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=14, active=1, idle=13, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7da24230
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=15, active=1, idle=14, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@2852710c
+2024-10-29 22:12:37 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Reset (autoCommit) on connection org.sqlite.jdbc4.JDBC4Connection@4961f6af
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=16, active=0, idle=16, waiting=0)
+2024-10-29 22:12:37 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@a33f231

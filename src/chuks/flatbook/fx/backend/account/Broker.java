@@ -30,6 +30,9 @@ import java.sql.SQLException;
 import java.util.Map.Entry;
 import org.slf4j.LoggerFactory;
 import chuks.flatbook.fx.backend.listener.AccountListener;
+import chuks.flatbook.fx.common.account.order.OrderIDUtil;
+import chuks.flatbook.fx.common.account.order.Position;
+import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 import chuks.flatbook.fx.common.account.profile.AdminProfile;
 import chuks.flatbook.fx.common.account.profile.BasicAccountProfile;
 import chuks.flatbook.fx.common.account.profile.UserType;
@@ -82,6 +85,9 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     protected Map<Integer, ConnectionListener> connectionListenersMap = Collections.synchronizedMap(new HashMap());
     protected Map<Integer, AccountListener> accountListenersMap = Collections.synchronizedMap(new HashMap());
 
+    protected List<Position> positionAtLPList = Collections.synchronizedList(new LinkedList());
+    protected List<UnfilledOrder> unfilledOrderAtLPList = Collections.synchronizedList(new LinkedList());
+
     {
         String[] supported_symbols = {
             "EURUSD", "USDJPY", "GBPUSD", "USDCHF", "AUDUSD", "USDCAD", "NZDUSD", "EURJPY",
@@ -96,6 +102,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             fullSymbolInfoMap.put(symbol, null);
         }
     }
+
 
     protected Broker(String settings_filename) throws ConfigError {
         initAndRun(settings_filename);
@@ -659,8 +666,34 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         }
     }
 
+    
+    
     public void onMessage(OrderCancelReject message, SessionID sessionId) throws FieldNotFound {
-        //TODO
+        
+        String clOrderID = message.getString(ClOrdID.FIELD);
+        int intReason = message.getInt(CxlRejReason.FIELD);
+        int intResponseTo = message.getInt(CxlRejResponseTo.FIELD);
+        
+        String strReason = "";
+        switch (intReason) {
+            case 0 -> strReason = "Too Late";
+            case 1 -> strReason = "Unknown Order";
+            case 2 -> strReason = "Broker Opt";
+            default -> {
+            }
+        }
+        
+        
+        if(intResponseTo == 1){ // 1 means it is in response to Order Cancel Request
+            onOrderCancelRequestRejected(clOrderID, strReason);
+        }
+    }
+
+
+    String extractOriginalClOrderID(String clOrdID) {
+        int dash_index = clOrdID.indexOf('-');
+        //remove LP appended string and return the rest
+        return clOrdID.substring(dash_index + 1);
     }
 
     public void onMessage(PositionReport positionReport, SessionID sessionId) throws FieldNotFound {
@@ -669,7 +702,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         String account = positionReport.getString(Account.FIELD);                      // tag 1
         String symbol = positionReport.getString(Symbol.FIELD);                        // tag 55
         int noPartyIDs = positionReport.getInt(NoPartyIDs.FIELD);                      // tag 453
-        int accountType = positionReport.getInt(AccountType .FIELD);                      // tag 581
+        int accountType = positionReport.getInt(AccountType.FIELD);                      // tag 581
         String posReqID = positionReport.getString(PosReqID.FIELD);          // tag 710
         String clearingBusinessDate = positionReport.getString(ClearingBusinessDate.FIELD);       // tag 715
         String settlSessID = positionReport.getString(SettlSessID.FIELD);              // tag 716
@@ -690,7 +723,6 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         String posAmtType = positionReport.getString(PosAmtType.FIELD);                // tag 707
         double posAmt = positionReport.getDouble(PosAmt.FIELD);                        // tag 708
 
-
         // Print out all values for verification
         System.out.println("Position Report Fields:");
 
@@ -702,7 +734,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         System.out.println("ClearingBusinessDate: " + clearingBusinessDate);
         System.out.println("SettlSessID: " + settlSessID);
         System.out.println("PosMaintRptID: " + posMaintRptID);
-        System.out.println("PosReqResult: " + posReqResult);        
+        System.out.println("PosReqResult: " + posReqResult);
         System.out.println("SettlPrice: " + settlPrice);
         System.out.println("SettlPriceType: " + settlPriceType);
         System.out.println("PriorSettlPrice: " + priorSettlPrice);
@@ -713,57 +745,96 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         System.out.println("noPosAmt: " + noPosAmt);
         System.out.println("PosAmtType: " + posAmtType);
         System.out.println("PosAmt: " + posAmt);
+
+        String clOrdID = extractOriginalClOrderID(settlSessID);
+        var posAtLp = new Position();
+        posAtLp.setID(clOrdID);
+        posAtLp.setPrice(settlPrice);
+        posAtLp.setQty(longQty != 0 ? longQty : shortQty);
+        posAtLp.setSide(longQty != 0 ? ManagedOrder.Side.BUY : ManagedOrder.Side.SELL);
+        posAtLp.setSymbol(symbol);
+        posAtLp.setTime(OrderIDUtil.getTime(clOrdID));
+
+        positionAtLPList.add(posAtLp);
+
     }
 
-    private void orderMassStatusReport(ExecutionReport executionReport) {
-        try {
-            // Accessing fields from ExecutionReport
-            String account = executionReport.getString(Account.FIELD);                      // tag 1
-            double avgPx = executionReport.getDouble(AvgPx.FIELD);                          // tag 6
-            String clOrdID = executionReport.getString(ClOrdID.FIELD);                      // tag 11
-            int cumQty = executionReport.getInt(CumQty.FIELD);                              // tag 14
-            String execID = executionReport.getString(ExecID.FIELD);                        // tag 17
-            double lastPx = executionReport.getDouble(LastPx.FIELD);                        // tag 31
-            String orderID = executionReport.getString(OrderID.FIELD);                      // tag 37
-            double orderQty = executionReport.getDouble(OrderQty.FIELD);                    // tag 38
-            char ordStatus = executionReport.getChar(OrdStatus.FIELD);                      // tag 39
-            char side = executionReport.getChar(Side.FIELD);                                // tag 54
-            String symbol = executionReport.getString(Symbol.FIELD);                        // tag 55
-            char timeInForce = executionReport.getChar(TimeInForce.FIELD);                  // tag 59
-            char execType = executionReport.getChar(ExecType.FIELD);                        // tag 150
-            double leavesQty = executionReport.getDouble(LeavesQty.FIELD);                  // tag 151
-            String expireDate = executionReport.getString(ExpireDate.FIELD);                // tag 432
-            String text = executionReport.getString(Text.FIELD);                            // tag 58
-            String massStatusReqID = executionReport.getString(MassStatusReqID.FIELD);       // tag 584
-            int totNumReports = executionReport.getInt(TotNumReports.FIELD);                 // tag 911
-            boolean lastRptRequested = executionReport.getBoolean(LastRptRequested.FIELD); // tag 912
+    private void orderMassStatusReport(ExecutionReport executionReport) throws FieldNotFound {
 
-            // Print all values
-            System.out.println("Execution Report Fields:");
+        // Accessing fields from ExecutionReport
+        String account = executionReport.getString(Account.FIELD);                      // tag 1
+        double avgPx = executionReport.getDouble(AvgPx.FIELD);                          // tag 6
+        String clOrdID = executionReport.getString(ClOrdID.FIELD);                      // tag 11
+        int cumQty = executionReport.getInt(CumQty.FIELD);                              // tag 14
+        String execID = executionReport.getString(ExecID.FIELD);                        // tag 17
+        double lastPx = executionReport.getDouble(LastPx.FIELD);                        // tag 31
+        String orderID = executionReport.getString(OrderID.FIELD);                      // tag 37
+        double orderQty = executionReport.getDouble(OrderQty.FIELD);                    // tag 38
+        char ordStatus = executionReport.getChar(OrdStatus.FIELD);                      // tag 39
+        char side = executionReport.getChar(Side.FIELD);                                // tag 54
+        String symbol = executionReport.getString(Symbol.FIELD);                        // tag 55
+        char timeInForce = executionReport.getChar(TimeInForce.FIELD);                  // tag 59
+        char execType = executionReport.getChar(ExecType.FIELD);                        // tag 150
+        double leavesQty = executionReport.getDouble(LeavesQty.FIELD);                  // tag 151
+        String expireDate = executionReport.getString(ExpireDate.FIELD);                // tag 432
+        String text = executionReport.getString(Text.FIELD);                            // tag 58
+        String massStatusReqID = executionReport.getString(MassStatusReqID.FIELD);       // tag 584
+        int totNumReports = executionReport.getInt(TotNumReports.FIELD);                 // tag 911
+        boolean lastRptRequested = executionReport.getBoolean(LastRptRequested.FIELD); // tag 912
 
-            System.out.println("Account: " + account);
-            System.out.println("AvgPx: " + avgPx);
-            System.out.println("ClOrdID: " + clOrdID);
-            System.out.println("CumQty: " + cumQty);
-            System.out.println("ExecID: " + execID);
-            System.out.println("LastPx: " + lastPx);
-            System.out.println("OrderID: " + orderID);
-            System.out.println("OrderQty: " + orderQty);
-            System.out.println("OrdStatus: " + ordStatus);
-            System.out.println("Side: " + side);
-            System.out.println("Symbol: " + symbol);
-            System.out.println("TimeInForce: " + timeInForce);
-            System.out.println("ExecType: " + execType);
-            System.out.println("LeavesQty: " + leavesQty);
-            System.out.println("ExpireDate: " + expireDate);
-            System.out.println("Text: " + text);
-            System.out.println("massStatusReqID: " + massStatusReqID);
-            System.out.println("totNumReports: " + totNumReports);
-            System.out.println("lastRptRequested: " + lastRptRequested);
+        // Print all values
+        System.out.println("Execution Report Fields:");
 
-        } catch (FieldNotFound ex) {
-            Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
+        System.out.println("Account: " + account);
+        System.out.println("AvgPx: " + avgPx);
+        System.out.println("ClOrdID: " + clOrdID);
+        System.out.println("CumQty: " + cumQty);
+        System.out.println("ExecID: " + execID);
+        System.out.println("LastPx: " + lastPx);
+        System.out.println("OrderID: " + orderID);
+        System.out.println("OrderQty: " + orderQty);
+        System.out.println("OrdStatus: " + ordStatus);
+        System.out.println("Side: " + side);
+        System.out.println("Symbol: " + symbol);
+        System.out.println("TimeInForce: " + timeInForce);
+        System.out.println("ExecType: " + execType);
+        System.out.println("LeavesQty: " + leavesQty);
+        System.out.println("ExpireDate: " + expireDate);
+        System.out.println("Text: " + text);
+        System.out.println("massStatusReqID: " + massStatusReqID);
+        System.out.println("totNumReports: " + totNumReports);
+        System.out.println("lastRptRequested: " + lastRptRequested);
+
+        var unfilleOrderAtLP = new UnfilledOrder();
+
+        unfilleOrderAtLP.setID(extractOriginalClOrderID(clOrdID));
+        unfilleOrderAtLP.setPrice(lastPx);
+        unfilleOrderAtLP.setSide(side);
+        unfilleOrderAtLP.setSymbol(symbol);
+
+        if (cumQty == 0) {//we only want order not filled at all 
+            unfilledOrderAtLPList.add(unfilleOrderAtLP);
+        }else{
+            logger.warn("order partially or fully filled"); //come back for more detail warning message
         }
+        
+        if (unfilledOrderAtLPList.size() == totNumReports) {
+            //now we can recreate the open orders
+            recreateOpenOrders();
+        }
+    }
+
+    void recreateOpenOrders() {
+
+        positionAtLPList.forEach((Position position) -> {
+
+            for (UnfilledOrder unfilledOrder : unfilledOrderAtLPList) {
+                
+                
+            }
+
+        });
+
     }
 
     private void processMarketDataEntry(Symbol symbol, Group group, int refresh_type) throws FieldNotFound {
@@ -878,8 +949,12 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     abstract protected void onCancelledOrder(String clOrdID);
 
+    abstract protected void onOrderCancelRequestRejected(String clOrdID, String reason);
+
     abstract protected void onExecutedOrder(String clOrdID, double price);
 
+    
+    
     @Override
     public void sendMarketOrder(String req_identifier, ManagedOrder order) {
         try {
@@ -918,9 +993,8 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     public void placePendingOrder(String req_identifier, ManagedOrder order) {
     }
 
-    public void cancelOrder(String clOrdId, String symbol, char side, double lot_size) {
+    public void cancelOrder(String clOrdId, String symbol, char side, double lot_size) throws SessionNotFound {
 
-        try {
             OrderCancelRequest cancelRequest = new OrderCancelRequest(
                     new OrigClOrdID(clOrdId),
                     new ClOrdID("cancel-order-" + System.currentTimeMillis()),
@@ -932,9 +1006,6 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             cancelRequest.set(new Symbol(symbol));
             Session.sendToTarget(cancelRequest, tradingSessionID);
 
-        } catch (SessionNotFound ex) {
-            logger.error("An error occurred", ex);
-        }
     }
 
     /**

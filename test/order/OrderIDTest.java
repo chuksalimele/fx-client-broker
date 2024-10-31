@@ -72,8 +72,8 @@ public class OrderIDTest {
             for(int k=0; k<  family.getModifyStoplossOrderIDs().size(); k++){
                 System.out.println(family.getModifyStoplossOrderIDs().get(k));
             }
-            for(int k=0; k<  family.getModifyTargetOrderIDs().size(); k++){
-                System.out.println(family.getModifyTargetOrderIDs().get(k));
+            for(int k=0; k<  family.getModifyTakeProfitOrderIDs().size(); k++){
+                System.out.println(family.getModifyTakeProfitOrderIDs().get(k));
             }
             for(int k=0; k<  family.getCloseOrderIDs().size(); k++){
                 System.out.println(family.getCloseOrderIDs().get(k));
@@ -98,8 +98,8 @@ public class OrderIDTest {
             for(int k=0; k<  family.getModifyStoplossOrderIDs().size(); k++){
                 System.out.println(family.getModifyStoplossOrderIDs().get(k));
             }
-            for(int k=0; k<  family.getModifyTargetOrderIDs().size(); k++){
-                System.out.println(family.getModifyTargetOrderIDs().get(k));
+            for(int k=0; k<  family.getModifyTakeProfitOrderIDs().size(); k++){
+                System.out.println(family.getModifyTakeProfitOrderIDs().get(k));
             }
             for(int k=0; k<  family.getModifyEntryPriceOrderIDs().size(); k++){
                 System.out.println(family.getModifyEntryPriceOrderIDs().get(k));
