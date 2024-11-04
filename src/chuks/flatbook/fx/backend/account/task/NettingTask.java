@@ -8,6 +8,7 @@ import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.common.account.order.Position;
 import java.util.concurrent.CompletableFuture;
 import chuks.flatbook.fx.backend.listener.BrokerFixOrderListener;
+import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 
 /**
  *
@@ -45,6 +46,11 @@ abstract public class NettingTask implements BrokerFixOrderListener{
 
     @Override
     public void onPositionReport(Position position){}
+
+    @Override
+    public void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders) {}
+    
+    
             
     protected abstract CompletableFuture<NettingTaskResult> run();
 }

@@ -119,7 +119,9 @@ public class NettingCloseTask extends NettingTask {
             }
 
         } catch (InterruptedException | ExecutionException ex) {
-            Logger.getLogger(NettingCloseTask.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex.getMessage(), ex);
+            account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, "Could not send closed order - Something went wrong.");
         }
 
         return future;

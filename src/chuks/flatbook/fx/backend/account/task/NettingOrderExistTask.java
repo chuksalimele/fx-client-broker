@@ -6,6 +6,7 @@ package chuks.flatbook.fx.backend.account.task;
 
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.common.account.order.Position;
+import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 import java.util.concurrent.CompletableFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +32,9 @@ public class NettingOrderExistTask extends NettingTask{
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NettingOrderExistTask.class.getName());
     private final String orderID;
+    private boolean foundPosition = false;
+    private int orderIndex = -1;
+    
 
     public NettingOrderExistTask(OrderNettingAccount account, String identifier, String orderID) {
         super(account, identifier);
@@ -38,12 +42,18 @@ public class NettingOrderExistTask extends NettingTask{
     }
 
     @Override
-    public void onPositionReport(Position position) {
-        
-        if(position.getID().equals(orderID)){                    
-            future.complete(new NettingTaskResult(false, "Could not modify take prfoit - "));        
+    public void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders) {
+        orderIndex++;        
+        if(unfilledOrder.getID().equals(orderID)){       
+            foundPosition = true;
+            future.complete(new NettingTaskResult(true, "Order exist"));        
+        }
+        if(orderIndex == totalOrders - 1 && !foundPosition){
+            future.complete(new NettingTaskResult(false, "Order does not exist"));            
         }
     }
+
+    
     
     
     

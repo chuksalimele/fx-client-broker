@@ -131,6 +131,7 @@ public class HedgeAccount extends Broker{
     public void onPositionReport(Position position) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
 
     @Override
     public void onOrderCancelRequestRejected(String clOrdID, String reason) {

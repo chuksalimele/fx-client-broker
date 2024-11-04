@@ -5,6 +5,7 @@
 package chuks.flatbook.fx.backend.listener;
 
 import chuks.flatbook.fx.common.account.order.Position;
+import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 
 /**
  *
@@ -23,4 +24,7 @@ public interface BrokerFixOrderListener {
     void onExecutedOrder(String clOrdID, double price);
     
     void onPositionReport(Position position);
+    
+    void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders);
+    
 }

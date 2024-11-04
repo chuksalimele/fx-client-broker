@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import org.slf4j.LoggerFactory;
 import static chuks.flatbook.fx.common.account.order.OrderIDUtil.getAccountNumber;
 import chuks.flatbook.fx.common.account.order.Position;
+import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 
 /**
  *
@@ -452,6 +453,16 @@ public class OrderNettingAccount extends Broker {
             task.onPositionReport(position);
         }
     }
+
+    @Override
+    public void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders) {
+        NettingTask task = taskHandler.getCurrennTask();
+        if (task != null) {
+            task.onOrderReport(unfilledOrder, totalOrders);
+        }
+    }
+    
+    
 
     private void onExecutedOpenOrder(String clOrdID, double price) {
         

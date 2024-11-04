@@ -986,7 +986,12 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     public abstract void onExecutedOrder(String clOrdID, double price);
 
     @Override
-    public abstract void onPositionReport(Position position);       
+    public abstract void onPositionReport(Position position);
+
+    @Override
+    public abstract void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders);
+    
+    
     
     @Override
     public void sendMarketOrder(String req_identifier, ManagedOrder order) {
