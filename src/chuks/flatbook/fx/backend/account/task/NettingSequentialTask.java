@@ -17,14 +17,14 @@ import org.slf4j.LoggerFactory;
  * @author user
  */
 abstract class NettingSequentialTask extends NettingTask {
-    
+
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NettingSequentialTask.class.getName());
     private NettingTask[] tasks;
 
-    public NettingSequentialTask(OrderNettingAccount account, String identifier){
+    public NettingSequentialTask(OrderNettingAccount account, String identifier) {
         super(account, identifier);
     }
-    
+
     public NettingSequentialTask(NettingTask... tasks) {
         super(null, null);
         this.tasks = tasks;
@@ -33,32 +33,33 @@ abstract class NettingSequentialTask extends NettingTask {
     public void setSequence(NettingTask... tasks) {
         this.tasks = tasks;
     }
-    
+
     abstract protected CompletableFuture<NettingTaskResult> finallyRun();
 
     @Override
     public CompletableFuture<NettingTaskResult> run() {
-        
+
         CompletableFuture<NettingTaskResult> future = null;
         NettingTaskResult result;
         try {
             for (NettingTask task : tasks) {
-                
+
                 result = task.run().get();
 
                 if (!result.isSuccess()) {
-                    break;
+                    return future;
                 }
 
             }
-        } catch (InterruptedException| ExecutionException ex) {
+        } catch (InterruptedException | ExecutionException ex) {
             logger.error(ex.getMessage(), ex);
-            if(future == null){
+            if (future == null) {
                 future = new CompletableFuture();
-                future.complete(new NettingTaskResult(false, "An error occurred while processing task"));
             }
+            future.complete(new NettingTaskResult(false, "An error occurred while processing task"));
+            return future;
         }
 
-        return future;
+        return finallyRun();
     }
 }

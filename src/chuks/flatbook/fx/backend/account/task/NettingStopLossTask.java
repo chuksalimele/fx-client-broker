@@ -33,10 +33,12 @@ public class NettingStopLossTask extends NettingTask {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NettingStopLossTask.class.getName());
     
     private final ManagedOrder order;
+    private final double stoploss;
 
-    public NettingStopLossTask(OrderNettingAccount account, String identifier, ManagedOrder order) {
+    public NettingStopLossTask(OrderNettingAccount account, String identifier, ManagedOrder order, double stoploss) {
         super(account, identifier);
         this.order = order;
+        this.stoploss = stoploss;
     }
 
     @Override
@@ -58,7 +60,7 @@ public class NettingStopLossTask extends NettingTask {
     public CompletableFuture<NettingTaskResult> run() {
         try {
 
-            order.modifyStoploss(identifier, order.getStoplossPrice());
+            order.modifyStoploss(identifier, stoploss);
 
             if (order.getStoplossPrice() == 0) {
                 //before this point will have already cancelled previous

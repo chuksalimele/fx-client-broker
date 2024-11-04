@@ -31,10 +31,12 @@ public class NettingTakeProfitTask extends NettingTask {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NettingTakeProfitTask.class.getName());
     private final ManagedOrder order;
+    private final double takeProfit;
 
-    public NettingTakeProfitTask(OrderNettingAccount account, String identifier, ManagedOrder order) {
+    public NettingTakeProfitTask(OrderNettingAccount account, String identifier, ManagedOrder order, double takeProfit) {
         super(account, identifier);
         this.order = order;
+        this.takeProfit = takeProfit;
     }
 
     @Override
@@ -57,7 +59,7 @@ public class NettingTakeProfitTask extends NettingTask {
     public CompletableFuture<NettingTaskResult> run() {
 
         try {
-            order.modifyTakeProfit(identifier, order.getTakeProfitPrice());
+            order.modifyTakeProfit(identifier, takeProfit);
 
             if (order.getTakeProfitPrice() == 0) {
                 //before this point will have already cancelled previous

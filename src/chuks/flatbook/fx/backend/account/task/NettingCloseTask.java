@@ -5,9 +5,13 @@
 package chuks.flatbook.fx.backend.account.task;
 
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
+import chuks.flatbook.fx.backend.config.LogMarker;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.sql.SQLException;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
 import quickfix.Session;
 import quickfix.SessionNotFound;
@@ -24,7 +28,7 @@ import quickfix.fix44.NewOrderSingle;
  * @author user
  */
 public class NettingCloseTask extends NettingTask {
-    
+
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NettingCloseTask.class.getName());
     private final ManagedOrder order;
     private final double lot_size;
@@ -37,17 +41,15 @@ public class NettingCloseTask extends NettingTask {
 
     @Override
     public void onNewOrder(String clOrdID) {
-        future.complete(new NettingTaskResult(true, "Closed order :  "+clOrdID));
+        future.complete(new NettingTaskResult(true, "Closed order :  " + clOrdID));
     }
 
     @Override
     public void onRejectedOrder(String clOrdID, String errMsg) {
-         future.complete(new NettingTaskResult(false, "Rejected close order :  "+clOrdID));
+        future.complete(new NettingTaskResult(false, "Rejected close order :  " + clOrdID));
     }
 
-
-    @Override
-    public CompletableFuture<NettingTaskResult> run() {
+    public CompletableFuture<NettingTaskResult> sendCloseOrder() {
 
         try {
             //Now we can send the close order
@@ -66,12 +68,61 @@ public class NettingCloseTask extends NettingTask {
 
         } catch (SQLException | SessionNotFound ex) {
             String errStr = "Could not close trade";
-            logger.error(errStr +" - "+ex.getMessage(), ex);
-            future.complete(new NettingTaskResult(false, errStr));                            
+            logger.error(errStr + " - " + ex.getMessage(), ex);
+            future.complete(new NettingTaskResult(false, errStr));
         }
-        
-        return future;
 
+        return future;
+    }
+
+    @Override
+    public CompletableFuture<NettingTaskResult> run() {
+        try {
+            var cancelStoplosTask
+                    = new NettingCancelIfOrderExistTask(account,
+                            identifier, order,
+                            order.getStoplossOrderID());
+
+            var cancelTakeProfitTask
+                    = new NettingCancelIfOrderExistTask(account,
+                            identifier, order,
+                            order.getTakeProfitOrderID());
+
+            future = cancelTakeProfitTask.run();
+
+            if (!future.get().isSuccess()) {
+                String errStr = "Could not close order";
+                logger.error(errStr);
+                account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, errStr);                
+                return future;
+            }
+
+            future = cancelStoplosTask.run();
+
+            if (!future.get().isSuccess()) {
+                String errStr = "Incomplete Transaction. Could not close order. Take Profit may have been cancelled";
+                logger.error(LogMarker.INCOMPLETE_TRANSACTION, errStr);
+                account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, errStr);                
+                return future;
+            }
+
+            future = sendCloseOrder();
+
+            if (!future.get().isSuccess()) {
+                String errStr = "Incomplete Transaction. Could not close order. Stoploss and/or Take Profit may have been cancelled";
+                logger.error(LogMarker.INCOMPLETE_TRANSACTION, errStr);
+                account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, errStr);
+                return future;
+            }
+
+        } catch (InterruptedException | ExecutionException ex) {
+            Logger.getLogger(NettingCloseTask.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return future;
     }
 
 }

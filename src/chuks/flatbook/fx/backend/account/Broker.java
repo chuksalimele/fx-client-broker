@@ -139,6 +139,10 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         return quoteSession;
     } 
     
+    public OrderActionListener getOrderActionListener(int account_number){
+        return orderActionListenersMap.getOrDefault(account_number, DO_NOTHING_OAL);
+    }
+    
     @Override
     public boolean registerTrader(TraderAccountProfile account_profile) {
         int account_number = account_profile.getAccountNumber();
@@ -1040,6 +1044,10 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     /**
      * Modify target and stop loss orders abstract protected void
      *
+     * @param req_identifier
+     * @param clOrdId
+     * @param target_price
+     * @param stoploss_price
      */
     @Override
     abstract public void modifyOpenOrder(String req_identifier, String clOrdId, double target_price, double stoploss_price);

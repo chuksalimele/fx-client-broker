@@ -6,16 +6,12 @@ package chuks.flatbook.fx.backend.account.task;
 
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
+import java.sql.SQLException;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
-import quickfix.Session;
-import quickfix.SessionNotFound;
-import quickfix.field.ClOrdID;
-import quickfix.field.OrdType;
-import quickfix.field.OrderQty;
-import quickfix.field.Side;
-import quickfix.field.Symbol;
-import quickfix.field.TransactTime;
 
 /**
  *
@@ -56,11 +52,63 @@ public class NettingModifyOrderTask extends NettingTask {
     }
 
     @Override
-    public CompletableFuture<NettingTaskResult> run() {
-
-        
-        
-        return future;
+    protected CompletableFuture<NettingTaskResult> run() {
+        try {
+            var cancelStoplosTask =
+                    new NettingCancelIfOrderExistTask(account,
+                            identifier, order,
+                            order.getStoplossOrderID());
+            
+            var cancelTakeProfitTask =
+                    new NettingCancelIfOrderExistTask(account,
+                            identifier, order,
+                            order.getTakeProfitOrderID());
+            
+            var modifyStoplosTask =
+                    new NettingStopLossTask(account,
+                            identifier, order, stoploss);
+            
+            var modifyTakeProfitTask =
+                    new NettingTakeProfitTask(account,
+                            identifier, order, takeProfit);
+            
+            future = cancelStoplosTask.run();
+            
+            if(!future.get().isSuccess()){
+                return future;
+            }
+            
+            future = modifyStoplosTask.run();
+                        
+            if(!future.get().isSuccess()){
+                order.undoLastStoplossModify();
+                //TODO resotre cancelled stoploss task goes here
+                return future;
+            }
+            
+            future = cancelTakeProfitTask.run();
+            
+            if(!future.get().isSuccess()){
+                return future;
+            }
+            
+            future = modifyTakeProfitTask.run();
+            
+            if(!future.get().isSuccess()){
+                order.undoLastTakeProfitModify();
+                //resotre cancelled take profit task 
+                //var takeProfitTask
+                //            = new NettingTakeProfitTask(account, identifier, order, oldTakeProfit);
+                
+                return future;
+            }            
+            
+            
+            
+        } catch (InterruptedException | ExecutionException ex) {
+            logger.error(ex.getMessage(), ex);
+        }
+                
+       return future; 
     }
-
 }
