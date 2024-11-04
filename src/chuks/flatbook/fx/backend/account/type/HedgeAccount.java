@@ -9,6 +9,7 @@ import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import chuks.flatbook.fx.backend.account.contract.RetailAccountBuilder;
 import static chuks.flatbook.fx.common.account.order.ManagedOrder.FX_LOT_QTY;
 import chuks.flatbook.fx.common.account.order.OrderIDUtil;
+import chuks.flatbook.fx.common.account.order.Position;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -107,27 +108,32 @@ public class HedgeAccount extends Broker{
     }
 
     @Override
-    protected void onNewOrder(String clOrdID) {
+    public void onNewOrder(String clOrdID) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    protected void onRejectedOrder(String clOrdID, String errMsg) {
+    public void onRejectedOrder(String clOrdID, String errMsg) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    protected void onCancelledOrder(String clOrdID) {
+    public void onCancelledOrder(String clOrdID) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    protected void onExecutedOrder(String clOrdID, double price) {
+    public void onExecutedOrder(String clOrdID, double price) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    protected void onOrderCancelRequestRejected(String clOrdID, String reason) {
+    public void onPositionReport(Position position) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void onOrderCancelRequestRejected(String clOrdID, String reason) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

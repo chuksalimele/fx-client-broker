@@ -38,12 +38,13 @@ import chuks.flatbook.fx.common.account.profile.BasicAccountProfile;
 import chuks.flatbook.fx.common.account.profile.UserType;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import chuks.flatbook.fx.backend.listener.BrokerFixOrderListener;
 
 /**
  *
  * @author user
  */
-public abstract class Broker extends quickfix.MessageCracker implements quickfix.Application, BrokerAccount {
+public abstract class Broker extends quickfix.MessageCracker implements quickfix.Application, BrokerAccount, BrokerFixOrderListener {
 
     protected final SymbolUpdateListener DO_NOTHING_SIL = new SymbolUpdateAdapter() {
     };
@@ -118,6 +119,26 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         initiator.start();
     }
 
+    public static SessionSettings getSettings() {
+        return settings;
+    }
+    
+    public SessionID getTradingSessionID() {
+        return tradingSessionID;
+    }
+
+    public SessionID getQuoteSessionID() {
+        return quoteSessionID;
+    }
+
+    public Session getTradingSession() {
+        return tradingSession;
+    }
+
+    public Session getQuoteSession() {
+        return quoteSession;
+    } 
+    
     @Override
     public boolean registerTrader(TraderAccountProfile account_profile) {
         int account_number = account_profile.getAccountNumber();
@@ -747,15 +768,17 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         System.out.println("PosAmt: " + posAmt);
 
         String clOrdID = extractOriginalClOrderID(settlSessID);
-        var posAtLp = new Position();
-        posAtLp.setID(clOrdID);
-        posAtLp.setPrice(settlPrice);
-        posAtLp.setQty(longQty != 0 ? longQty : shortQty);
-        posAtLp.setSide(longQty != 0 ? ManagedOrder.Side.BUY : ManagedOrder.Side.SELL);
-        posAtLp.setSymbol(symbol);
-        posAtLp.setTime(OrderIDUtil.getTime(clOrdID));
+        var positon = new Position();
+        positon.setID(clOrdID);
+        positon.setPrice(settlPrice);
+        positon.setQty(longQty != 0 ? longQty : shortQty);
+        positon.setSide(longQty != 0 ? ManagedOrder.Side.BUY : ManagedOrder.Side.SELL);
+        positon.setSymbol(symbol);
+        positon.setTime(OrderIDUtil.getTime(clOrdID));
 
-        positionAtLPList.add(posAtLp);
+        positionAtLPList.add(positon);
+        
+        onPositionReport(positon);
 
     }
 
@@ -943,17 +966,23 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     }
 
-    abstract protected void onNewOrder(String clOrdID);
+    @Override
+     public abstract void onNewOrder(String clOrdID);
 
-    abstract protected void onRejectedOrder(String clOrdID, String errMsg);
+    @Override
+     public abstract void onRejectedOrder(String clOrdID, String errMsg);
 
-    abstract protected void onCancelledOrder(String clOrdID);
+    @Override
+     public abstract void onCancelledOrder(String clOrdID);
 
-    abstract protected void onOrderCancelRequestRejected(String clOrdID, String reason);
+    @Override
+    public abstract void onOrderCancelRequestRejected(String clOrdID, String reason);
 
-    abstract protected void onExecutedOrder(String clOrdID, double price);
+    @Override
+    public abstract void onExecutedOrder(String clOrdID, double price);
 
-    
+    @Override
+    public abstract void onPositionReport(Position position);       
     
     @Override
     public void sendMarketOrder(String req_identifier, ManagedOrder order) {
@@ -998,7 +1027,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             OrderCancelRequest cancelRequest = new OrderCancelRequest(
                     new OrigClOrdID(clOrdId),
                     new ClOrdID("cancel-order-" + System.currentTimeMillis()),
-                    new Side(opposingSide(side)),
+                    new Side(side),
                     new TransactTime()
             );
 

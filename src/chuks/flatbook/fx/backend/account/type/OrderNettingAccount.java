@@ -4,25 +4,27 @@
  */
 package chuks.flatbook.fx.backend.account.type;
 
+import chuks.flatbook.fx.backend.account.task.OrderNettingTaskManager;
 import chuks.flatbook.fx.backend.account.Broker;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.util.*;
 import quickfix.*;
-import quickfix.field.*;
 import chuks.flatbook.fx.backend.account.contract.OrderNettingAccountBuilder;
-import static chuks.flatbook.fx.common.account.order.ManagedOrder.FX_LOT_QTY;
+import chuks.flatbook.fx.backend.account.task.NettingCancelIfOrderExistTask;
+import chuks.flatbook.fx.backend.account.task.NettingCloseTask;
+import chuks.flatbook.fx.backend.account.task.NettingMarketOrderTask;
+import chuks.flatbook.fx.backend.account.task.NettingModifyOrderTask;
+import chuks.flatbook.fx.backend.account.task.NettingSequentialTask;
+import chuks.flatbook.fx.backend.account.task.NettingStopLossTask;
+import chuks.flatbook.fx.backend.account.task.NettingTakeProfitTask;
+import chuks.flatbook.fx.backend.account.task.NettingTask;
 import chuks.flatbook.fx.common.account.order.SymbolInfo;
 import chuks.flatbook.fx.common.account.persist.OrderDB;
-import chuks.flatbook.fx.backend.listener.OrderActionListener;
-import chuks.flatbook.fx.common.account.order.MarketOrderIDFamily;
 import chuks.flatbook.fx.common.account.order.OrderException;
-import chuks.flatbook.fx.common.account.order.OrderIDUtil;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
-import quickfix.fix44.NewOrderSingle;
 import static chuks.flatbook.fx.common.account.order.OrderIDUtil.getAccountNumber;
+import chuks.flatbook.fx.common.account.order.Position;
 
 /**
  *
@@ -32,14 +34,17 @@ public class OrderNettingAccount extends Broker {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(OrderNettingAccount.class.getName());
 
-    protected List<ManagedOrder> deferredTakeProfitOrderRequestList = Collections.synchronizedList(new LinkedList());
-    protected List<ManagedOrder> deferredStoplossOrderRequestList = Collections.synchronizedList(new LinkedList());
-    protected Map<String, ManagedOrder> ordersClosingInProgress = Collections.synchronizedMap(new LinkedHashMap());
+    private final OrderNettingTaskManager taskHandler;
 
     public OrderNettingAccount(String settings_filename) throws ConfigError {
         super(settings_filename);
+        taskHandler = new OrderNettingTaskManager();
     }
 
+    public void sendResultToTrader(boolean success, String result){
+        
+    }
+    
     @Override
     public void sendMarketOrder(String req_identifier, ManagedOrder order) {
         Session session = Session.lookupSession(tradingSessionID);
@@ -97,150 +102,8 @@ public class OrderNettingAccount extends Broker {
             }
         }
 
-        super.sendMarketOrder(req_identifier, order);
-
-        if (order.getStoplossPrice() > 0) {
-            setStopLoss(req_identifier, order);
-        }
-        if (order.getTargetPrice() > 0) {
-            setTakeProfit(req_identifier, order);
-        }
-        this.sentMarketOrders.put(order.getOrderID(), order);
-    }
-
-    private void setStopLoss(String req_identifier, ManagedOrder order) {
-
-        try {
-            //first cancel any previous stoploss orders attached to the market order
-            List<String> ST_orderIDs = order.getStoplossOrderIDList();
-            //making sure no hanging stoploss order, so cancell all previous ones
-            if (!ST_orderIDs.isEmpty()) {
-                for (String ST_orderID : ST_orderIDs) {
-                    cancelOrder(ST_orderID,
-                            order.getSymbol(),
-                            order.getSide(),
-                            order.getLotSize());
-
-                    logger.debug("cancelling stoploss with ID " + ST_orderID);
-                }
-
-                deferredStoplossOrderRequestList.add(order);
-                return; //leave because we will not set stoploss until any previous one is confirmed cancelled
-            }
-
-            order.modifyStoploss(req_identifier, order.getStoplossPrice());
-
-            if (order.getStoplossPrice() == 0) {
-                //before this point will have already cancelled previous
-                //stoploss so now leave. No need to proceed. 
-                //Job already done!               
-
-                logger.debug("stoploss is zero ");
-
-                return;
-            }
-
-            quickfix.fix44.NewOrderSingle stopOrder = new quickfix.fix44.NewOrderSingle(
-                    new ClOrdID(order.getLastStoplossOrderID()),
-                    new Side(this.opposingSide(order.getSide())),
-                    new TransactTime(),
-                    new OrdType(OrdType.STOP_STOP_LOSS)
-            );
-
-            stopOrder.set(new Symbol(order.getSymbol()));
-            stopOrder.set(new OrderQty(order.getLotSize() * FX_LOT_QTY)); // Set lot size to 1.2 lots (120,000 units)
-            stopOrder.set(new StopPx(order.getStoplossPrice()));
-            stopOrder.set(new TimeInForce(TimeInForce.GOOD_TILL_CANCEL)); // Set TIF to GTC
-            Session.sendToTarget(stopOrder, this.tradingSessionID);
-
-            logger.debug("sending stoploss order ");
-
-        } catch (SQLException | SessionNotFound ex) {
-            order.undoLastStoplossModify();
-            logger.error("Cannot send modify stoploss order - " + ex.getMessage(), ex);
-            orderActionListenersMap
-                    .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(req_identifier, order, "Could not set stoploss - Something went wrong!");
-        }
-    }
-
-    private void setTakeProfit(String req_identifier, ManagedOrder order) {
-        try {
-
-            //first cancel any previous target orders attached to the market order
-            List<String> TP_orderIDs = order.getTakeProfitOrderIDList();
-            //making sure no hanging target order, so cancell all previous ones
-            if (!TP_orderIDs.isEmpty()) {
-                for (String TP_orderID : TP_orderIDs) {
-                    cancelOrder(TP_orderID,
-                            order.getSymbol(),
-                            order.getSide(),
-                            order.getLotSize());
-
-                    logger.debug("cancelling target with ID " + TP_orderID);
-                }
-
-                deferredTakeProfitOrderRequestList.add(order);
-                return; //leave because we will not set targe until any previous one is confirmed cancelled
-            }
-
-            order.modifyStoploss(req_identifier, order.getTargetPrice());
-
-            if (order.getTargetPrice() == 0) {
-                //before this point will have already cancelled previous
-                //target so now leave. No need to proceed. 
-                //Job already done!    
-
-                logger.debug("target is zero");
-
-                return;
-            }
-
-            quickfix.fix44.NewOrderSingle targetOrder = new quickfix.fix44.NewOrderSingle(
-                    new ClOrdID(order.getLastTakeProfitOrderID()),
-                    new Side(opposingSide(order.getSide())),
-                    new TransactTime(),
-                    new OrdType(OrdType.LIMIT)
-            );
-
-            targetOrder.set(new Symbol(order.getSymbol()));
-            targetOrder.set(new OrderQty(order.getLotSize() * FX_LOT_QTY)); // Set lot size to 1.2 lots (120,000 units)
-            targetOrder.set(new Price(order.getTargetPrice()));
-            targetOrder.set(new TimeInForce(TimeInForce.GOOD_TILL_CANCEL)); // Set TIF to GTC
-
-            Session.sendToTarget(targetOrder, tradingSessionID);
-
-            logger.debug("sending target order ");
-
-        } catch (SQLException | SessionNotFound ex) {
-            order.undoLastTakeProfitModify();
-            logger.error("Could not set target", ex);
-            orderActionListenersMap
-                    .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(req_identifier, order, "Could not set target - Something went wrong!");
-        }
-    }
-
-    void changeToOrderClosingState(String ordID) {
-        //remove it
-        ManagedOrder order = ordersOpen.remove(ordID);
-
-        //and then transfer to closing-inprogress state        
-        if (order != null) {
-            ordersClosingInProgress.put(order.getOrderID(), order);
-        }
-
-    }
-
-    void rollbackOrderClosingState(String ordID) {
-        //remove it
-        ManagedOrder order = ordersClosingInProgress.remove(ordID);
-
-        //and then return back to open orders
-        if (order != null) {
-            ordersOpen.put(order.getOrderID(), order);
-        }
-
+        var marketOrderTask = new NettingMarketOrderTask(this, req_identifier, order);        
+        taskHandler.addTask(marketOrderTask);
     }
 
     @Override
@@ -248,23 +111,14 @@ public class OrderNettingAccount extends Broker {
 
         ManagedOrder order = this.ordersOpen.get(clOrdId);
         if (order == null) {
-            if (ordersClosingInProgress.containsKey(clOrdId)) {
-                var errStr = "Cannot perform close position operation."
-                        + " Order is inclosing state.";
-                logger.error(errStr);
-                int account_number = getAccountNumber(clOrdId);
-                orderActionListenersMap
-                        .getOrDefault(account_number, DO_NOTHING_OAL)
-                        .onOrderNotAvailable(req_identifier, account_number, errStr);
-            } else {
-                var errStr = "Cannot perform close position operation."
-                        + " Order not open.";
-                logger.error(errStr);
-                int account_number = getAccountNumber(clOrdId);
-                orderActionListenersMap
-                        .getOrDefault(account_number, DO_NOTHING_OAL)
-                        .onOrderNotAvailable(req_identifier, account_number, errStr);
-            }
+            var errStr = "Cannot perform close position operation."
+                    + " Order not open.";
+            logger.error(errStr);
+            int account_number = getAccountNumber(clOrdId);
+            orderActionListenersMap
+                    .getOrDefault(account_number, DO_NOTHING_OAL)
+                    .onOrderNotAvailable(req_identifier, account_number, errStr);
+
             return;
         }
 
@@ -286,58 +140,10 @@ public class OrderNettingAccount extends Broker {
             return;
         }
 
-        try {
-            //first cancel target and stoploss orders . this is LIMIT and STOP orders representing target and stoploss pending orders at the LP
+        var closePositionTask = new NettingCloseTask(this, req_identifier, order, lot_size);
 
-            //But first move this opend order to close-inprogress list - we shall use it to verify that the whole close process was completed
-            changeToOrderClosingState(clOrdId);
+        taskHandler.addTask(closePositionTask);
 
-            //cancelling target order
-            List<String> TP_orderIDs = order.getTakeProfitOrderIDList();
-            for (String TP_orderID : TP_orderIDs) {
-                cancelOrder(TP_orderID,
-                        order.getSymbol(),
-                        order.getSide(),
-                        order.getLotSize());
-
-                logger.debug("cancelling target with ID " + TP_orderID);
-            }
-
-            //cancelling stoploss order
-            List<String> ST_orderIDs = order.getStoplossOrderIDList();
-            for (String ST_orderID : ST_orderIDs) {
-                cancelOrder(ST_orderID,
-                        order.getSymbol(),
-                        order.getSide(),
-                        order.getLotSize());
-
-                logger.debug("cancelling stoploss with ID " + ST_orderID);
-            }
-
-            //Now we can send the close order
-            // Send an order in the opposite direction
-            // of the open position to close the open postion
-            NewOrderSingle newOrder = new NewOrderSingle(
-                    new ClOrdID(order.markForCloseAndGetID(req_identifier)), // Unique order ID                
-                    new Side(opposingSide(order.getSide())), // Opposite of the original position
-                    new TransactTime(),
-                    new OrdType(OrdType.MARKET) // Market order to close the position
-            );
-
-            newOrder.set(new OrderQty(lot_size * FX_LOT_QTY)); // Quantity to close
-            newOrder.set(new Symbol(order.getSymbol()));
-            Session.sendToTarget(newOrder, tradingSessionID);
-
-        } catch (SessionNotFound | SQLException ex) {
-
-            rollbackOrderClosingState(clOrdId);
-
-            logger.error("Could not close position - " + ex.getMessage(), ex);
-            orderActionListenersMap
-                    .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onOrderRemoteError(req_identifier, order, "Could not close position - Something went wrong!");
-
-        }
     }
 
     @Override
@@ -368,19 +174,22 @@ public class OrderNettingAccount extends Broker {
 
             return;
         }
-        setStopLoss(req_identifier, order);
-        setTakeProfit(req_identifier, order);
+
+        var modifyOrderTask = new NettingModifyOrderTask(this, req_identifier, order, stoploss_price, target_price);
+     
+        taskHandler.addTask(modifyOrderTask);
+
+        /*//COME BACK 
         //if both target and stoploss is zero then no need to wait
         //for FIX sever response, just send the feed back to the client
         if (order.getStoplossPrice() == 0
-                && order.getTargetPrice() == 0) {
+                && order.getTakeProfitPrice() == 0) {
             //notify target modified
             orderActionListenersMap
                     .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
                     .onModifiedMarketOrder(req_identifier, order);
 
-        }
-
+        }*/
     }
 
     /**
@@ -481,14 +290,17 @@ public class OrderNettingAccount extends Broker {
     }
 
     @Override
-    protected void onNewOrder(String clOrdID) {
-
+    public void onNewOrder(String clOrdID) {
+        NettingTask task = taskHandler.getCurrennTask();        
+        if (task != null) {
+            task.onNewOrder(clOrdID);
+        }
         //check if it is market or pending order and add
         //and
         //check if it is stop loss or target of open order
         for (Map.Entry<String, ManagedOrder> entry : sentMarketOrders.entrySet()) {
             ManagedOrder order = entry.getValue();
-            if (order.getOrderID().equals(clOrdID)) {
+            if (clOrdID.equals(order.getOrderID())) {
                 //is market order so add
                 ordersOpen.putIfAbsent(order.getOrderID(), sentMarketOrders.get(clOrdID));
 
@@ -500,7 +312,7 @@ public class OrderNettingAccount extends Broker {
                         .onNewMarketOrder(req_identifier, order);
             }
 
-            if (order.getTakeProfitOrderIDList().contains(clOrdID)) {
+            if (clOrdID.equals(order.getTakeProfitOrderID())) {
 
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify target modified
@@ -510,7 +322,7 @@ public class OrderNettingAccount extends Broker {
 
             }
 
-            if (order.getStoplossOrderIDList().contains(clOrdID)) {
+            if (clOrdID.equals(order.getStoplossOrderID())) {
 
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 //notify stoploss modified                
@@ -524,13 +336,16 @@ public class OrderNettingAccount extends Broker {
     }
 
     @Override
-    protected void onRejectedOrder(String clOrdID, String errMsg) {
-
+    public void onRejectedOrder(String clOrdID, String errMsg) {
+        NettingTask task = taskHandler.getCurrennTask();        
+        if (task != null) {
+            task.onRejectedOrder(clOrdID, errMsg);
+        }
         //check the type of order
         for (Map.Entry<String, ManagedOrder> entry : sentMarketOrders.entrySet()) {
             ManagedOrder order = entry.getValue();
 
-            if (order.getOrderID().equals(clOrdID)) {
+            if (clOrdID.equals(order.getOrderID())) {
                 //is market order
                 sentMarketOrders.remove(clOrdID);
 
@@ -542,7 +357,7 @@ public class OrderNettingAccount extends Broker {
                 logger.error("Market order rejected: " + errMsg);
             }
 
-            if (order.getTakeProfitOrderIDList().contains(clOrdID)) {
+            if (clOrdID.equals(order.getTakeProfitOrderID())) {
                 //is target order so just remove
                 order.removeTakeProfitOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
@@ -555,7 +370,7 @@ public class OrderNettingAccount extends Broker {
                 logger.error("Target rejected: " + errMsg);
             }
 
-            if (order.getStoplossOrderIDList().contains(clOrdID)) {
+            if (clOrdID.equals(order.getStoplossOrderID())) {
                 //is stoploss order so just remove
                 order.removeStoplossOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
@@ -568,7 +383,7 @@ public class OrderNettingAccount extends Broker {
                 logger.error("Stoploss rejected: " + errMsg);
             }
 
-            if (order.getCloseOrderIDList().contains(clOrdID)) {
+            if (clOrdID.equals(order.getCloseOrderID())) {
                 //is close order so just remove
                 order.removeCloseOrderID(clOrdID);
                 sentMarketOrders.remove(clOrdID);
@@ -593,102 +408,61 @@ public class OrderNettingAccount extends Broker {
      * @param clOrdID
      */
     @Override
-    protected void onCancelledOrder(String clOrdID) {
-
+    public void onCancelledOrder(String clOrdID) {
+        NettingTask task = taskHandler.getCurrennTask();        
+        if (task != null) {
+            task.onCancelledOrder(clOrdID);
+        }
         for (Map.Entry<String, ManagedOrder> entry : sentMarketOrders.entrySet()) {
             ManagedOrder order = entry.getValue();
             //manage cancelled stoploss orders cancelled by user action like
             //modifying stoploss which triggers cancellation of previous stoploss order
-            if (clOrdID.contains(order.getLastStoplossOrderID())) {
+            if (clOrdID.equals(order.getStoplossOrderID())) {
                 order.cancelStoplossOrderID(clOrdID);
                 break;
             }
 
             //manage cancelled target orders cancelled by user action like
             //modifying target which triggers cancellation of previous target order
-            if (clOrdID.contains(order.getLastTakeProfitOrderID())) {
+            if (clOrdID.equals(order.getTakeProfitOrderID())) {
                 order.cancelTakeProfitOrderID(clOrdID);
                 break;
             }
         }
 
-        //next handle defferred stoploss/target modification requests
-        for (int i = 0; i < deferredStoplossOrderRequestList.size(); i++) {
-            ManagedOrder order = deferredStoplossOrderRequestList.get(i);
-            if (order.getStoplossOrderIDList().isEmpty()) {
-                //check if it is the cancel stoploss id 
-                if (order.getCancelledStoplossOrderIDList().contains(clOrdID)) {
-                    String identifier = order.getMarketOrderRequestIdentifier();
-                    setStopLoss(identifier, order);
-                    deferredStoplossOrderRequestList.remove(order);
-                    break;
-                }
-            }
-        }
-
-        for (int i = 0; i < deferredTakeProfitOrderRequestList.size(); i++) {
-            ManagedOrder order = deferredTakeProfitOrderRequestList.get(i);
-            if (order.getTakeProfitOrderIDList().isEmpty()) {
-                //check if it is the cancel take profit id 
-                if (order.getCancelledTakeProfitOrderIDList().contains(clOrdID)) {
-                    String identifier = order.getMarketOrderRequestIdentifier();
-                    setTakeProfit(identifier, order);
-                    deferredTakeProfitOrderRequestList.remove(order);
-                    break;
-                }
-            }
-        }
-
     }
 
     @Override
-    protected void onOrderCancelRequestRejected(String clOrdID, String reason) {
-
-        for (int i = 0; i < deferredStoplossOrderRequestList.size(); i++) {
-            ManagedOrder order = deferredStoplossOrderRequestList.get(i);
-            if (order.getStoplossOrderIDList().contains(clOrdID)) {
-                String identifier = order.getMarketOrderRequestIdentifier();
-                //Just delete the request
-                deferredStoplossOrderRequestList.remove(order);
-
-                //And report failed request to the client
-                orderActionListenersMap
-                        .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(identifier, order, "Could not modify stoploss - " + reason);
-
-                logger.error("Could not modify stoploss - " + reason);
-                break;
-            }
+    public void onOrderCancelRequestRejected(String clOrdID, String reason) {
+        NettingTask task = taskHandler.getCurrennTask();
+        if (task != null) {
+            task.onOrderCancelRequestRejected(clOrdID, reason);
         }
-
-        for (int i = 0; i < deferredTakeProfitOrderRequestList.size(); i++) {
-            ManagedOrder order = deferredTakeProfitOrderRequestList.get(i);
-            if (order.getTakeProfitOrderIDList().contains(clOrdID)) {
-                String identifier = order.getMarketOrderRequestIdentifier();
-                //Just delete the request                
-                deferredTakeProfitOrderRequestList.remove(order);
-
-                //And report failed request to the client
-                orderActionListenersMap
-                        .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                        .onOrderRemoteError(identifier, order, "Could not modify take profi - " + reason);
-
-                logger.error("Could not modify take profi - " + reason);
-                break;
-            }
-        }
-
     }
 
     @Override
-    protected void onExecutedOrder(String clOrdID, double price) {
+    public void onExecutedOrder(String clOrdID, double price) {
+        NettingTask task = taskHandler.getCurrennTask();
+        if (task != null) {
+            task.onExecutedOrder(clOrdID, price);
+        }
         onExecutedOpenOrder(clOrdID, price);
     }
 
+    @Override
+    public void onPositionReport(Position position) {
+        NettingTask task = taskHandler.getCurrennTask();
+        if (task != null) {
+            task.onPositionReport(position);
+        }
+    }
+
     private void onExecutedOpenOrder(String clOrdID, double price) {
+        
         //check if is market order, stoploss order, target or close order was hit
         //and cancel the other. if stoploss was hit then
-        // cancel target and vice versa
+        //cancel target and vice versa
+        
         ManagedOrder order = null;
         try {
             for (Map.Entry<String, ManagedOrder> entry : sentMarketOrders.entrySet()) {
@@ -701,7 +475,7 @@ public class OrderNettingAccount extends Broker {
                     break;
                 }
 
-                if (order.getTakeProfitOrderIDList().contains(clOrdID)) {
+                if (clOrdID.equals(order.getTakeProfitOrderID())) {
                     //Since the LP may not automatically cancel the stoploss stop order                                
                     //Cancel all stoploss orders related to this market orders
 
@@ -709,20 +483,20 @@ public class OrderNettingAccount extends Broker {
                     order.setClosePrice(price);
                     order.setCloseTime(new Date());
 
-                    List<String> ST_orderIDs = order.getStoplossOrderIDList();
-                    for (String ST_orderID : ST_orderIDs) {
+                    String ST_orderID = order.getStoplossOrderID();
 
+                    if (ST_orderID != null) {
                         cancelOrder(ST_orderID,
                                 order.getSymbol(),
-                                order.getSide(),
+                                opposingSide(order.getSide()),
                                 order.getLotSize());
 
                         logger.debug("cancelling related stoploss order to Market order ID " + order.getOrderID());
-
                     }
 
                     //notify target hit and position closed    
                     this.ordersOpen.remove(order.getOrderID());
+                    this.ordersHistory.put(order.getOrderID(), order);
                     OrderDB.insertHistoryOrder(order);
 
                     String req_identifier = order.getCloseOrderRequestIdentifier();
@@ -733,7 +507,7 @@ public class OrderNettingAccount extends Broker {
                     break;
                 }
 
-                if (order.getStoplossOrderIDList().contains(clOrdID)) {
+                if (clOrdID.contains(order.getStoplossOrderID())) {
                     //Since the LP may not automatically cancel the target limit order
                     //Cancel all target orders related to this market orders
 
@@ -741,19 +515,19 @@ public class OrderNettingAccount extends Broker {
                     order.setClosePrice(price);
                     order.setCloseTime(new Date());
 
-                    List<String> TP_orderIDs = order.getTakeProfitOrderIDList();
-                    for (String TP_orderID : TP_orderIDs) {
+                    String TP_orderID = order.getTakeProfitOrderID();
+                    if (TP_orderID != null) {
                         cancelOrder(TP_orderID,
                                 order.getSymbol(),
-                                order.getSide(),
+                                opposingSide(order.getSide()),
                                 order.getLotSize());
 
                         logger.debug("cancelling related target order to Market order ID " + order.getOrderID());
-
                     }
 
                     //notify stoploss hit and position closed    
                     this.ordersOpen.remove(order.getOrderID());
+                    this.ordersHistory.put(order.getOrderID(), order);
                     OrderDB.insertHistoryOrder(order);
 
                     String req_identifier = order.getCloseOrderRequestIdentifier();
@@ -764,14 +538,16 @@ public class OrderNettingAccount extends Broker {
                     break;
                 }
 
-                if (order.getCloseOrderIDList().contains(clOrdID)) {
+                if (clOrdID.contains(order.getCloseOrderID())) {
 
                     //first set close price and time
                     order.setClosePrice(price);
                     order.setCloseTime(new Date());
 
+                    //COME BACK FOR BELOW
                     //notify position closed
-                    this.ordersClosingInProgress.remove(order.getOrderID());
+                    this.ordersOpen.remove(order.getOrderID());
+                    this.ordersHistory.put(order.getOrderID(), order);
                     OrderDB.insertHistoryOrder(order);
 
                     String req_identifier = order.getCloseOrderRequestIdentifier();
@@ -821,7 +597,7 @@ public class OrderNettingAccount extends Broker {
                                 order.getAccountNumber(),
                                 symbolInfo,
                                 order.getSide(),
-                                order.getTargetPrice(),
+                                order.getTakeProfitPrice(),
                                 order.getStoplossPrice());
 
                         //String req_identifier = mktOrder.getMarketOrderRequestIdentifier();
