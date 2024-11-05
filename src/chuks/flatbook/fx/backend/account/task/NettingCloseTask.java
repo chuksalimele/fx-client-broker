@@ -37,6 +37,16 @@ public class NettingCloseTask extends NettingTask {
     }
 
     @Override
+    public void onCancelledOrder(String clOrdID) {
+        future.complete(new TaskResult(true, "Successfully cancelled order :  " + clOrdID));
+    }
+
+    @Override
+    public void onOrderCancelRequestRejected(String clOrdID, String reason) {
+        future.complete(new TaskResult(false, "Could not cancel order :  " + clOrdID));
+    }
+
+    @Override
     public void onRejectedOrder(String clOrdID, String errMsg) {
         future.complete(new TaskResult(false, "Rejected close order :  " + clOrdID));
     }
