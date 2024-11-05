@@ -36,8 +36,6 @@ import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 import chuks.flatbook.fx.common.account.profile.AdminProfile;
 import chuks.flatbook.fx.common.account.profile.BasicAccountProfile;
 import chuks.flatbook.fx.common.account.profile.UserType;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import chuks.flatbook.fx.backend.listener.BrokerFixOrderListener;
 
 /**
@@ -143,6 +141,10 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         return orderActionListenersMap.getOrDefault(account_number, DO_NOTHING_OAL);
     }
     
+    public void storeSentMarketOrder(ManagedOrder order) {
+        this.sentMarketOrders.put(order.getOrderID(), order);
+    }
+
     @Override
     public boolean registerTrader(TraderAccountProfile account_profile) {
         int account_number = account_profile.getAccountNumber();
@@ -322,16 +324,24 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         logger.debug("Session created: " + sessionId);
         // Identify trading and quoting session IDs
 
-        if (Config.TRADE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
-            tradingSessionID = sessionId;
-            tradingSession = Session.lookupSession(tradingSessionID);
-        } else if (Config.PRICE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
-            quoteSessionID = sessionId;
-            quoteSession = Session.lookupSession(quoteSessionID);
-        } else {
+        if (null == sessionId.getTargetCompID()) {
             System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
             System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
             System.exit(1);
+        } else switch (sessionId.getTargetCompID()) {
+            case Config.TRADE_SESSION_TARGET_COMP_ID -> {
+                tradingSessionID = sessionId;
+                tradingSession = Session.lookupSession(tradingSessionID);
+            }
+            case Config.PRICE_SESSION_TARGET_COMP_ID -> {
+                quoteSessionID = sessionId;
+                quoteSession = Session.lookupSession(quoteSessionID);
+            }
+            default -> {
+                System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
+                System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
+                System.exit(1);
+            }
         }
 
     }
@@ -1093,5 +1103,4 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     protected void checkLocalPendingOrderHit(SymbolInfo symbolInfo) {
     }
-
 }

@@ -10,6 +10,7 @@ import chuks.flatbook.fx.backend.account.contract.RetailAccountBuilder;
 import static chuks.flatbook.fx.common.account.order.ManagedOrder.FX_LOT_QTY;
 import chuks.flatbook.fx.common.account.order.OrderIDUtil;
 import chuks.flatbook.fx.common.account.order.Position;
+import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -131,7 +132,13 @@ public class HedgeAccount extends Broker{
     public void onPositionReport(Position position) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
+    @Override
+    public void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+
 
     @Override
     public void onOrderCancelRequestRejected(String clOrdID, String reason) {

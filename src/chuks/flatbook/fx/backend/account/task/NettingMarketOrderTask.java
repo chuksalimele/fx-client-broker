@@ -61,9 +61,12 @@ public class NettingMarketOrderTask extends NettingTask {
             );
 
             newOrder.set(new Symbol(order.getSymbol()));
-            newOrder.set(new OrderQty(order.getLotSize() * ManagedOrder.FX_LOT_QTY)); // Set lot size to 1.2 lots (120,000 units)
+            newOrder.set(new OrderQty(order.getLotSize() * ManagedOrder.FX_LOT_QTY));
 
             Session.sendToTarget(newOrder, account.getTradingSessionID());
+            
+            account.storeSentMarketOrder(order);
+            
         } catch (SessionNotFound ex) {
             String errStr = "Could  not send market order";
             logger.error(errStr + " - " + ex.getMessage(), ex);

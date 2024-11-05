@@ -176,17 +176,6 @@ public class OrderNettingAccount extends Broker {
      
         taskHandler.addTask(modifyOrderTask);
 
-        /*//COME BACK 
-        //if both target and stoploss is zero then no need to wait
-        //for FIX sever response, just send the feed back to the client
-        if (order.getStoplossPrice() == 0
-                && order.getTakeProfitPrice() == 0) {
-            //notify target modified
-            orderActionListenersMap
-                    .getOrDefault(order.getAccountNumber(), DO_NOTHING_OAL)
-                    .onModifiedMarketOrder(req_identifier, order);
-
-        }*/
     }
 
     /**
@@ -355,9 +344,8 @@ public class OrderNettingAccount extends Broker {
             }
 
             if (clOrdID.equals(order.getTakeProfitOrderID())) {
-                //is target order so just remove
-                order.removeTakeProfitOrderID(clOrdID);
-                sentMarketOrders.remove(clOrdID);
+                //is target order so undo it
+                order.undoLastTakeProfitModify();
 
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 orderActionListenersMap
@@ -368,9 +356,8 @@ public class OrderNettingAccount extends Broker {
             }
 
             if (clOrdID.equals(order.getStoplossOrderID())) {
-                //is stoploss order so just remove
-                order.removeStoplossOrderID(clOrdID);
-                sentMarketOrders.remove(clOrdID);
+                //is stoploss order so just undo it
+                order.undoLastStoplossModify();
 
                 String req_identifier = order.getModifyOrderRequestIdentifier();
                 orderActionListenersMap
@@ -383,7 +370,6 @@ public class OrderNettingAccount extends Broker {
             if (clOrdID.equals(order.getCloseOrderID())) {
                 //is close order so just remove
                 order.removeCloseOrderID(clOrdID);
-                sentMarketOrders.remove(clOrdID);
 
                 String req_identifier = order.getCloseOrderRequestIdentifier();
                 orderActionListenersMap
@@ -397,13 +383,6 @@ public class OrderNettingAccount extends Broker {
 
     }
 
-    /**
-     * Called when Limit and Stop pending orders are cancelled for the purpose
-     * of modifying target and stoploss which will trigger the sending of the
-     * deferred target or stoploss request
-     *
-     * @param clOrdID
-     */
     @Override
     public void onCancelledOrder(String clOrdID) {
         NettingTask task = taskHandler.getCurrennTask();        
@@ -412,17 +391,14 @@ public class OrderNettingAccount extends Broker {
         }
         for (Map.Entry<String, ManagedOrder> entry : sentMarketOrders.entrySet()) {
             ManagedOrder order = entry.getValue();
-            //manage cancelled stoploss orders cancelled by user action like
-            //modifying stoploss which triggers cancellation of previous stoploss order
+
             if (clOrdID.equals(order.getStoplossOrderID())) {
-                order.cancelStoplossOrderID(clOrdID);
+                order.cancelStoplossOrder(clOrdID);
                 break;
             }
 
-            //manage cancelled target orders cancelled by user action like
-            //modifying target which triggers cancellation of previous target order
             if (clOrdID.equals(order.getTakeProfitOrderID())) {
-                order.cancelTakeProfitOrderID(clOrdID);
+                order.cancelTakeProfitOrder(clOrdID);
                 break;
             }
         }
