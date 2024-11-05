@@ -4,16 +4,16 @@
  */
 package chuks.flatbook.fx.backend.account.type;
 
-import chuks.flatbook.fx.backend.account.task.OrderNettingTaskManager;
+import chuks.flatbook.fx.backend.task.netting.OrderNettingTaskManager;
 import chuks.flatbook.fx.backend.account.Broker;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.util.*;
 import quickfix.*;
 import chuks.flatbook.fx.backend.account.contract.OrderNettingAccountBuilder;
-import chuks.flatbook.fx.backend.account.task.NettingCloseTask;
-import chuks.flatbook.fx.backend.account.task.NettingMarketOrderTask;
-import chuks.flatbook.fx.backend.account.task.NettingModifyOrderTask;
-import chuks.flatbook.fx.backend.account.task.NettingTask;
+import chuks.flatbook.fx.backend.task.netting.NettingCloseTask;
+import chuks.flatbook.fx.backend.task.netting.NettingMarketOrderTask;
+import chuks.flatbook.fx.backend.task.netting.NettingModifyOrderTask;
+import chuks.flatbook.fx.backend.task.netting.NettingTask;
 import chuks.flatbook.fx.common.account.order.SymbolInfo;
 import chuks.flatbook.fx.common.account.persist.OrderDB;
 import chuks.flatbook.fx.common.account.order.OrderException;
