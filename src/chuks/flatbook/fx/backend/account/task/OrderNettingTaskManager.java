@@ -4,6 +4,7 @@
  */
 package chuks.flatbook.fx.backend.account.task;
 
+import util.TaskResult;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -47,8 +48,8 @@ public class OrderNettingTaskManager {
 
         @Override
         public void run() {
-            CompletableFuture<NettingTaskResult> future = null;
-            NettingTaskResult result;
+            CompletableFuture<TaskResult> future = null;
+            TaskResult result;
             while (!stop) {
                 for (int i = 0; i < tasks.size(); i++) {
                     currentTask = tasks.remove(i);
@@ -68,7 +69,7 @@ public class OrderNettingTaskManager {
             }
         }
 
-        private void handleTaskResult(NettingTask task, NettingTaskResult result) {
+        private void handleTaskResult(NettingTask task, TaskResult result) {
             
             
         }

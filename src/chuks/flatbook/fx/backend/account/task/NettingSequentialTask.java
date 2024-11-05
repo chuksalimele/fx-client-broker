@@ -4,12 +4,10 @@
  */
 package chuks.flatbook.fx.backend.account.task;
 
+import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
-import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -34,13 +32,13 @@ abstract class NettingSequentialTask extends NettingTask {
         this.tasks = tasks;
     }
 
-    abstract protected CompletableFuture<NettingTaskResult> finallyRun();
+    abstract protected CompletableFuture<TaskResult> finallyRun();
 
     @Override
-    public CompletableFuture<NettingTaskResult> run() {
+    public CompletableFuture<TaskResult> run() {
 
-        CompletableFuture<NettingTaskResult> future = null;
-        NettingTaskResult result;
+        CompletableFuture<TaskResult> future = null;
+        TaskResult result;
         try {
             for (NettingTask task : tasks) {
 
@@ -56,7 +54,7 @@ abstract class NettingSequentialTask extends NettingTask {
             if (future == null) {
                 future = new CompletableFuture();
             }
-            future.complete(new NettingTaskResult(false, "An error occurred while processing task"));
+            future.complete(new TaskResult(false, "An error occurred while processing task"));
             return future;
         }
 

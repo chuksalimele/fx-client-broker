@@ -4,6 +4,7 @@
  */
 package chuks.flatbook.fx.backend.account.task;
 
+import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.common.account.order.Position;
 import java.util.concurrent.CompletableFuture;
@@ -15,7 +16,7 @@ import chuks.flatbook.fx.common.account.order.UnfilledOrder;
  * @author user
  */
 abstract public class NettingTask implements BrokerFixOrderListener{
-    protected CompletableFuture<NettingTaskResult> future = new CompletableFuture();
+    protected CompletableFuture<TaskResult> future = new CompletableFuture();
     protected final OrderNettingAccount account;
     protected final String identifier;
     
@@ -52,5 +53,5 @@ abstract public class NettingTask implements BrokerFixOrderListener{
     
     
             
-    protected abstract CompletableFuture<NettingTaskResult> run();
+    protected abstract CompletableFuture<TaskResult> run();
 }

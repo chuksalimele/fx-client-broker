@@ -4,6 +4,7 @@
  */
 package chuks.flatbook.fx.backend.account.task;
 
+import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.sql.SQLException;
@@ -12,6 +13,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
+import quickfix.SessionNotFound;
+import util.FixUtil;
 
 /**
  *
@@ -24,7 +27,7 @@ public class NettingModifyOrderTask extends NettingTask {
     private double stoploss;
     private double takeProfit;
     private double oldStoploss;
-    private double oldTakeProfit;    
+    private double oldTakeProfit;
 
     public NettingModifyOrderTask(OrderNettingAccount account, String identifier, ManagedOrder order, double stoploss, double takeProfit) {
         super(account, identifier);
@@ -33,82 +36,80 @@ public class NettingModifyOrderTask extends NettingTask {
         oldTakeProfit = order.getTakeProfitPrice();
         this.stoploss = stoploss;
         this.takeProfit = takeProfit;
-        
+
     }
 
     @Override
     public void onNewOrder(String clOrdID) {
-        future.complete(new NettingTaskResult(true, "New market order :  "+clOrdID));
+        future.complete(new TaskResult(true, "New market order :  " + clOrdID));
+    }
+
+    @Override
+    public void onCancelledOrder(String clOrdID) {
+
+    }
+
+    @Override
+    public void onOrderCancelRequestRejected(String clOrdID, String reason) {
+
     }
 
     @Override
     public void onExecutedOrder(String clOrdID, double price) {
-        
+
     }
 
     @Override
     public void onRejectedOrder(String clOrdID, String errMsg) {
-        future.complete(new NettingTaskResult(false, "Rejected market order :  "+clOrdID));
+        future.complete(new TaskResult(false, "Rejected market order :  " + clOrdID));
     }
 
     @Override
-    protected CompletableFuture<NettingTaskResult> run() {
+    protected CompletableFuture<TaskResult> run() {
         try {
-            var cancelStoplosTask =
-                    new NettingCancelIfOrderExistTask(account,
-                            identifier, order,
-                            order.getStoplossOrderID());
             
-            var cancelTakeProfitTask =
-                    new NettingCancelIfOrderExistTask(account,
-                            identifier, order,
-                            order.getTakeProfitOrderID());
-            
-            var modifyStoplosTask =
-                    new NettingStopLossTask(account,
-                            identifier, order, stoploss);
-            
-            var modifyTakeProfitTask =
-                    new NettingTakeProfitTask(account,
-                            identifier, order, takeProfit);
-            
-            future = cancelStoplosTask.run();
-            
-            if(!future.get().isSuccess()){
+            //cancel existing stoploss
+            String stoplossID = order.getStoplossOrderID();
+            if (stoplossID != null) {
+                future = FixUtil.sendCancelRequest(account, order, stoplossID);
+                if (!future.get().isSuccess()) {
+                    return future;
+                }
+            }
+
+            //internally modify stoploss
+            order.modifyStoploss(identifier, stoploss);
+                       
+            //send stoloss order to modify the stoploss
+            future = FixUtil.sendStoplossOrderRequest(account, order);
+            if (!future.get().isSuccess()) {
+                order.undoLastStoplossModify();// undo internal modification               
                 return future;
             }
-            
-            future = modifyStoplosTask.run();
-                        
-            if(!future.get().isSuccess()){
-                order.undoLastStoplossModify();
-                //TODO resotre cancelled stoploss task goes here
+
+            //cancel existing take profit
+            String takeProfifID = order.getTakeProfitOrderID();
+            if (takeProfifID != null) {
+                future = FixUtil.sendCancelRequest(account, order, takeProfifID);
+                if (!future.get().isSuccess()) {
+                    return future;
+                }
+            }
+
+            //internally modify take profit
+            order.modifyTakeProfit(identifier, stoploss);
+                      
+            //send take profit order to modify the stoploss
+            future = FixUtil.sendTakeProfitOrderRequest(account, order);
+            if (!future.get().isSuccess()) {
+                order.undoLastTakeProfitModify();//undo internal modification
                 return future;
             }
-            
-            future = cancelTakeProfitTask.run();
-            
-            if(!future.get().isSuccess()){
-                return future;
-            }
-            
-            future = modifyTakeProfitTask.run();
-            
-            if(!future.get().isSuccess()){
-                order.undoLastTakeProfitModify();
-                //resotre cancelled take profit task 
-                //var takeProfitTask
-                //            = new NettingTakeProfitTask(account, identifier, order, oldTakeProfit);
-                
-                return future;
-            }            
-            
-            
-            
-        } catch (InterruptedException | ExecutionException ex) {
+
+        } catch (SessionNotFound | SQLException|  InterruptedException | ExecutionException ex) {
             logger.error(ex.getMessage(), ex);
         }
-                
-       return future; 
+
+        return future;
     }
 }

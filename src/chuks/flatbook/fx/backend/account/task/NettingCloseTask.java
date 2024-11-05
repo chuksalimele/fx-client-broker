@@ -4,24 +4,16 @@
  */
 package chuks.flatbook.fx.backend.account.task;
 
+import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.backend.config.LogMarker;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.sql.SQLException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
-import quickfix.Session;
 import quickfix.SessionNotFound;
-import quickfix.field.ClOrdID;
-import quickfix.field.OrdType;
-import quickfix.field.OrderQty;
-import quickfix.field.Side;
-import quickfix.field.Symbol;
-import quickfix.field.TransactTime;
-import quickfix.fix44.NewOrderSingle;
+import util.FixUtil;
 
 /**
  *
@@ -41,54 +33,20 @@ public class NettingCloseTask extends NettingTask {
 
     @Override
     public void onNewOrder(String clOrdID) {
-        future.complete(new NettingTaskResult(true, "Closed order :  " + clOrdID));
+        future.complete(new TaskResult(true, "Closed order :  " + clOrdID));
     }
 
     @Override
     public void onRejectedOrder(String clOrdID, String errMsg) {
-        future.complete(new NettingTaskResult(false, "Rejected close order :  " + clOrdID));
-    }
-
-    public CompletableFuture<NettingTaskResult> sendCloseOrder() {
-
-        try {
-            //Now we can send the close order
-            // Send an order in the opposite direction
-            // of the open position to close the open postion
-            NewOrderSingle newOrder = new NewOrderSingle(
-                    new ClOrdID(order.markForCloseAndGetID(identifier)), // Unique order ID                
-                    new Side(account.opposingSide(order.getSide())), // Opposite of the original position
-                    new TransactTime(),
-                    new OrdType(OrdType.MARKET) // Market order to close the position
-            );
-
-            newOrder.set(new OrderQty(lot_size * ManagedOrder.FX_LOT_QTY)); // Quantity to close
-            newOrder.set(new Symbol(order.getSymbol()));
-            Session.sendToTarget(newOrder, account.getTradingSessionID());
-
-        } catch (SQLException | SessionNotFound ex) {
-            String errStr = "Could not close trade";
-            logger.error(errStr + " - " + ex.getMessage(), ex);
-            future.complete(new NettingTaskResult(false, errStr));
-        }
-
-        return future;
+        future.complete(new TaskResult(false, "Rejected close order :  " + clOrdID));
     }
 
     @Override
-    public CompletableFuture<NettingTaskResult> run() {
+    public CompletableFuture<TaskResult> run() {
         try {
-            var cancelStoplosTask
-                    = new NettingCancelIfOrderExistTask(account,
-                            identifier, order,
-                            order.getStoplossOrderID());
 
-            var cancelTakeProfitTask
-                    = new NettingCancelIfOrderExistTask(account,
-                            identifier, order,
-                            order.getTakeProfitOrderID());
-
-            future = cancelTakeProfitTask.run();
+            //cancel take profit order
+            future = FixUtil.sendCancelRequest(account, order, order.getTakeProfitOrderID());
 
             if (!future.get().isSuccess()) {
                 String errStr = "Could not close order";
@@ -98,7 +56,8 @@ public class NettingCloseTask extends NettingTask {
                 return future;
             }
 
-            future = cancelStoplosTask.run();
+            //cancel stoploss order
+            future = FixUtil.sendCancelRequest(account, order, order.getStoplossOrderID());
 
             if (!future.get().isSuccess()) {
                 String errStr = "Incomplete Transaction. Could not close order. Take Profit may have been cancelled";
@@ -108,7 +67,8 @@ public class NettingCloseTask extends NettingTask {
                 return future;
             }
 
-            future = sendCloseOrder();
+            //send close order
+            future = FixUtil.sendCloseOrderRequest(account, identifier, order, lot_size);
 
             if (!future.get().isSuccess()) {
                 String errStr = "Incomplete Transaction. Could not close order. Stoploss and/or Take Profit may have been cancelled";
@@ -118,7 +78,7 @@ public class NettingCloseTask extends NettingTask {
                 return future;
             }
 
-        } catch (InterruptedException | ExecutionException ex) {
+        } catch (SessionNotFound | SQLException| InterruptedException | ExecutionException ex) {
             logger.error(ex.getMessage(), ex);
             account.getOrderActionListener(order.getAccountNumber())
                         .onOrderRemoteError(identifier, order, "Could not send closed order - Something went wrong.");
