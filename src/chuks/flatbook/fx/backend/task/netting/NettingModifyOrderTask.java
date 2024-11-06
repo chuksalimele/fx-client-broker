@@ -7,6 +7,7 @@ package chuks.flatbook.fx.backend.task.netting;
 import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.backend.config.LogMarker;
+import static chuks.flatbook.fx.backend.config.LogMarker.INCOMPLETE_TRANSACTION;
 import chuks.flatbook.fx.backend.exception.OrderActionException;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import chuks.flatbook.fx.common.account.order.OrderException;
@@ -73,11 +74,11 @@ public class NettingModifyOrderTask extends NettingTask {
     public void onOrderCancelRequestRejected(String clOrdID, String reason) {
         String errMsg;
         if (clOrdID.equals(order.getStoplossOrderID())) {
-            errMsg = "Could not cancel old stoploss so as to set new stoplos - "+reason;
+            errMsg = "Could not cancel old stoploss so as to set new stoplos - " + reason;
             future.complete(new TaskResult(false, errMsg));
             logger.debug(errMsg);
         } else if (clOrdID.equals(order.getTakeProfitOrderID())) {
-            errMsg = "Could not cancel old take profit so as to set new take profit - "+reason;
+            errMsg = "Could not cancel old take profit so as to set new take profit - " + reason;
             future.complete(new TaskResult(false, errMsg));
             logger.debug(errMsg);
         }
@@ -92,11 +93,11 @@ public class NettingModifyOrderTask extends NettingTask {
     public void onRejectedOrder(String clOrdID, String errMsg) {
         String err_msg;
         if (clOrdID.equals(order.getStoplossOrderID())) {
-            err_msg = "Could not create new stoplos order - "+errMsg;
+            err_msg = "Could not create new stoplos order - " + errMsg;
             future.complete(new TaskResult(false, err_msg));
             logger.debug(err_msg);
         } else if (clOrdID.equals(order.getTakeProfitOrderID())) {
-            err_msg = "Could not create new take profit order - "+errMsg;
+            err_msg = "Could not create new take profit order - " + errMsg;
             future.complete(new TaskResult(false, err_msg));
             logger.debug(err_msg);
         }
@@ -104,22 +105,18 @@ public class NettingModifyOrderTask extends NettingTask {
 
     @Override
     protected CompletableFuture<TaskResult> run() {
-        int TOTAL_STAGES = 4;
-        int progress_stage = 0;
+        TaskResult taskResult;
+        boolean is_incomplete_trans = false;
         try {
-            TaskResult taskResult;
             //cancel existing stoploss
             String stoplossID = order.getStoplossOrderID();
             if (stoplossID != null) {
                 future = FixUtil.sendCancelRequest(account, order, stoplossID);
                 taskResult = future.get();
                 if (!taskResult.isSuccess()) {
-                    String errStr = "Could not cancel old stoploss to set new stoploss";
-                    throw new OrderActionException(errStr);
+                    throw new OrderActionException(taskResult.getResult());
                 }
             }
-
-            progress_stage++;
 
             //internally modify stoploss
             order.modifyStoploss(identifier, stoploss);
@@ -129,11 +126,9 @@ public class NettingModifyOrderTask extends NettingTask {
             taskResult = future.get();
             if (!taskResult.isSuccess()) {
                 order.undoLastStoplossModify();// undo internal modification               
-                String errStr = "Incomplete Transaction. could not set new stoplosss after canelling old stoploss.";
-                throw new OrderActionException(errStr);
+                is_incomplete_trans = true;
+                throw new OrderActionException(taskResult.getResult());
             }
-
-            progress_stage++;
 
             //cancel existing take profit
             String takeProfifID = order.getTakeProfitOrderID();
@@ -141,12 +136,10 @@ public class NettingModifyOrderTask extends NettingTask {
                 future = FixUtil.sendCancelRequest(account, order, takeProfifID);
                 taskResult = future.get();
                 if (!taskResult.isSuccess()) {
-                    String errStr = "Incomplete Transaction. Could not cancel old target to set new target";
-                    throw new OrderActionException(errStr);
+                    is_incomplete_trans = true;
+                    throw new OrderActionException(taskResult.getResult());
                 }
             }
-
-            progress_stage++;
 
             //internally modify take profit
             order.modifyTakeProfit(identifier, stoploss);
@@ -156,32 +149,27 @@ public class NettingModifyOrderTask extends NettingTask {
             taskResult = future.get();
             if (!taskResult.isSuccess()) {
                 order.undoLastTakeProfitModify();//undo internal modification
-                String errStr = "Incomplete Transaction. could not set new take profit after canelling old take profit.";
-                throw new OrderActionException(errStr);
+                is_incomplete_trans = true;
+                throw new OrderActionException(taskResult.getResult());
             }
 
-            progress_stage++;
 
         } catch (OrderActionException | SessionNotFound | SQLException | InterruptedException | ExecutionException ex) {
 
-            String errStr = ex instanceof OrderActionException
-                    ? ex.getMessage()
-                    : "An error occured - Could not modify";
-
-            if (progress_stage == 0) {
-                //NOTE: Being the first error it will not be marked 
-                //as INCOMPLETE TRANSACTION                
-                logger.debug(ex.getMessage());
-                logger.error(errStr);
-                account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, errStr);
-                logger.error(ex.getMessage(), ex);
+            String prefix = "";
+            if (is_incomplete_trans) {
+                prefix = "Incomplete transaction";
+                logger.error(INCOMPLETE_TRANSACTION, ex.getMessage());
             } else {
-                logger.debug(ex.getMessage());
-                logger.error(LogMarker.INCOMPLETE_TRANSACTION, errStr);
-                account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, errStr);
                 logger.error(ex.getMessage(), ex);
+            }
+
+            if (ex instanceof OrderActionException) {
+                account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, prefix + " - " + ex.getMessage());
+            } else {
+                account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, prefix + " - " + "Something went wrong when creating market order");
             }
 
         }

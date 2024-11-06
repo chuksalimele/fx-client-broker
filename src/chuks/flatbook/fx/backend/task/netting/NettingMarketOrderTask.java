@@ -76,7 +76,7 @@ public class NettingMarketOrderTask extends NettingTask {
     @Override
     protected CompletableFuture<TaskResult> run() {
         TaskResult taskResult;
-        boolean is_set_sl_tp = false;
+        boolean is_incomplete_trans = false;
         try {
             future = FixUtil.sendMarketOrderRequest(account, order);
             account.storeSentMarketOrder(order);
@@ -89,8 +89,8 @@ public class NettingMarketOrderTask extends NettingTask {
                     future = FixUtil.sendStoplossOrderRequest(account, order);
                     taskResult = future.get();
                     if (!taskResult.isSuccess()) {
-                        String errStr = "Could not set stoploss on market order - " + taskResult.getResult();
-                        throw new OrderActionException(errStr);
+                        is_incomplete_trans = true;
+                        throw new OrderActionException(taskResult.getResult());
                     }
                 }
 
@@ -98,13 +98,11 @@ public class NettingMarketOrderTask extends NettingTask {
                     future = FixUtil.sendTakeProfitOrderRequest(account, order);
                     taskResult = future.get();
                     if (!taskResult.isSuccess()) {
-                        String errStr = "Could not set target on market order - " + taskResult.getResult();
-                        throw new OrderActionException(errStr);
+                        is_incomplete_trans = true;
+                        throw new OrderActionException(taskResult.getResult());
                     }
 
                 }
-
-                is_set_sl_tp = true;
 
             } else {
                 throw new OrderActionException(taskResult.getResult());
@@ -112,7 +110,7 @@ public class NettingMarketOrderTask extends NettingTask {
         } catch (OrderActionException | SessionNotFound | SQLException | InterruptedException | ExecutionException ex) {
 
             String prefix = "";
-            if (!is_set_sl_tp) {
+            if (is_incomplete_trans) {
                 prefix = "Incomplete transaction";
                 logger.error(INCOMPLETE_TRANSACTION, ex.getMessage());
             } else {

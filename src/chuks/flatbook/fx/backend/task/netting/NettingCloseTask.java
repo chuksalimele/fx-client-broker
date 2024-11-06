@@ -7,6 +7,8 @@ package chuks.flatbook.fx.backend.task.netting;
 import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.backend.config.LogMarker;
+import static chuks.flatbook.fx.backend.config.LogMarker.INCOMPLETE_TRANSACTION;
+import chuks.flatbook.fx.backend.exception.OrderActionException;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.sql.SQLException;
 import java.util.concurrent.CompletableFuture;
@@ -37,7 +39,7 @@ public class NettingCloseTask extends NettingTask {
             String errMsg = "Created close order";
             future.complete(new TaskResult(true, errMsg));
             logger.debug(errMsg + " - " + clOrdID);
-        } 
+        }
     }
 
     @Override
@@ -76,45 +78,53 @@ public class NettingCloseTask extends NettingTask {
 
     @Override
     public CompletableFuture<TaskResult> run() {
+        TaskResult taskResult;
+        boolean is_incomplete_trans = false;
         try {
 
             //cancel take profit order
             future = FixUtil.sendCancelRequest(account, order, order.getTakeProfitOrderID());
 
-            if (!future.get().isSuccess()) {
-                String errStr = "Could not close order";
-                logger.error(errStr);
-                account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, errStr);
-                return future;
+            taskResult = future.get();
+            if (!taskResult.isSuccess()) {
+                throw new OrderActionException(taskResult.getResult());
             }
 
             //cancel stoploss order
             future = FixUtil.sendCancelRequest(account, order, order.getStoplossOrderID());
 
-            if (!future.get().isSuccess()) {
-                String errStr = "Incomplete Transaction. Could not close order. Take Profit may have been cancelled";
-                logger.error(LogMarker.INCOMPLETE_TRANSACTION, errStr);
-                account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, errStr);
-                return future;
+            taskResult = future.get();
+            if (!taskResult.isSuccess()) {
+                is_incomplete_trans = true;
+                throw new OrderActionException(taskResult.getResult());
             }
 
             //send close order
             future = FixUtil.sendCloseOrderRequest(account, identifier, order, lot_size);
 
-            if (!future.get().isSuccess()) {
-                String errStr = "Incomplete Transaction. Could not close order. Stoploss and/or Take Profit may have been cancelled";
-                logger.error(LogMarker.INCOMPLETE_TRANSACTION, errStr);
-                account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, errStr);
-                return future;
+            taskResult = future.get();
+            if (!taskResult.isSuccess()) {
+                is_incomplete_trans = true;
+                throw new OrderActionException(taskResult.getResult());
             }
 
-        } catch (SessionNotFound | SQLException | InterruptedException | ExecutionException ex) {
-            logger.error(ex.getMessage(), ex);
-            account.getOrderActionListener(order.getAccountNumber())
-                    .onOrderRemoteError(identifier, order, "Could not send closed order - Something went wrong.");
+        } catch (OrderActionException | SessionNotFound | SQLException | InterruptedException | ExecutionException ex) {
+
+            String prefix = "";
+            if (is_incomplete_trans) {
+                prefix = "Incomplete transaction";
+                logger.error(INCOMPLETE_TRANSACTION, ex.getMessage());
+            } else {
+                logger.error(ex.getMessage(), ex);
+            }
+
+            if (ex instanceof OrderActionException) {
+                account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, prefix + " - " + ex.getMessage());
+            } else {
+                account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, prefix + " - " + "Something went wrong when creating market order");
+            }
         }
 
         return future;
