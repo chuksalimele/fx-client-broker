@@ -33,22 +33,45 @@ public class NettingCloseTask extends NettingTask {
 
     @Override
     public void onNewOrder(String clOrdID) {
-        future.complete(new TaskResult(true, "Closed order :  " + clOrdID));
+        if (clOrdID.equals(order.getCloseOrderID())) {
+            String errMsg = "Created close order";
+            future.complete(new TaskResult(true, errMsg));
+            logger.debug(errMsg + " - " + clOrdID);
+        } 
     }
 
     @Override
     public void onCancelledOrder(String clOrdID) {
-        future.complete(new TaskResult(true, "Successfully cancelled order :  " + clOrdID));
+        if (clOrdID.equals(order.getStoplossOrderID())) {
+            String errMsg = "Cancelled stoploss order";
+            future.complete(new TaskResult(true, errMsg));
+            logger.debug(errMsg + " - " + clOrdID);
+        } else if (clOrdID.equals(order.getTakeProfitOrderID())) {
+            String errMsg = "Cancelled take profit order";
+            future.complete(new TaskResult(true, errMsg));
+            logger.debug(errMsg + " - " + clOrdID);
+        }
     }
 
     @Override
     public void onOrderCancelRequestRejected(String clOrdID, String reason) {
-        future.complete(new TaskResult(false, "Could not cancel order :  " + clOrdID));
+        if (clOrdID.equals(order.getStoplossOrderID())) {
+            String errMsg = "Could not cancel stoploss order - " + reason;
+            future.complete(new TaskResult(false, errMsg));
+            logger.debug(errMsg + " - " + clOrdID);
+        } else if (clOrdID.equals(order.getTakeProfitOrderID())) {
+            String errMsg = "Could not cancel take profit order - " + reason;
+            future.complete(new TaskResult(false, errMsg));
+            logger.debug(errMsg + " - " + clOrdID);
+        }
     }
 
     @Override
     public void onRejectedOrder(String clOrdID, String errMsg) {
-        future.complete(new TaskResult(false, "Rejected close order :  " + clOrdID));
+        if (clOrdID.equals(order.getCloseOrderID())) {
+            future.complete(new TaskResult(false, "Rejected close order - " + errMsg));
+            logger.debug(errMsg + " - " + clOrdID);
+        }
     }
 
     @Override
@@ -62,7 +85,7 @@ public class NettingCloseTask extends NettingTask {
                 String errStr = "Could not close order";
                 logger.error(errStr);
                 account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, errStr);                
+                        .onOrderRemoteError(identifier, order, errStr);
                 return future;
             }
 
@@ -73,7 +96,7 @@ public class NettingCloseTask extends NettingTask {
                 String errStr = "Incomplete Transaction. Could not close order. Take Profit may have been cancelled";
                 logger.error(LogMarker.INCOMPLETE_TRANSACTION, errStr);
                 account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, errStr);                
+                        .onOrderRemoteError(identifier, order, errStr);
                 return future;
             }
 
@@ -88,10 +111,10 @@ public class NettingCloseTask extends NettingTask {
                 return future;
             }
 
-        } catch (SessionNotFound | SQLException| InterruptedException | ExecutionException ex) {
+        } catch (SessionNotFound | SQLException | InterruptedException | ExecutionException ex) {
             logger.error(ex.getMessage(), ex);
             account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, "Could not send closed order - Something went wrong.");
+                    .onOrderRemoteError(identifier, order, "Could not send closed order - Something went wrong.");
         }
 
         return future;

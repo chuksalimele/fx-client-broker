@@ -7,6 +7,8 @@ package chuks.flatbook.fx.backend.task.netting;
 import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.backend.config.LogMarker;
+import static chuks.flatbook.fx.backend.config.LogMarker.INCOMPLETE_TRANSACTION;
+import chuks.flatbook.fx.backend.exception.OrderActionException;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.sql.SQLException;
 import java.util.concurrent.CompletableFuture;
@@ -31,7 +33,21 @@ public class NettingMarketOrderTask extends NettingTask {
 
     @Override
     public void onNewOrder(String clOrdID) {
-        future.complete(new TaskResult(true, "New market order :  " + clOrdID));
+        String msg;
+        if (clOrdID.equals(order.getOrderID())) {
+            msg = "New market order";
+            future.complete(new TaskResult(true, msg));
+            logger.debug(msg);
+        } else if (clOrdID.equals(order.getStoplossOrderID())) {
+            msg = "New stoploss order for open order";
+            future.complete(new TaskResult(true, msg));
+            logger.debug(msg);
+        } else if (clOrdID.equals(order.getTakeProfitOrderID())) {
+            msg = "New take profit order for open order";
+            future.complete(new TaskResult(true, msg));
+            logger.debug(msg);
+        }
+
     }
 
     @Override
@@ -41,51 +57,76 @@ public class NettingMarketOrderTask extends NettingTask {
 
     @Override
     public void onRejectedOrder(String clOrdID, String errMsg) {
-        future.complete(new TaskResult(false, "Rejected market order :  " + clOrdID));
+        String result;
+        if (clOrdID.equals(order.getOrderID())) {
+            result = "Rejected market order - " + errMsg;
+            future.complete(new TaskResult(false, result));
+            logger.debug(result);
+        } else if (clOrdID.equals(order.getStoplossOrderID())) {
+            result = "Rejected stoploss order for open order - " + errMsg;
+            future.complete(new TaskResult(false, result));
+            logger.debug(result);
+        } else if (clOrdID.equals(order.getTakeProfitOrderID())) {
+            result = "Rejected take profit order for open order - " + errMsg;
+            future.complete(new TaskResult(false, result));
+            logger.debug(result);
+        }
     }
 
     @Override
     protected CompletableFuture<TaskResult> run() {
-
+        TaskResult taskResult;
+        boolean is_set_sl_tp = false;
         try {
             future = FixUtil.sendMarketOrderRequest(account, order);
             account.storeSentMarketOrder(order);
-            
-            TaskResult result = future.get();
-            if (result.isSuccess()) {
+
+            taskResult = future.get();
+            if (taskResult.isSuccess()) {
 
                 if (order.getStoplossPrice() > 0) {
                     //set stoploss
                     future = FixUtil.sendStoplossOrderRequest(account, order);
-                    if (!future.get().isSuccess()) {
-                        String errStr = "Incomplete Transaction. could not set stoploss on market order.";
-                        logger.error(LogMarker.INCOMPLETE_TRANSACTION, errStr);
-                        account.getOrderActionListener(order.getAccountNumber())
-                                .onOrderRemoteError(identifier, order, errStr);
-                        return future;
+                    taskResult = future.get();
+                    if (!taskResult.isSuccess()) {
+                        String errStr = "Could not set stoploss on market order - " + taskResult.getResult();
+                        throw new OrderActionException(errStr);
                     }
                 }
 
                 if (order.getTakeProfitPrice() > 0) {
                     future = FixUtil.sendTakeProfitOrderRequest(account, order);
-                    if (!future.get().isSuccess()) {
-                        String errStr = "Incomplete Transaction. could not set target on market order.";
-                        logger.error(LogMarker.INCOMPLETE_TRANSACTION, errStr);
-                        account.getOrderActionListener(order.getAccountNumber())
-                                .onOrderRemoteError(identifier, order, errStr);
-                        return future;
+                    taskResult = future.get();
+                    if (!taskResult.isSuccess()) {
+                        String errStr = "Could not set target on market order - " + taskResult.getResult();
+                        throw new OrderActionException(errStr);
                     }
+
                 }
 
+                is_set_sl_tp = true;
+
+            } else {
+                throw new OrderActionException(taskResult.getResult());
+            }
+        } catch (OrderActionException | SessionNotFound | SQLException | InterruptedException | ExecutionException ex) {
+
+            String prefix = "";
+            if (!is_set_sl_tp) {
+                prefix = "Incomplete transaction";
+                logger.error(INCOMPLETE_TRANSACTION, ex.getMessage());
+            } else {
+                logger.error(ex.getMessage(), ex);
+            }
+
+            if (ex instanceof OrderActionException) {
+                account.getOrderActionListener(order.getAccountNumber())
+                        .onOrderRemoteError(identifier, order, prefix + " - " + ex.getMessage());
             } else {
                 account.getOrderActionListener(order.getAccountNumber())
-                        .onOrderRemoteError(identifier, order, result.getResult());
-                return future;
+                        .onOrderRemoteError(identifier, order, prefix + " - " + "Something went wrong when creating market order");
             }
-        } catch (SessionNotFound | SQLException | InterruptedException | ExecutionException ex) {
-            logger.error(ex.getMessage(), ex);
-            account.getOrderActionListener(order.getAccountNumber())
-                    .onOrderRemoteError(identifier, order, "Could not send market order - Something went wrong.");
+
         }
 
         return future;
