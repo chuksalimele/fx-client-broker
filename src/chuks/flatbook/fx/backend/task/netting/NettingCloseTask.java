@@ -83,20 +83,28 @@ public class NettingCloseTask extends NettingTask {
         try {
 
             //cancel take profit order
-            future = FixUtil.sendCancelRequest(account, order, order.getTakeProfitOrderID());
+            String takeProfitID = order.getTakeProfitOrderID();
+            if (takeProfitID != null) {
+                future = FixUtil.sendCancelRequest(account, order, takeProfitID);
 
-            taskResult = future.get();
-            if (!taskResult.isSuccess()) {
-                throw new OrderActionException(taskResult.getResult());
+                taskResult = future.get();
+                if (!taskResult.isSuccess()) {
+                    throw new OrderActionException(taskResult.getResult());
+                }
             }
 
             //cancel stoploss order
-            future = FixUtil.sendCancelRequest(account, order, order.getStoplossOrderID());
+            String stoplossID = order.getStoplossOrderID();
+            if (stoplossID != null) {
+                future = FixUtil.sendCancelRequest(account, order, stoplossID);
 
-            taskResult = future.get();
-            if (!taskResult.isSuccess()) {
-                is_incomplete_trans = true;
-                throw new OrderActionException(taskResult.getResult());
+                taskResult = future.get();
+                if (!taskResult.isSuccess()) {
+                    if (takeProfitID != null) {//Yes, remember if cancelled target first
+                        is_incomplete_trans = true;
+                    }
+                    throw new OrderActionException(taskResult.getResult());
+                }
             }
 
             //send close order
@@ -104,7 +112,9 @@ public class NettingCloseTask extends NettingTask {
 
             taskResult = future.get();
             if (!taskResult.isSuccess()) {
-                is_incomplete_trans = true;
+                if (stoplossID != null || takeProfitID != null) {
+                    is_incomplete_trans = true;
+                }
                 throw new OrderActionException(taskResult.getResult());
             }
 

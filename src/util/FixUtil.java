@@ -40,6 +40,9 @@ import quickfix.fix44.RequestForPositions;
 public class FixUtil {
 
     public static CompletableFuture<TaskResult> sendMarketOrderRequest(Broker account, ManagedOrder order) throws SessionNotFound, SQLException {
+        if (order.getOrderID() == null) {
+            return null;
+        }
         quickfix.fix44.NewOrderSingle newOrder = new quickfix.fix44.NewOrderSingle(
                 new ClOrdID(order.getOrderID()),
                 new Side(order.getSide()),
@@ -55,6 +58,9 @@ public class FixUtil {
     }
 
     public static CompletableFuture<TaskResult> sendTakeProfitOrderRequest(Broker account, ManagedOrder order) throws SessionNotFound, SQLException {
+        if (order.getTakeProfitOrderID() == null) {
+            return null;
+        }
         quickfix.fix44.NewOrderSingle targetOrder = new quickfix.fix44.NewOrderSingle(
                 new ClOrdID(order.getTakeProfitOrderID()),
                 new Side(account.opposingSide(order.getSide())),
@@ -73,6 +79,9 @@ public class FixUtil {
     }
 
     public static CompletableFuture<TaskResult> sendStoplossOrderRequest(Broker account, ManagedOrder order) throws SessionNotFound, SQLException {
+        if (order.getStoplossOrderID() == null) {
+            return null;
+        }
         quickfix.fix44.NewOrderSingle stopOrder = new quickfix.fix44.NewOrderSingle(
                 new ClOrdID(order.getStoplossOrderID()),
                 new Side(account.opposingSide(order.getSide())),
@@ -104,6 +113,9 @@ public class FixUtil {
     }
 
     public static CompletableFuture<TaskResult> sendCancelRequest(Broker account, ManagedOrder order, String orderID) throws SessionNotFound {
+        if (orderID == null) {
+            return null;
+        }
         OrderCancelRequest cancelRequest = new OrderCancelRequest(
                 new OrigClOrdID(orderID),
                 new ClOrdID("cancel-order-" + System.currentTimeMillis()),
@@ -117,7 +129,7 @@ public class FixUtil {
         return new CompletableFuture();
     }
 
-    public static  CompletableFuture<TaskResult> sendPositionRequest(Broker account) throws ConfigError, SessionNotFound {
+    public static CompletableFuture<TaskResult> sendPositionRequest(Broker account) throws ConfigError, SessionNotFound {
         RequestForPositions request = new RequestForPositions();
         request.set(new PosReqID("open-positions-" + System.currentTimeMillis())); // Unique request ID
         request.set(new PosReqType(PosReqType.POSITIONS)); // Request type for positions
