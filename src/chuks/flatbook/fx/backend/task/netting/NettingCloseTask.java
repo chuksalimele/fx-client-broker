@@ -26,11 +26,19 @@ public class NettingCloseTask extends NettingTask {
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NettingCloseTask.class.getName());
     private final ManagedOrder order;
     private final double lot_size;
+    private final double price;
+    private final int slippage;
+    private final double upper_limit_price;
+    private final double lower_limit_price;
 
-    public NettingCloseTask(OrderNettingAccount account, String identifier, ManagedOrder order, double lot_size) {
+    public NettingCloseTask(OrderNettingAccount account, String identifier, ManagedOrder order, double lot_size, double price, int slippage) {
         super(account, identifier);
         this.order = order;
         this.lot_size = lot_size;
+        this.price = price;
+        this.slippage = slippage;
+        this.upper_limit_price = price + order.getSymbolPoint() * slippage;
+        this.lower_limit_price = price - order.getSymbolPoint() * slippage;
     }
 
     @Override

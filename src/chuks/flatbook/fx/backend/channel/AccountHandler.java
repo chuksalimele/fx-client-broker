@@ -296,7 +296,9 @@ class AccountHandler extends SharableTransportHandler {
     private void handleSendClosePosition(ChannelMessage msg) {
         String clOrderID = msg.getString(0);
         double lotSize = msg.getDouble(1);
-        brokerAccount.sendClosePosition(msg.getIdentifier(), clOrderID, lotSize);
+        double closing_price = msg.getDouble(2);
+        int slippage = msg.getInt(3);
+        brokerAccount.sendClosePosition(msg.getIdentifier(), clOrderID, lotSize, closing_price, slippage);
     }
 
     private void handlePlacePendingOrder(ChannelMessage msg) {

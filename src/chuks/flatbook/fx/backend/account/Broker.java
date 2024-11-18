@@ -1071,7 +1071,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     abstract public void deletePendingOrder(String req_identifier, String clOrdId);
 
     @Override
-    abstract public void sendClosePosition(String req_identifier, String clOrdId, double lot_size);
+    abstract public void sendClosePosition(String req_identifier, String clOrdId, double lot_size, double price, int slippage);
 
     public boolean isQuoteSessionLogon() {
         Session session = Session.lookupSession(quoteSessionID);

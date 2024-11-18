@@ -104,7 +104,7 @@ public class OrderNettingAccount extends Broker {
     }
 
     @Override
-    public void sendClosePosition(String req_identifier, String clOrdId, double lot_size) {
+    public void sendClosePosition(String req_identifier, String clOrdId, double lot_size, double price, int slippage) {
 
         ManagedOrder order = this.ordersOpen.get(clOrdId);
         if (order == null) {
@@ -137,7 +137,7 @@ public class OrderNettingAccount extends Broker {
             return;
         }
 
-        var closePositionTask = new NettingCloseTask(this, req_identifier, order, lot_size);
+        var closePositionTask = new NettingCloseTask(this, req_identifier, order, lot_size, null, null);
 
         taskHandler.addTask(closePositionTask);
 

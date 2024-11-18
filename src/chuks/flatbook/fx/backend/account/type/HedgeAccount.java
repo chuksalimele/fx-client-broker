@@ -56,7 +56,7 @@ public class HedgeAccount extends Broker{
     }
 
     @Override
-    public void sendClosePosition(String req_identifier, String clOrdId, double lot_size) {
+    public void sendClosePosition(String req_identifier, String clOrdId, double lot_size, double price, int slippage) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

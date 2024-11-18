@@ -29,7 +29,7 @@ public interface BrokerOperation {
     
     public void modifyOpenOrder(String req_identifier, String clOrdId, double target_price, double stoploss_price);
 
-    public void sendClosePosition(String req_identifier, String clOrdId, double lot_size);
+    public void sendClosePosition(String req_identifier, String clOrdId, double lot_size, double price, int slippage);
     
     public void placePendingOrder(String req_identifier, ManagedOrder order);
 
