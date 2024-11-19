@@ -117,7 +117,7 @@ public class NettingCloseTask extends NettingTask {
 
                 taskResult = future.get();
                 if (!taskResult.isSuccess()) {
-                    if (takeProfitID != null) {//Yes, remember if cancelled target first
+                    if (takeProfitID != null) {//Yes, remember we cancelled target first
                         is_incomplete_trans = true;
                     }
                     throw new OrderActionException(taskResult.getResult());
