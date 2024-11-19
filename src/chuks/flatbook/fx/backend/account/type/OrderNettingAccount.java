@@ -137,7 +137,7 @@ public class OrderNettingAccount extends Broker {
             return;
         }
 
-        var closePositionTask = new NettingCloseTask(this, req_identifier, order, lot_size, null, null);
+        var closePositionTask = new NettingCloseTask(this, req_identifier, order, lot_size, price, slippage);
 
         taskHandler.addTask(closePositionTask);
 

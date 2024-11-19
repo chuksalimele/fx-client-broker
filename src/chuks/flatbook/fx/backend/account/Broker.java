@@ -69,7 +69,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     final private Map<Integer, TraderAccountProfile> UsersMap = Collections.synchronizedMap(new LinkedHashMap());
     final private Map<Integer, AdminProfile> AdminsMap = Collections.synchronizedMap(new LinkedHashMap());
 
-    protected Map<String, SymbolInfo> fullSymbolInfoMap = Collections.synchronizedMap(new LinkedHashMap());
+    static protected Map<String, SymbolInfo> fullSymbolInfoMap = Collections.synchronizedMap(new LinkedHashMap());
 
     protected List<ManagedOrder> temOpenOrderList = Collections.synchronizedList(new LinkedList()); //temporary opend orders store when the application is closed
 
@@ -87,7 +87,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     protected List<Position> positionAtLPList = Collections.synchronizedList(new LinkedList());
     protected List<UnfilledOrder> unfilledOrderAtLPList = Collections.synchronizedList(new LinkedList());
 
-    {
+    static {
         String[] supported_symbols = {
             "EURUSD", "USDJPY", "GBPUSD", "USDCHF", "AUDUSD", "USDCAD", "NZDUSD", "EURJPY",
             "GBPJPY", "CHFJPY", "AUDJPY", "EURGBP", "EURAUD", "EURCAD", "EURNZD", "GBPAUD",
@@ -136,6 +136,24 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     public Session getQuoteSession() {
         return quoteSession;
     } 
+    
+    static public double getBid(String symbol){
+        SymbolInfo symbInfo = Broker.fullSymbolInfoMap.get(symbol);
+        if(symbInfo == null){
+            return 0;
+        }
+        
+        return symbInfo.getBid();
+    }
+    
+    static public double getAsk(String symbol){
+        SymbolInfo symbInfo = Broker.fullSymbolInfoMap.get(symbol);
+        if(symbInfo == null){
+            return 0;
+        }
+        
+        return symbInfo.getAsk();
+    }
     
     public OrderActionListener getOrderActionListener(int account_number){
         return orderActionListenersMap.getOrDefault(account_number, DO_NOTHING_OAL);
