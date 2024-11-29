@@ -5,7 +5,7 @@
 package chuks.flatbook.fx.backend.account;
 
 import chuks.flatbook.fx.backend.account.contract.Identifier;
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import chuks.flatbook.fx.common.account.order.SymbolInfo;
 import chuks.flatbook.fx.transport.message.MessageType;
@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import chuks.flatbook.fx.backend.listener.AccountListener;
-import chuks.flatbook.fx.common.account.profile.AdminProfile;
+import chuks.flatbook.fx.common.account.profile.AdminInfo;
 import chuks.flatbook.fx.common.util.OnceAccessStore;
 import chuks.flatbook.fx.common.util.log.LogLevel;
 import static chuks.flatbook.fx.common.util.log.LogLevel.DEBUG;
@@ -35,7 +35,7 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
     private ChannelHandlerContext ctx;
     Identifier idf;
     final public static int NO_ACCOUNT_NUMBER = -1;
-    int userType = -1;
+    int userType = -1;//important
     OnceAccessStore onceAccesStore = new OnceAccessStore();
 
     public Client(int account_number, int user_type, ChannelHandlerContext ctx) {
@@ -374,10 +374,10 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void onPaginatedAccountList(List<TraderAccountProfile> list, int overall_total) {
+    public void onPaginatedAccountList(List<TraderInfo> list, int overall_total) {
         String[] arr = new String[list.size()];
         int i = 0;
-        for (TraderAccountProfile profile : list) {
+        for (TraderInfo profile : list) {
             arr[i] = profile.stringify(false);
             i++;
         }
@@ -386,10 +386,10 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
                 .assign(arr, overall_total));
     }
 
-    public void onPaginatedDeactivatedAccountList(List<TraderAccountProfile> list, int overall_total) {
+    public void onPaginatedDeactivatedAccountList(List<TraderInfo> list, int overall_total) {
         String[] arr = new String[list.size()];
         int i = 0;
-        for (TraderAccountProfile profile : list) {
+        for (TraderInfo profile : list) {
             arr[i] = profile.stringify(false);
             i++;
         }
@@ -398,10 +398,10 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
                 .assign(arr, overall_total));
     }
 
-    public void onPaginatedDisabledAccountList(List<TraderAccountProfile> list, int overall_total) {
+    public void onPaginatedDisabledAccountList(List<TraderInfo> list, int overall_total) {
         String[] arr = new String[list.size()];
         int i = 0;
-        for (TraderAccountProfile profile : list) {
+        for (TraderInfo profile : list) {
             arr[i] = profile.stringify(false);
             i++;
         }
@@ -410,10 +410,10 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
                 .assign(arr, overall_total));
     }
 
-    public void onPaginatedUnapprovedAccountList(List<TraderAccountProfile> list, int overall_total) {
+    public void onPaginatedUnapprovedAccountList(List<TraderInfo> list, int overall_total) {
         String[] arr = new String[list.size()];
         int i = 0;
-        for (TraderAccountProfile profile : list) {
+        for (TraderInfo profile : list) {
             arr[i] = profile.stringify(false);
             i++;
         }
@@ -422,10 +422,10 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
                 .assign(arr, overall_total));
     }
 
-    public void onPaginatedClosedAccountList(List<TraderAccountProfile> list, int overall_total) {
+    public void onPaginatedClosedAccountList(List<TraderInfo> list, int overall_total) {
         String[] arr = new String[list.size()];
         int i = 0;
-        for (TraderAccountProfile profile : list) {
+        for (TraderInfo profile : list) {
             arr[i] = profile.stringify(false);
             i++;
         }
@@ -464,10 +464,10 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
                 .assign(reason));
     }
 
-    public void onPaginatedAdminList(List<AdminProfile> list, int overall_total) {
+    public void onPaginatedAdminList(List<AdminInfo> list, int overall_total) {
         String[] arr = new String[list.size()];
         int i = 0;
-        for (AdminProfile profile : list) {
+        for (AdminInfo profile : list) {
             arr[i] = profile.stringify(false);
             i++;
         }

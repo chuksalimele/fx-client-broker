@@ -19,7 +19,7 @@ import quickfix.*;
 import quickfix.field.*;
 import quickfix.fix44.*;
 import chuks.flatbook.fx.backend.account.contract.BrokerAccount;
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 import chuks.flatbook.fx.backend.account.persist.TraderDB;
 import chuks.flatbook.fx.backend.listener.ConnectionAdapter;
 import chuks.flatbook.fx.backend.listener.OrderActionAdapter;
@@ -33,8 +33,8 @@ import chuks.flatbook.fx.backend.listener.AccountListener;
 import chuks.flatbook.fx.common.account.order.OrderIDUtil;
 import chuks.flatbook.fx.common.account.order.Position;
 import chuks.flatbook.fx.common.account.order.UnfilledOrder;
-import chuks.flatbook.fx.common.account.profile.AdminProfile;
-import chuks.flatbook.fx.common.account.profile.BasicAccountProfile;
+import chuks.flatbook.fx.common.account.profile.AdminInfo;
+import chuks.flatbook.fx.common.account.profile.BasicInfo;
 import chuks.flatbook.fx.common.account.profile.UserType;
 import chuks.flatbook.fx.backend.listener.BrokerFixOrderListener;
 
@@ -66,8 +66,8 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Broker.class.getName());
 
-    final private Map<Integer, TraderAccountProfile> UsersMap = Collections.synchronizedMap(new LinkedHashMap());
-    final private Map<Integer, AdminProfile> AdminsMap = Collections.synchronizedMap(new LinkedHashMap());
+    final private Map<Integer, TraderInfo> UsersMap = Collections.synchronizedMap(new LinkedHashMap());
+    final private Map<Integer, AdminInfo> AdminsMap = Collections.synchronizedMap(new LinkedHashMap());
 
     static protected Map<String, SymbolInfo> fullSymbolInfoMap = Collections.synchronizedMap(new LinkedHashMap());
 
@@ -164,7 +164,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     }
 
     @Override
-    public boolean registerTrader(TraderAccountProfile account_profile) {
+    public boolean registerTrader(TraderInfo account_profile) {
         int account_number = account_profile.getAccountNumber();
         try {
             TraderDB.insertTraderRegistration(account_profile.getEmail(),
@@ -182,7 +182,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         return false;
     }
 
-    BasicAccountProfile byUserType(int account_number, UserType user_type) {
+    BasicInfo byUserType(int account_number, UserType user_type) {
         if (user_type == null) {
             logger.warn("UNKNOWN USER TYPE - THIS SHOULD NOT HAPPEN AT ALL");
             return null;
@@ -205,7 +205,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public boolean login(int account_number, byte[] hash_password, int user_type) {
-        BasicAccountProfile user = byUserType(account_number, UserType.fromValue(user_type));
+        BasicInfo user = byUserType(account_number, UserType.fromValue(user_type));
         if (user != null) {
             if (Arrays.equals(user.getPassword(), hash_password)) {
                 user.setIsLoggedIn(true);
@@ -227,7 +227,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public boolean logout(int account_number, int user_type) {
-        BasicAccountProfile user = byUserType(account_number, UserType.fromValue(user_type));
+        BasicInfo user = byUserType(account_number, UserType.fromValue(user_type));
 
         if (user != null) {
             user.setIsLoggedIn(false);

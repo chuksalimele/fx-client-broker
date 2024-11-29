@@ -4,7 +4,7 @@
  */
 package chuks.flatbook.fx.backend.account.contract;
 
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 
 /**
  *
@@ -12,7 +12,7 @@ import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
  */
 public interface BrokerAccount extends BrokerOperation{
 
-    public boolean registerTrader(TraderAccountProfile account_profile);        
+    public boolean registerTrader(TraderInfo account_profile);        
     
     public boolean login(int account_number, byte[] password, int user_type);  
     

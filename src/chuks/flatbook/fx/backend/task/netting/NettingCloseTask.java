@@ -7,7 +7,6 @@ package chuks.flatbook.fx.backend.task.netting;
 import chuks.flatbook.fx.backend.account.Broker;
 import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
-import chuks.flatbook.fx.backend.config.LogMarker;
 import static chuks.flatbook.fx.backend.config.LogMarker.INCOMPLETE_TRANSACTION;
 import chuks.flatbook.fx.backend.exception.OrderActionException;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
@@ -91,12 +90,15 @@ public class NettingCloseTask extends NettingTask {
         boolean is_incomplete_trans = false;
         try {
 
-            double symb_price = order.getSide() == ManagedOrder.Side.BUY
-                    ? Broker.getBid(order.getSymbol())
-                    : Broker.getAsk(order.getSymbol());
             
-            if(symb_price < lower_limit_price || symb_price > upper_limit_price){
-                throw new OrderActionException("Closing price is outside slippage range");
+            if (price > 0 && slippage > 0) {
+                double symb_price = order.getSide() == ManagedOrder.Side.BUY
+                        ? Broker.getBid(order.getSymbol())
+                        : Broker.getAsk(order.getSymbol());
+
+                if (symb_price < lower_limit_price || symb_price > upper_limit_price) {
+                    throw new OrderActionException("Closing price is outside slippage range");
+                }
             }
 
             //cancel take profit order

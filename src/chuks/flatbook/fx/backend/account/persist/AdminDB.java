@@ -6,7 +6,7 @@ package chuks.flatbook.fx.backend.account.persist;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import chuks.flatbook.fx.common.account.profile.AdminProfile;
+import chuks.flatbook.fx.common.account.profile.AdminInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -174,7 +174,7 @@ public class AdminDB {
 
 
     // Query all admins
-    static public List<AdminProfile> queryAllAdmins() throws SQLException {
+    static public List<AdminInfo> queryAllAdmins() throws SQLException {
         String sql = "SELECT * FROM admins";
         return queryAdminsBySQL(sql);
     }
@@ -186,14 +186,14 @@ public class AdminDB {
         return queryAdminsBySQL(sql);
     }
 
-    static private List<AdminProfile> queryAdminsBySQL(String sql) throws SQLException {
+    static private List<AdminInfo> queryAdminsBySQL(String sql) throws SQLException {
 
-        List<AdminProfile> admins = new ArrayList<>();
+        List<AdminInfo> admins = new ArrayList<>();
 
         try (Connection conn = dataSource.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                AdminProfile admin = new AdminProfile();
+                AdminInfo admin = new AdminInfo();
                 admin.setAdminID(rs.getInt("admin_id"));
                 admin.setAdminName(rs.getString("admin_name"));
                 admin.setEmail(rs.getString("email"));
@@ -209,16 +209,16 @@ public class AdminDB {
     }
 
     // Query a admin by account number
-    static public AdminProfile queryAdminByID(int admin_id) throws SQLException {
+    static public AdminInfo queryAdminByID(int admin_id) throws SQLException {
         String sql = "SELECT * FROM admins WHERE admin_id = ?";
-        AdminProfile admin = null;
+        AdminInfo admin = null;
 
         try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, admin_id);
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                admin = new AdminProfile();
+                admin = new AdminInfo();
                 admin.setAdminID(rs.getInt("admin_id"));
                 admin.setAdminName(rs.getString("admin_name"));
                 admin.setEmail(rs.getString("email"));

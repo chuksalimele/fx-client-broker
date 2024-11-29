@@ -10,7 +10,7 @@ import ch.qos.logback.core.util.OptionHelper;
 import chuks.flatbook.fx.backend.account.contract.BrokerAccount;
 import chuks.flatbook.fx.backend.account.Client;
 import static chuks.flatbook.fx.backend.account.Client.NO_ACCOUNT_NUMBER;
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 import chuks.flatbook.fx.backend.account.persist.AdminDB;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import chuks.flatbook.fx.common.account.order.OrderException;
@@ -236,7 +236,7 @@ class AccountHandler extends SharableTransportHandler {
         String firstName = msg.getString(2);
         String lastName = msg.getString(3);
 
-        TraderAccountProfile profile = new TraderAccountProfile();
+        TraderInfo profile = new TraderInfo();
         profile.setAccountNumber(NO_ACCOUNT_NUMBER);//for now no account number
         profile.setAccountName(firstName + " " + lastName);
         profile.setEmail(email);

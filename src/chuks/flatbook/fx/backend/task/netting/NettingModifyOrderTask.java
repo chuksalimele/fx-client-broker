@@ -6,11 +6,9 @@ package chuks.flatbook.fx.backend.task.netting;
 
 import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
-import chuks.flatbook.fx.backend.config.LogMarker;
 import static chuks.flatbook.fx.backend.config.LogMarker.INCOMPLETE_TRANSACTION;
 import chuks.flatbook.fx.backend.exception.OrderActionException;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
-import chuks.flatbook.fx.common.account.order.OrderException;
 import java.sql.SQLException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;

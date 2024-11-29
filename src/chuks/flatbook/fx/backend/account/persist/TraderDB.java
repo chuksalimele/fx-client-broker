@@ -2,7 +2,7 @@ package chuks.flatbook.fx.backend.account.persist;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import chuks.flatbook.fx.common.account.profile.TraderAccountProfile;
+import chuks.flatbook.fx.common.account.profile.TraderInfo;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -276,19 +276,19 @@ public class TraderDB {
     }
 
     // Query all traders
-    static public List<TraderAccountProfile> queryAllTraders() throws SQLException {
+    static public List<TraderInfo> queryAllTraders() throws SQLException {
         String sql = "SELECT * FROM traders";
         return queryTradersBySQL(sql);
     }
 
-    static private List<TraderAccountProfile> queryTradersBySQL(String sql) throws SQLException {
+    static private List<TraderInfo> queryTradersBySQL(String sql) throws SQLException {
 
-        List<TraderAccountProfile> traders = new ArrayList<>();
+        List<TraderInfo> traders = new ArrayList<>();
 
         try (Connection conn = dataSource.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                TraderAccountProfile trader = new TraderAccountProfile();
+                TraderInfo trader = new TraderInfo();
                 trader.setAccountNumber(rs.getInt("account_number"));
                 trader.setAccountName(rs.getString("account_name"));
                 trader.setEmail(rs.getString("email"));
@@ -305,16 +305,16 @@ public class TraderDB {
     }
 
     // Query a trader by account number
-    static public TraderAccountProfile queryTraderByAccountNumber(int accountNumber) throws SQLException {
+    static public TraderInfo queryTraderByAccountNumber(int accountNumber) throws SQLException {
         String sql = "SELECT * FROM traders WHERE account_number = ?";
-        TraderAccountProfile trader = null;
+        TraderInfo trader = null;
 
         try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, accountNumber);
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                trader = new TraderAccountProfile();
+                trader = new TraderInfo();
                 trader.setAccountNumber(rs.getInt("account_number"));
                 trader.setAccountName(rs.getString("account_name"));
                 trader.setEmail(rs.getString("email"));
