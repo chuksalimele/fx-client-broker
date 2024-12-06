@@ -6,6 +6,7 @@ package util;
 
 import chuks.flatbook.fx.backend.account.Broker;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
+import chuks.flatbook.fx.backend.custom.message.AccountInfoRequest;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.sql.SQLException;
 import java.util.concurrent.CompletableFuture;
@@ -18,6 +19,8 @@ import quickfix.field.Account;
 import quickfix.field.AccountType;
 import quickfix.field.ClOrdID;
 import quickfix.field.ClearingBusinessDate;
+import quickfix.field.MassStatusReqID;
+import quickfix.field.MassStatusReqType;
 import quickfix.field.OrdType;
 import quickfix.field.OrderQty;
 import quickfix.field.OrigClOrdID;
@@ -31,6 +34,7 @@ import quickfix.field.TimeInForce;
 import quickfix.field.TransactTime;
 import quickfix.fix44.NewOrderSingle;
 import quickfix.fix44.OrderCancelRequest;
+import quickfix.fix44.OrderMassStatusRequest;
 import quickfix.fix44.RequestForPositions;
 
 /**
@@ -138,6 +142,32 @@ public class FixUtil {
         request.set(new AccountType(AccountType.ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS));
         request.set(new ClearingBusinessDate());
         request.set(new TransactTime());
+
+        Session.sendToTarget(request, account.getTradingSessionID());
+        return new CompletableFuture();
+    }
+
+    public static CompletableFuture<TaskResult> sendAccountInfoRequest(Broker account) throws ConfigError, SessionNotFound {
+
+        AccountInfoRequest request = new AccountInfoRequest();
+
+        request.setAccountInfoReqID("account_info_req_id" + System.currentTimeMillis());
+        request.setAccount(Broker.getSettings().getString("Account"));
+
+        Session.sendToTarget(request, account.getTradingSessionID());
+
+        Session.sendToTarget(request, account.getTradingSessionID());
+        return new CompletableFuture();
+    }
+
+    public static CompletableFuture<TaskResult> sendActiveOrdersRequest(Broker account) throws ConfigError, SessionNotFound {
+
+        OrderMassStatusRequest request = new OrderMassStatusRequest();
+        request.set(new MassStatusReqID("active-orders-" + System.currentTimeMillis()));
+        request.set(new MassStatusReqType(6));
+        request.set(new Account(Broker.getSettings().getString("Account"))); //The account for which positions are requested
+
+        Session.sendToTarget(request, account.getTradingSessionID());
 
         Session.sendToTarget(request, account.getTradingSessionID());
         return new CompletableFuture();

@@ -18,10 +18,4 @@ public interface BrokerAccount extends BrokerOperation{
     
     public boolean logout(int account_number, int user_type);  
 
-    public void sendAccountInfoRequest();
-    
-    public void sendRequestCurrentOpenPositions();
-    
-    public void sendRequestActiveOrders();
-
 }

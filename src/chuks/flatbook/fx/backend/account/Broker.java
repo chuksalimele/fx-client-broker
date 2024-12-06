@@ -9,7 +9,6 @@ import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import chuks.flatbook.fx.backend.config.Config;
 import static chuks.flatbook.fx.common.account.order.ManagedOrder.FX_LOT_QTY;
 import chuks.flatbook.fx.common.account.persist.OrderDB;
-import chuks.flatbook.fx.backend.custom.message.AccountInfoRequest;
 import chuks.flatbook.fx.backend.custom.message.AccountInfoResponse;
 import chuks.flatbook.fx.backend.listener.ConnectionListener;
 import chuks.flatbook.fx.backend.listener.OrderActionListener;
@@ -37,6 +36,10 @@ import chuks.flatbook.fx.common.account.profile.AdminInfo;
 import chuks.flatbook.fx.common.account.profile.BasicInfo;
 import chuks.flatbook.fx.common.account.profile.UserType;
 import chuks.flatbook.fx.backend.listener.BrokerFixOrderListener;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import util.FixUtil;
 
 /**
  *
@@ -98,10 +101,9 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
         // Populate the map with keys from the symbols array and null values
         for (String symbol : supported_symbols) {
-            fullSymbolInfoMap.put(symbol, null);
+            Broker.fullSymbolInfoMap.put(symbol, null);
         }
     }
-
 
     protected Broker(String settings_filename) throws ConfigError {
         initAndRun(settings_filename);
@@ -120,7 +122,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     public static SessionSettings getSettings() {
         return settings;
     }
-    
+
     public SessionID getTradingSessionID() {
         return tradingSessionID;
     }
@@ -135,30 +137,30 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     public Session getQuoteSession() {
         return quoteSession;
-    } 
-    
-    static public double getBid(String symbol){
+    }
+
+    static public double getBid(String symbol) {
         SymbolInfo symbInfo = Broker.fullSymbolInfoMap.get(symbol);
-        if(symbInfo == null){
+        if (symbInfo == null) {
             return 0;
         }
-        
+
         return symbInfo.getBid();
     }
-    
-    static public double getAsk(String symbol){
+
+    static public double getAsk(String symbol) {
         SymbolInfo symbInfo = Broker.fullSymbolInfoMap.get(symbol);
-        if(symbInfo == null){
+        if (symbInfo == null) {
             return 0;
         }
-        
+
         return symbInfo.getAsk();
     }
-    
-    public OrderActionListener getOrderActionListener(int account_number){
+
+    public OrderActionListener getOrderActionListener(int account_number) {
         return orderActionListenersMap.getOrDefault(account_number, DO_NOTHING_OAL);
     }
-    
+
     public void storeSentMarketOrder(ManagedOrder order) {
         this.sentMarketOrders.put(order.getOrderID(), order);
     }
@@ -245,7 +247,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
         symbolUpdateListenersMap
                 .getOrDefault(account_number, DO_NOTHING_SIL)
-                .onFullSymbolList(account_number, this.fullSymbolInfoMap.keySet());
+                .onFullSymbolList(account_number, Broker.fullSymbolInfoMap.keySet());
 
         orderActionListenersMap
                 .getOrDefault(account_number, DO_NOTHING_OAL)
@@ -263,7 +265,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public Set<String> getAllSymbols() {
-        return this.fullSymbolInfoMap.keySet();
+        return Broker.fullSymbolInfoMap.keySet();
     }
 
     @Override
@@ -346,19 +348,21 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
             System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
             System.exit(1);
-        } else switch (sessionId.getTargetCompID()) {
-            case Config.TRADE_SESSION_TARGET_COMP_ID -> {
-                tradingSessionID = sessionId;
-                tradingSession = Session.lookupSession(tradingSessionID);
-            }
-            case Config.PRICE_SESSION_TARGET_COMP_ID -> {
-                quoteSessionID = sessionId;
-                quoteSession = Session.lookupSession(quoteSessionID);
-            }
-            default -> {
-                System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
-                System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
-                System.exit(1);
+        } else {
+            switch (sessionId.getTargetCompID()) {
+                case Config.TRADE_SESSION_TARGET_COMP_ID -> {
+                    tradingSessionID = sessionId;
+                    tradingSession = Session.lookupSession(tradingSessionID);
+                }
+                case Config.PRICE_SESSION_TARGET_COMP_ID -> {
+                    quoteSessionID = sessionId;
+                    quoteSession = Session.lookupSession(quoteSessionID);
+                }
+                default -> {
+                    System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
+                    System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
+                    System.exit(1);
+                }
             }
         }
 
@@ -366,37 +370,42 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public void onLogon(SessionID sessionId) {
+        try {
+            // Identify trading and quoting session IDs
+            if (Config.TRADE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
+                logger.debug("Trading session logged in: " + sessionId);
+            } else if (Config.PRICE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
+                logger.debug("Quote session logged in: " + sessionId);
+            } else {
+                System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
+                System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
+                System.exit(1);
+            }
 
-        // Identify trading and quoting session IDs
-        if (Config.TRADE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
-            logger.debug("Trading session logged in: " + sessionId);
-        } else if (Config.PRICE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
-            logger.debug("Quote session logged in: " + sessionId);
-        } else {
-            System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
-            System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
+            //Send Account Info request
+            if (sessionId.equals(tradingSessionID)) {
+                FixUtil.sendActiveOrdersRequest(this).get();
+                FixUtil.sendPositionRequest(this).get();//or may be 
+            }
+
+            //Send Account Info request
+            if (sessionId.equals(tradingSessionID)) {
+                FixUtil.sendAccountInfoRequest(this).get();
+            }
+
+            // Send SecurityListRequest to query supported symbols upon logon to the quoting session
+            if (sessionId.equals(quoteSessionID)) {
+                querySupportedSymbols();
+            }
+
+            // Subscribe to market data upon logon to the quoting session
+            if (sessionId.equals(quoteSessionID)) {
+                subscribeToMarketData(Broker.fullSymbolInfoMap.keySet());
+            }
+            
+        } catch (ConfigError | SessionNotFound | InterruptedException | ExecutionException ex) {
+            Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
             System.exit(1);
-        }
-
-        //Send Account Info request
-        if (sessionId.equals(tradingSessionID)) {
-            sendRequestActiveOrders();
-            sendRequestCurrentOpenPositions();//or may be 
-        }
-
-        //Send Account Info request
-        if (sessionId.equals(tradingSessionID)) {
-            sendAccountInfoRequest();
-        }
-
-        // Send SecurityListRequest to query supported symbols upon logon to the quoting session
-        if (sessionId.equals(quoteSessionID)) {
-            querySupportedSymbols();
-        }
-
-        // Subscribe to market data upon logon to the quoting session
-        if (sessionId.equals(quoteSessionID)) {
-            subscribeToMarketData(this.fullSymbolInfoMap.keySet());
         }
     }
 
@@ -719,29 +728,28 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         }
     }
 
-    
-    
     public void onMessage(OrderCancelReject message, SessionID sessionId) throws FieldNotFound {
-        
+
         String clOrderID = message.getString(ClOrdID.FIELD);
         int intReason = message.getInt(CxlRejReason.FIELD);
         int intResponseTo = message.getInt(CxlRejResponseTo.FIELD);
-        
+
         String strReason = "";
         switch (intReason) {
-            case 0 -> strReason = "Too Late";
-            case 1 -> strReason = "Unknown Order";
-            case 2 -> strReason = "Broker Opt";
+            case 0 ->
+                strReason = "Too Late";
+            case 1 ->
+                strReason = "Unknown Order";
+            case 2 ->
+                strReason = "Broker Opt";
             default -> {
             }
         }
-        
-        
-        if(intResponseTo == 1){ // 1 means it is in response to Order Cancel Request
+
+        if (intResponseTo == 1) { // 1 means it is in response to Order Cancel Request
             onOrderCancelRequestRejected(clOrderID, strReason);
         }
     }
-
 
     String extractOriginalClOrderID(String clOrdID) {
         int dash_index = clOrdID.indexOf('-');
@@ -809,7 +817,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         positon.setTime(OrderIDUtil.getTime(clOrdID));
 
         positionAtLPList.add(positon);
-        
+
         onPositionReport(positon);
 
     }
@@ -869,10 +877,10 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
         if (cumQty == 0) {//we only want order not filled at all 
             unfilledOrderAtLPList.add(unfilleOrderAtLP);
-        }else{
+        } else {
             logger.warn("order partially or fully filled"); //come back for more detail warning message
         }
-        
+
         if (unfilledOrderAtLPList.size() == totNumReports) {
             //now we can recreate the open orders
             recreateOpenOrders();
@@ -884,8 +892,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         positionAtLPList.forEach((Position position) -> {
 
             for (UnfilledOrder unfilledOrder : unfilledOrderAtLPList) {
-                
-                
+
             }
 
         });
@@ -922,13 +929,13 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         //logger.debug("Tick Value: " + tickValue);
         String symbolName = symbol.getValue();
 
-        SymbolInfo symbolInfo = this.fullSymbolInfoMap.get(symbolName);
+        SymbolInfo symbolInfo = Broker.fullSymbolInfoMap.get(symbolName);
         if (symbolInfo == null) {
             int digits = determineSymbolDigits(symbolName);
             symbolInfo = new SymbolInfo(symbolName, digits,
                     tickValue,
                     tickSize);
-            this.fullSymbolInfoMap.put(symbolName, symbolInfo);
+            Broker.fullSymbolInfoMap.put(symbolName, symbolInfo);
             SymbolInfo symbolInfo_added = symbolInfo;
         }
         symbolInfo.setBid(bidPrice);
@@ -943,69 +950,13 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     }
 
     @Override
-    public void sendAccountInfoRequest() {
-        if (tradingSessionID == null) {
-            return;
-        }
-        String accountID = "potential@mtr.pl";
-
-        try {
-            AccountInfoRequest accRequest = new AccountInfoRequest();
-
-            accRequest.setAccountInfoReqID("account_info_req_id" + System.currentTimeMillis());
-            accRequest.setAccount(accountID);
-
-            Session.sendToTarget(accRequest, tradingSessionID);
-        } catch (SessionNotFound ex) {
-            logger.error("An error occurred", ex);
-        }
-
-    }
+    public abstract void onNewOrder(String clOrdID);
 
     @Override
-    public void sendRequestCurrentOpenPositions() {
-        try {
-            RequestForPositions request = new RequestForPositions();
-            request.set(new PosReqID("open-positions-" + System.currentTimeMillis())); // Unique request ID
-            request.set(new PosReqType(PosReqType.POSITIONS)); // Request type for positions
-            request.set(new Account(settings.getString("Account"))); //The account for which positions are requested
-            request.setField(new StringField(715, "CURRENT"));//According to LP doc : ClearingBusinessDate, Local DateTime – currently not used ‘CURRENT’ or any other text will fit the requirements
-            request.set(new AccountType(AccountType.ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS));
-            request.set(new ClearingBusinessDate());
-            request.set(new TransactTime());
-
-            Session.sendToTarget(request, tradingSessionID);
-
-        } catch (SessionNotFound | ConfigError ex) {
-            logger.error(ex.getMessage(), ex);
-        }
-
-    }
+    public abstract void onRejectedOrder(String clOrdID, String errMsg);
 
     @Override
-    public void sendRequestActiveOrders() {
-        try {
-            OrderMassStatusRequest request = new OrderMassStatusRequest();
-            request.set(new MassStatusReqID("active-orders-" + System.currentTimeMillis()));
-            request.set(new MassStatusReqType(6));
-            request.set(new Account(settings.getString("Account"))); //The account for which positions are requested
-
-            Session.sendToTarget(request, tradingSessionID);
-
-        } catch (SessionNotFound | ConfigError ex) {
-            logger.error(ex.getMessage(), ex);
-        }
-
-    }
-
-    @Override
-     public abstract void onNewOrder(String clOrdID);
-
-    @Override
-     public abstract void onRejectedOrder(String clOrdID, String errMsg);
-
-    @Override
-     public abstract void onCancelledOrder(String clOrdID);
+    public abstract void onCancelledOrder(String clOrdID);
 
     @Override
     public abstract void onOrderCancelRequestRejected(String clOrdID, String reason);
@@ -1018,9 +969,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public abstract void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders);
-    
-    
-    
+
     @Override
     public void sendMarketOrder(String req_identifier, ManagedOrder order) {
         try {
@@ -1061,16 +1010,16 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     public void cancelOrder(String clOrdId, String symbol, char side, double lot_size) throws SessionNotFound {
 
-            OrderCancelRequest cancelRequest = new OrderCancelRequest(
-                    new OrigClOrdID(clOrdId),
-                    new ClOrdID("cancel-order-" + System.currentTimeMillis()),
-                    new Side(side),
-                    new TransactTime()
-            );
+        OrderCancelRequest cancelRequest = new OrderCancelRequest(
+                new OrigClOrdID(clOrdId),
+                new ClOrdID("cancel-order-" + System.currentTimeMillis()),
+                new Side(side),
+                new TransactTime()
+        );
 
-            cancelRequest.set(new OrderQty(lot_size * FX_LOT_QTY)); // Original order quantity
-            cancelRequest.set(new Symbol(symbol));
-            Session.sendToTarget(cancelRequest, tradingSessionID);
+        cancelRequest.set(new OrderQty(lot_size * FX_LOT_QTY)); // Original order quantity
+        cancelRequest.set(new Symbol(symbol));
+        Session.sendToTarget(cancelRequest, tradingSessionID);
 
     }
 
