@@ -23,7 +23,6 @@ import chuks.flatbook.fx.common.util.log.LogLevel;
 import static chuks.flatbook.fx.common.util.log.LogLevel.DEBUG;
 import static chuks.flatbook.fx.common.util.log.LogLevel.INFO;
 import chuks.flatbook.fx.transport.message.MessageFactory;
-import java.util.UUID;
 
 /**
  *
