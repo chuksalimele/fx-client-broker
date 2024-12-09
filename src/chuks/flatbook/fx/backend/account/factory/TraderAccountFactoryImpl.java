@@ -4,7 +4,6 @@
  */
 package chuks.flatbook.fx.backend.account.factory;
 
-import chuks.flatbook.fx.backend.account.Broker;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import chuks.flatbook.fx.backend.account.type.HedgeAccount;
 import quickfix.ConfigError;

@@ -19,6 +19,6 @@ public class Main {
         BrokerAccount brokerAcc = FixFactory
                 .createOrderNettingAccount("quickfix.properties");
 
-        new AccountServer(brokerAcc, 7070).run();
+        new AccountServer(brokerAcc, 7000).run();
     }
 }

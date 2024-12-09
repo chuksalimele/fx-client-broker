@@ -1,0 +1,440 @@
+20241208-17:11:34: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-17:11:34: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-17:11:34: Configured socket addresses for session: [localhost/127.0.0.1:5001]
+20241208-17:11:35: MINA session created: local=/127.0.0.1:61421, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=localhost/127.0.0.1:5001
+20241208-17:11:37: Initiated logon request
+20241208-17:11:47: Disconnecting: Timed out waiting for logon response
+20241208-17:12:35: MINA session created: local=/127.0.0.1:61458, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=localhost/127.0.0.1:5001
+20241208-17:12:35: Initiated logon request
+20241208-17:12:46: Disconnecting: Timed out waiting for logon response
+20241208-17:13:36: MINA session created: local=/127.0.0.1:61524, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=localhost/127.0.0.1:5001
+20241208-17:13:36: Initiated logon request
+20241208-17:13:47: Disconnecting: Timed out waiting for logon response
+20241208-17:14:36: MINA session created: local=/127.0.0.1:61580, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=localhost/127.0.0.1:5001
+20241208-17:14:36: Initiated logon request
+20241208-17:14:47: Disconnecting: Timed out waiting for logon response
+20241208-17:15:37: MINA session created: local=/127.0.0.1:61610, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=localhost/127.0.0.1:5001
+20241208-17:15:37: Initiated logon request
+20241208-18:41:01: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-18:41:01: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-18:41:01: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-18:41:05: Pending connection not established after 2006 ms.
+20241208-18:41:09: Pending connection not established after 6017 ms.
+20241208-18:41:13: Pending connection not established after 10033 ms.
+20241208-18:41:17: Pending connection not established after 14078 ms.
+20241208-18:47:14: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-18:47:14: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-18:47:15: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-18:47:15: MINA session created: local=/192.168.26.58:55802, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-18:47:16: Initiated logon request
+20241208-18:47:17: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-18:47:17: Received logon
+20241208-18:48:02: Sent test request TEST
+20241208-18:48:29: Disconnecting: Timed out waiting for heartbeat
+20241208-18:48:29: MINA session created: local=/192.168.26.58:55824, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-18:48:30: Initiated logon request
+20241208-18:48:41: Disconnecting: Timed out waiting for logon response
+20241208-18:49:30: MINA session created: local=/192.168.26.58:55831, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-18:49:31: Initiated logon request
+20241208-18:49:42: Disconnecting: Timed out waiting for logon response
+20241208-18:50:34: Pending connection not established after 2003 ms.
+20241208-18:50:38: Pending connection not established after 6022 ms.
+20241208-18:50:43: Pending connection not established after 10040 ms.
+20241208-18:50:47: Pending connection not established after 14061 ms.
+20241208-18:50:51: Pending connection not established after 18075 ms.
+20241208-18:50:54: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241208-18:51:35: Pending connection not established after 2009 ms.
+20241208-18:51:39: Pending connection not established after 6019 ms.
+20241208-18:51:43: Pending connection not established after 10028 ms.
+20241208-18:51:47: Pending connection not established after 14040 ms.
+20241208-18:51:51: Pending connection not established after 18065 ms.
+20241208-18:51:54: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241208-18:52:35: Pending connection not established after 2008 ms.
+20241208-18:52:39: Pending connection not established after 6030 ms.
+20241208-18:52:43: Pending connection not established after 10047 ms.
+20241208-18:52:47: Pending connection not established after 14059 ms.
+20241208-18:52:51: Pending connection not established after 18069 ms.
+20241208-18:52:54: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241208-18:53:36: Pending connection not established after 2010 ms.
+20241208-18:53:40: Pending connection not established after 6030 ms.
+20241208-18:53:44: Pending connection not established after 10044 ms.
+20241208-18:53:48: Pending connection not established after 14061 ms.
+20241208-18:53:52: Pending connection not established after 18085 ms.
+20241208-18:53:55: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241208-19:39:39: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-19:39:39: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-19:39:40: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-19:39:40: MINA session created: local=/192.168.26.58:56108, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:39:41: Initiated logon request
+20241208-19:39:41: Disconnecting: Encountered END_OF_STREAM
+20241208-19:41:03: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-19:41:03: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-19:41:03: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-19:41:04: MINA session created: local=/192.168.26.58:56116, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:41:05: Initiated logon request
+20241208-19:41:05: Disconnecting: Encountered END_OF_STREAM
+20241208-19:42:04: MINA session created: local=/192.168.26.58:56119, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:42:04: Initiated logon request
+20241208-19:42:04: Disconnecting: Encountered END_OF_STREAM
+20241208-19:43:05: MINA session created: local=/192.168.26.58:56128, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:43:05: Initiated logon request
+20241208-19:43:05: Disconnecting: Encountered END_OF_STREAM
+20241208-19:44:05: MINA session created: local=/192.168.26.58:56135, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:44:06: Initiated logon request
+20241208-19:44:06: Disconnecting: Encountered END_OF_STREAM
+20241208-19:53:39: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-19:53:39: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-19:53:40: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-19:53:41: MINA session created: local=/192.168.26.58:56185, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:53:41: Initiated logon request
+20241208-19:53:42: Disconnecting: Encountered END_OF_STREAM
+20241208-19:54:41: MINA session created: local=/192.168.26.58:56193, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:54:41: Initiated logon request
+20241208-19:54:41: Disconnecting: Encountered END_OF_STREAM
+20241208-19:55:42: MINA session created: local=/192.168.26.58:56197, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:55:42: Initiated logon request
+20241208-19:55:43: Disconnecting: Encountered END_OF_STREAM
+20241208-19:56:42: MINA session created: local=/192.168.26.58:56203, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:56:43: Initiated logon request
+20241208-19:56:43: Disconnecting: Encountered END_OF_STREAM
+20241208-19:57:43: MINA session created: local=/192.168.26.58:56221, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:57:44: Initiated logon request
+20241208-19:57:44: Disconnecting: Encountered END_OF_STREAM
+20241208-19:58:44: MINA session created: local=/192.168.26.58:56244, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:58:44: Initiated logon request
+20241208-19:58:44: Disconnecting: Encountered END_OF_STREAM
+20241208-19:59:46: MINA session created: local=/192.168.26.58:56256, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-19:59:46: Initiated logon request
+20241208-19:59:47: Disconnecting: Encountered END_OF_STREAM
+20241208-20:00:47: MINA session created: local=/192.168.26.58:56280, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:00:48: Initiated logon request
+20241208-20:00:48: Disconnecting: Encountered END_OF_STREAM
+20241208-20:01:48: MINA session created: local=/192.168.26.58:56286, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:01:49: Initiated logon request
+20241208-20:01:50: Disconnecting: Encountered END_OF_STREAM
+20241208-20:02:48: MINA session created: local=/192.168.26.58:56297, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:02:49: Initiated logon request
+20241208-20:02:49: Disconnecting: Encountered END_OF_STREAM
+20241208-20:03:49: MINA session created: local=/192.168.26.58:56304, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:03:50: Initiated logon request
+20241208-20:03:50: Disconnecting: Encountered END_OF_STREAM
+20241208-20:04:50: MINA session created: local=/192.168.26.58:56311, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:04:50: Initiated logon request
+20241208-20:04:51: Disconnecting: Encountered END_OF_STREAM
+20241208-20:05:50: MINA session created: local=/192.168.26.58:56315, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:05:50: Initiated logon request
+20241208-20:05:50: Disconnecting: Encountered END_OF_STREAM
+20241208-20:06:51: MINA session created: local=/192.168.26.58:56323, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:06:51: Initiated logon request
+20241208-20:06:51: Disconnecting: Encountered END_OF_STREAM
+20241208-20:07:51: MINA session created: local=/192.168.26.58:56326, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:07:52: Initiated logon request
+20241208-20:07:52: Disconnecting: Encountered END_OF_STREAM
+20241208-20:08:52: MINA session created: local=/192.168.26.58:56333, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:08:53: Initiated logon request
+20241208-20:08:53: Disconnecting: Encountered END_OF_STREAM
+20241208-20:11:00: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-20:11:00: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-20:11:01: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-20:11:01: MINA session created: local=/192.168.26.58:56357, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:11:02: Initiated logon request
+20241208-20:11:02: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-20:11:02: Received logon
+20241208-20:11:48: Sent test request TEST
+20241208-20:12:15: Disconnecting: Timed out waiting for heartbeat
+20241208-20:12:15: MINA session created: local=/192.168.26.58:56361, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:12:16: Initiated logon request
+20241208-20:12:26: Disconnecting: Timed out waiting for logon response
+20241208-20:13:16: MINA session created: local=/192.168.26.58:56372, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:13:17: Initiated logon request
+20241208-20:13:28: Disconnecting: Timed out waiting for logon response
+20241208-20:14:09: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-20:14:09: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-20:14:09: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-20:14:10: MINA session created: local=/192.168.26.58:56375, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:14:11: Initiated logon request
+20241208-20:14:11: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-20:14:11: Received logon
+20241208-20:14:57: Sent test request TEST
+20241208-20:15:24: Disconnecting: Timed out waiting for heartbeat
+20241208-20:15:25: MINA session created: local=/192.168.26.58:56383, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:15:25: Initiated logon request
+20241208-20:15:35: Disconnecting: Timed out waiting for logon response
+20241208-20:16:26: MINA session created: local=/192.168.26.58:56387, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:16:26: Initiated logon request
+20241208-20:16:37: Disconnecting: Timed out waiting for logon response
+20241208-20:17:27: MINA session created: local=/192.168.26.58:56393, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:17:27: Initiated logon request
+20241208-20:17:37: Disconnecting: Timed out waiting for logon response
+20241208-20:18:18: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-20:18:18: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-20:18:19: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-20:18:19: MINA session created: local=/192.168.26.58:56395, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:18:20: Initiated logon request
+20241208-20:18:21: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-20:18:21: Received logon
+20241208-20:19:06: Sent test request TEST
+20241208-20:19:33: Disconnecting: Timed out waiting for heartbeat
+20241208-20:19:33: MINA session created: local=/192.168.26.58:56405, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-20:19:34: Initiated logon request
+20241208-20:19:45: Disconnecting: Timed out waiting for logon response
+20241208-22:06:48: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-22:06:48: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-22:06:48: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-22:06:48: MINA session created: local=/192.168.26.58:57471, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:06:49: Initiated logon request
+20241208-22:06:50: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-22:06:50: Received logon
+20241208-22:07:35: Sent test request TEST
+20241208-22:09:11: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-22:09:11: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-22:09:12: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-22:09:12: MINA session created: local=/192.168.26.58:57492, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:09:13: Initiated logon request
+20241208-22:09:13: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-22:09:13: Received logon
+20241208-22:09:59: Sent test request TEST
+20241208-22:10:26: Disconnecting: Timed out waiting for heartbeat
+20241208-22:10:26: MINA session created: local=/192.168.26.58:57504, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:10:27: Initiated logon request
+20241208-22:10:38: Disconnecting: Timed out waiting for logon response
+20241208-22:11:27: MINA session created: local=/192.168.26.58:57507, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:11:27: Initiated logon request
+20241208-22:11:38: Disconnecting: Timed out waiting for logon response
+20241208-22:29:53: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-22:29:53: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-22:29:53: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-22:29:54: MINA session created: local=/192.168.26.58:57589, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:29:54: Initiated logon request
+20241208-22:29:55: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-22:29:55: Received logon
+20241208-22:30:40: Error accessing message fields
+quickfix.FieldNotFound: Field was not found in message, field=34
+	at quickfix.FieldMap.getField(FieldMap.java:228)
+	at quickfix.FieldMap.getString(FieldMap.java:242)
+	at quickfix.FieldMap.getInt(FieldMap.java:280)
+	at quickfix.Session.persist(Session.java:2562)
+	at quickfix.Session.sendRaw(Session.java:2622)
+	at quickfix.Session.generateTestRequest(Session.java:2011)
+	at quickfix.Session.next(Session.java:1971)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:347)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+20241208-22:30:40: Sent test request TEST
+20241208-22:31:07: Disconnecting: Timed out waiting for heartbeat
+20241208-22:31:07: MINA session created: local=/192.168.26.58:57594, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:31:08: Initiated logon request
+20241208-22:31:19: Disconnecting: Timed out waiting for logon response
+20241208-22:32:08: MINA session created: local=/192.168.26.58:57603, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:32:08: Initiated logon request
+20241208-22:32:19: Disconnecting: Timed out waiting for logon response
+20241208-22:33:09: MINA session created: local=/192.168.26.58:57606, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:33:09: Initiated logon request
+20241208-22:33:20: Disconnecting: Timed out waiting for logon response
+20241208-22:34:10: MINA session created: local=/192.168.26.58:57614, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-22:34:10: Initiated logon request
+20241208-22:34:21: Disconnecting: Timed out waiting for logon response
+20241208-23:47:27: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-23:47:27: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-23:47:27: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-23:47:27: MINA session created: local=/192.168.26.58:58027, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:47:29: Initiated logon request
+20241208-23:47:29: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-23:47:29: Received logon
+20241208-23:48:25: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-23:48:25: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-23:48:26: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-23:48:26: MINA session created: local=/192.168.26.58:58040, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:48:27: Initiated logon request
+20241208-23:48:27: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-23:48:27: Received logon
+20241208-23:49:13: Sent test request TEST
+20241208-23:49:40: Disconnecting: Timed out waiting for heartbeat
+20241208-23:49:40: MINA session created: local=/192.168.26.58:58050, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:49:41: Initiated logon request
+20241208-23:49:52: Disconnecting: Timed out waiting for logon response
+20241208-23:50:41: MINA session created: local=/192.168.26.58:58058, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:50:41: Initiated logon request
+20241208-23:50:52: Disconnecting: Timed out waiting for logon response
+20241208-23:51:41: MINA session created: local=/192.168.26.58:58067, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:51:42: Initiated logon request
+20241208-23:51:53: Disconnecting: Timed out waiting for logon response
+20241208-23:52:42: MINA session created: local=/192.168.26.58:58070, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:52:43: Initiated logon request
+20241208-23:52:54: Disconnecting: Timed out waiting for logon response
+20241208-23:53:43: MINA session created: local=/192.168.26.58:58078, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:53:44: Initiated logon request
+20241208-23:53:55: Disconnecting: Timed out waiting for logon response
+20241208-23:54:44: MINA session created: local=/192.168.26.58:58084, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:54:44: Initiated logon request
+20241208-23:54:55: Disconnecting: Timed out waiting for logon response
+20241208-23:57:28: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241208-23:57:28: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241208-23:57:28: Configured socket addresses for session: [/144.91.67.90:5001]
+20241208-23:57:29: MINA session created: local=/192.168.26.58:58110, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:57:30: Initiated logon request
+20241208-23:57:30: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241208-23:57:30: Received logon
+20241208-23:58:16: Sent test request TEST
+20241208-23:58:42: Disconnecting: Timed out waiting for heartbeat
+20241208-23:58:43: MINA session created: local=/192.168.26.58:58116, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:58:44: Initiated logon request
+20241208-23:58:54: Disconnecting: Timed out waiting for logon response
+20241208-23:59:43: MINA session created: local=/192.168.26.58:58129, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241208-23:59:44: Initiated logon request
+20241208-23:59:55: Disconnecting: Timed out waiting for logon response
+20241209-00:00:02: Session state is not current; resetting FIX.4.4:TRD82841->QFXTRADES
+20241209-00:06:32: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241209-00:06:32: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241209-00:06:32: Configured socket addresses for session: [/144.91.67.90:5001]
+20241209-00:06:32: MINA session created: local=/192.168.26.58:58158, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:06:33: Initiated logon request
+20241209-00:06:33: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241209-00:06:33: Received logon
+20241209-00:07:16: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241209-00:07:16: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241209-00:07:16: Configured socket addresses for session: [/144.91.67.90:5001]
+20241209-00:07:17: MINA session created: local=/192.168.26.58:58164, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:07:18: Initiated logon request
+20241209-00:07:18: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241209-00:07:18: Received logon
+20241209-00:08:03: Sent test request TEST
+20241209-00:08:30: Disconnecting: Timed out waiting for heartbeat
+20241209-00:08:31: MINA session created: local=/192.168.26.58:58168, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:08:31: Initiated logon request
+20241209-00:08:42: Disconnecting: Timed out waiting for logon response
+20241209-00:09:31: MINA session created: local=/192.168.26.58:58175, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:09:31: Initiated logon request
+20241209-00:09:42: Disconnecting: Timed out waiting for logon response
+20241209-00:10:32: MINA session created: local=/192.168.26.58:58177, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:10:32: Initiated logon request
+20241209-00:10:43: Disconnecting: Timed out waiting for logon response
+20241209-00:11:33: MINA session created: local=/192.168.26.58:58184, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:11:33: Initiated logon request
+20241209-00:11:44: Disconnecting: Timed out waiting for logon response
+20241209-00:12:33: MINA session created: local=/192.168.26.58:58188, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:12:33: Initiated logon request
+20241209-00:12:44: Disconnecting: Timed out waiting for logon response
+20241209-00:13:34: MINA session created: local=/192.168.26.58:58194, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:13:34: Initiated logon request
+20241209-00:13:45: Disconnecting: Timed out waiting for logon response
+20241209-00:14:35: MINA session created: local=/192.168.26.58:58197, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:14:35: Initiated logon request
+20241209-00:14:46: Disconnecting: Timed out waiting for logon response
+20241209-00:15:35: MINA session created: local=/192.168.26.58:58204, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:15:35: Initiated logon request
+20241209-00:15:46: Disconnecting: Timed out waiting for logon response
+20241209-00:16:36: MINA session created: local=/192.168.26.58:58206, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:16:36: Initiated logon request
+20241209-00:16:47: Disconnecting: Timed out waiting for logon response
+20241209-00:17:37: MINA session created: local=/192.168.26.58:58213, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:17:37: Initiated logon request
+20241209-00:17:47: Disconnecting: Timed out waiting for logon response
+20241209-00:18:37: MINA session created: local=/192.168.26.58:58223, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:18:37: Initiated logon request
+20241209-00:18:47: Disconnecting: Timed out waiting for logon response
+20241209-00:19:37: MINA session created: local=/192.168.26.58:58231, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:19:37: Initiated logon request
+20241209-00:19:48: Disconnecting: Timed out waiting for logon response
+20241209-00:20:16: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241209-00:20:16: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241209-00:20:17: Configured socket addresses for session: [/144.91.67.90:5001]
+20241209-00:20:17: MINA session created: local=/192.168.26.58:58235, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:20:18: Initiated logon request
+20241209-00:20:19: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241209-00:20:19: Received logon
+20241209-00:20:42: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241209-00:20:42: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241209-00:20:42: Configured socket addresses for session: [/144.91.67.90:5001]
+20241209-00:20:42: MINA session created: local=/192.168.26.58:58239, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:20:43: Initiated logon request
+20241209-00:20:44: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241209-00:20:44: Received logon
+20241209-00:30:42: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241209-00:30:42: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241209-00:30:42: Configured socket addresses for session: [/144.91.67.90:5001]
+20241209-00:30:43: MINA session created: local=/192.168.26.58:58275, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:30:44: Initiated logon request
+20241209-00:30:44: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241209-00:30:44: Received logon
+20241209-00:39:12: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241209-00:39:12: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241209-00:39:13: Configured socket addresses for session: [/144.91.67.90:5001]
+20241209-00:39:15: Pending connection not established after 2042 ms.
+20241209-00:39:19: Pending connection not established after 6059 ms.
+20241209-00:39:23: Pending connection not established after 10067 ms.
+20241209-00:39:27: Pending connection not established after 14082 ms.
+20241209-00:39:31: Pending connection not established after 18099 ms.
+20241209-00:39:34: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:40:15: Pending connection not established after 2006 ms.
+20241209-00:40:19: Pending connection not established after 6019 ms.
+20241209-00:40:23: Pending connection not established after 10029 ms.
+20241209-00:40:27: Pending connection not established after 14033 ms.
+20241209-00:40:31: Pending connection not established after 18039 ms.
+20241209-00:40:35: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:41:16: Pending connection not established after 2005 ms.
+20241209-00:41:20: Pending connection not established after 6027 ms.
+20241209-00:41:24: Pending connection not established after 10041 ms.
+20241209-00:41:28: Pending connection not established after 14052 ms.
+20241209-00:41:32: Pending connection not established after 18073 ms.
+20241209-00:41:35: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:42:16: Pending connection not established after 2006 ms.
+20241209-00:42:20: Pending connection not established after 6021 ms.
+20241209-00:42:24: Pending connection not established after 10036 ms.
+20241209-00:42:28: Pending connection not established after 14057 ms.
+20241209-00:42:32: Pending connection not established after 18079 ms.
+20241209-00:42:35: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:43:16: Pending connection not established after 2014 ms.
+20241209-00:43:20: Pending connection not established after 6031 ms.
+20241209-00:43:24: Pending connection not established after 10040 ms.
+20241209-00:43:28: Pending connection not established after 14069 ms.
+20241209-00:43:32: Pending connection not established after 18084 ms.
+20241209-00:43:35: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:44:17: Pending connection not established after 2003 ms.
+20241209-00:44:21: Pending connection not established after 6009 ms.
+20241209-00:44:27: Pending connection not established after 12025 ms.
+20241209-00:44:31: Pending connection not established after 16051 ms.
+20241209-00:44:36: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:45:17: Pending connection not established after 2002 ms.
+20241209-00:45:21: Pending connection not established after 6017 ms.
+20241209-00:45:25: Pending connection not established after 10023 ms.
+20241209-00:45:29: Pending connection not established after 14042 ms.
+20241209-00:45:33: Pending connection not established after 18066 ms.
+20241209-00:45:36: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:46:18: Pending connection not established after 2001 ms.
+20241209-00:46:22: Pending connection not established after 6027 ms.
+20241209-00:46:26: Pending connection not established after 10037 ms.
+20241209-00:46:30: Pending connection not established after 14052 ms.
+20241209-00:46:34: Pending connection not established after 18059 ms.
+20241209-00:46:37: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:47:18: Pending connection not established after 2002 ms.
+20241209-00:47:22: Pending connection not established after 6015 ms.
+20241209-00:47:26: Pending connection not established after 10022 ms.
+20241209-00:47:30: Pending connection not established after 14024 ms.
+20241209-00:47:34: Pending connection not established after 18037 ms.
+20241209-00:47:37: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:48:18: Pending connection not established after 2009 ms.
+20241209-00:48:22: Pending connection not established after 6033 ms.
+20241209-00:48:26: Pending connection not established after 10057 ms.
+20241209-00:48:30: Pending connection not established after 14075 ms.
+20241209-00:48:36: Pending connection not established after 20102 ms.
+20241209-00:48:38: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241209-00:49:15: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241209-00:49:15: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241209-00:49:16: Configured socket addresses for session: [/144.91.67.90:5001]
+20241209-00:49:16: MINA session created: local=/192.168.26.58:58379, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241209-00:49:17: Initiated logon request
+20241209-00:49:17: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241209-00:49:17: Received logon
+20241209-00:51:59: Disconnecting: Socket exception (/144.91.67.90:5001): java.net.SocketException: Connection reset
+20241209-00:52:01: Pending connection not established after 2010 ms.
+20241209-00:52:05: Pending connection not established after 6048 ms.
+20241209-00:52:09: Pending connection not established after 10072 ms.
+20241209-00:52:13: Pending connection not established after 14087 ms.
+20241209-00:52:17: Pending connection not established after 18103 ms.
+20241209-00:52:20: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)

@@ -4,6 +4,7 @@
  */
 package chuks.flatbook.fx.backend.task.netting;
 
+import chuks.flatbook.fx.backend.task.Task;
 import chuks.flatbook.fx.backend.account.Broker;
 import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
@@ -21,7 +22,7 @@ import util.FixUtil;
  *
  * @author user
  */
-public class NettingCloseTask extends NettingTask {
+public class NettingCloseTask extends Task {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NettingCloseTask.class.getName());
     private final ManagedOrder order;
@@ -44,9 +45,9 @@ public class NettingCloseTask extends NettingTask {
     @Override
     public void onNewOrder(String clOrdID) {
         if (clOrdID.equals(order.getCloseOrderID())) {
-            String errMsg = "Created close order";
-            future.complete(new TaskResult(true, errMsg));
-            logger.debug(errMsg + " - " + clOrdID);
+            String msg = "Created close order";
+            future.complete(new TaskResult(true, msg));
+            logger.debug(msg + " - " + clOrdID);
         }
     }
 

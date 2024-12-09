@@ -4,6 +4,7 @@
  */
 package chuks.flatbook.fx.backend.task.netting;
 
+import chuks.flatbook.fx.backend.task.Task;
 import util.TaskResult;
 import chuks.flatbook.fx.backend.account.type.OrderNettingAccount;
 import static chuks.flatbook.fx.backend.config.LogMarker.INCOMPLETE_TRANSACTION;
@@ -20,7 +21,7 @@ import util.FixUtil;
  *
  * @author user
  */
-public class NettingModifyOrderTask extends NettingTask {
+public class NettingModifyOrderTask extends Task {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(NettingMarketOrderTask.class.getName());
     private final ManagedOrder order;

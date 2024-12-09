@@ -35,17 +35,22 @@ import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 import chuks.flatbook.fx.common.account.profile.AdminInfo;
 import chuks.flatbook.fx.common.account.profile.BasicInfo;
 import chuks.flatbook.fx.common.account.profile.UserType;
-import chuks.flatbook.fx.backend.listener.BrokerFixOrderListener;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.FixUtil;
+import chuks.flatbook.fx.backend.listener.BrokerFixActionListener;
+import chuks.flatbook.fx.backend.task.AccountInfoRequestTask;
+import chuks.flatbook.fx.backend.task.ActiveOrdersRequestTask;
+import chuks.flatbook.fx.backend.task.PositionRequestTask;
+import chuks.flatbook.fx.backend.task.Task;
+import chuks.flatbook.fx.backend.task.TaskManager;
 
 /**
  *
  * @author user
  */
-public abstract class Broker extends quickfix.MessageCracker implements quickfix.Application, BrokerAccount, BrokerFixOrderListener {
+public abstract class Broker extends quickfix.MessageCracker implements quickfix.Application, BrokerAccount, BrokerFixActionListener {
 
     protected final SymbolUpdateListener DO_NOTHING_SIL = new SymbolUpdateAdapter() {
     };
@@ -56,6 +61,8 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     protected final AccountListener DO_NOTHING_TA = new TraderAccountAdapter() {
     };
 
+    protected final TaskManager taskManager = new TaskManager();
+    private BrokerAccountInfo brokerAccountInfo = new BrokerAccountInfo();
     private final int FULL_REFRESH = 1;
     private final int INCREMENTAL_REFRESH = 2;
     protected Session tradingSession;
@@ -103,7 +110,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         for (String symbol : supported_symbols) {
             Broker.fullSymbolInfoMap.put(symbol, null);
         }
-    }
+    }    
 
     protected Broker(String settings_filename) throws ConfigError {
         initAndRun(settings_filename);
@@ -368,47 +375,6 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     }
 
-    @Override
-    public void onLogon(SessionID sessionId) {
-        try {
-            // Identify trading and quoting session IDs
-            if (Config.TRADE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
-                logger.debug("Trading session logged in: " + sessionId);
-            } else if (Config.PRICE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
-                logger.debug("Quote session logged in: " + sessionId);
-            } else {
-                System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
-                System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
-                System.exit(1);
-            }
-
-            //Send Account Info request
-            if (sessionId.equals(tradingSessionID)) {
-                FixUtil.sendActiveOrdersRequest(this).get();
-                FixUtil.sendPositionRequest(this).get();//or may be 
-            }
-
-            //Send Account Info request
-            if (sessionId.equals(tradingSessionID)) {
-                FixUtil.sendAccountInfoRequest(this).get();
-            }
-
-            // Send SecurityListRequest to query supported symbols upon logon to the quoting session
-            if (sessionId.equals(quoteSessionID)) {
-                querySupportedSymbols();
-            }
-
-            // Subscribe to market data upon logon to the quoting session
-            if (sessionId.equals(quoteSessionID)) {
-                subscribeToMarketData(Broker.fullSymbolInfoMap.keySet());
-            }
-            
-        } catch (ConfigError | SessionNotFound | InterruptedException | ExecutionException ex) {
-            Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
-            System.exit(1);
-        }
-    }
-
     // Send SecurityListRequest to query supported symbols
     public void querySupportedSymbols() {
         try {
@@ -524,6 +490,43 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     }
 
     @Override
+    public void onLogon(SessionID sessionId) {
+
+        // Identify trading and quoting session IDs
+        if (Config.TRADE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
+            logger.debug("Trading session logged in: " + sessionId);
+        } else if (Config.PRICE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
+            logger.debug("Quote session logged in: " + sessionId);
+        } else {
+            System.err.println("UNKNOWN SESSION CREATED WITH TargetCompID : " + sessionId.getTargetCompID());
+            System.err.println("PLEASE CHECK SETTINGS FILE OR EDIT CODE");
+            System.exit(1);
+        }
+
+        //Send Account Info request
+        if (sessionId.equals(tradingSessionID)) {
+            taskManager.addTask(new ActiveOrdersRequestTask(this, null));
+            taskManager.addTask(new PositionRequestTask(this, null));
+        }
+
+        //Send Account Info request
+        if (sessionId.equals(tradingSessionID)) {
+            taskManager.addTask(new AccountInfoRequestTask(this, null));
+        }
+
+        // Send SecurityListRequest to query supported symbols upon logon to the quoting session
+        if (sessionId.equals(quoteSessionID)) {
+            querySupportedSymbols();
+        }
+
+        // Subscribe to market data upon logon to the quoting session
+        if (sessionId.equals(quoteSessionID)) {
+            subscribeToMarketData(Broker.fullSymbolInfoMap.keySet());
+        }
+
+    }
+
+    @Override
     public void onLogout(SessionID sessionId) {
 
         if (Config.TRADE_SESSION_TARGET_COMP_ID.equals(sessionId.getTargetCompID())) {
@@ -535,8 +538,8 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public void toAdmin(quickfix.Message message, SessionID sessionId) {
-        // Add username and password
 
+        // Add username and password
         if (message instanceof quickfix.fix44.Logon logon) {
             try {
                 logon.set(new ResetSeqNumFlag(true)); // Reset sequence numbers on logon
@@ -547,12 +550,13 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             }
         }
 
-        //logger.debug("To Admin: " + message);
+        logger.debug("To Admin: " + message);
     }
 
     @Override
     public void fromAdmin(quickfix.Message message, SessionID sessionId) throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {
         //logger.debug("From Admin: " + message);
+
     }
 
     @Override
@@ -637,6 +641,9 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         } catch (FieldNotFound ex) {
             logger.error("An error occurred", ex);
         }
+         
+        
+        onAccountInfoReport(brokerAccountInfo);
 
         // Handle other custom fields as needed
         // Handle other custom fields as needed
@@ -818,6 +825,10 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
         positionAtLPList.add(positon);
 
+        Task task = taskManager.getCurrennTask();
+        if (task != null) {
+            task.onPositionReport(positon);
+        }
         onPositionReport(positon);
 
     }
@@ -884,9 +895,31 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         if (unfilledOrderAtLPList.size() == totNumReports) {
             //now we can recreate the open orders
             recreateOpenOrders();
+            onOrderMassStatusReport(unfilledOrderAtLPList);
+        }
+
+    }
+
+    @Override
+    public void onOrderMassStatusReport(List<UnfilledOrder> unfilledOrderList) {
+            Task task = taskManager.getCurrennTask();
+            if (task != null) {
+                task.onOrderMassStatusReport(unfilledOrderList);
+            }
+    }
+    
+    
+
+    @Override
+    public void onAccountInfoReport(BrokerAccountInfo brokerAccountInfo) {
+        Task task = taskManager.getCurrennTask();
+        if (task != null) {
+            task.onAccountInfoReport(brokerAccountInfo);
         }
     }
 
+    
+    
     void recreateOpenOrders() {
 
         positionAtLPList.forEach((Position position) -> {

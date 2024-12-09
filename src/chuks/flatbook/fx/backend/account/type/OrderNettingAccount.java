@@ -4,7 +4,6 @@
  */
 package chuks.flatbook.fx.backend.account.type;
 
-import chuks.flatbook.fx.backend.task.netting.OrderNettingTaskManager;
 import chuks.flatbook.fx.backend.account.Broker;
 import chuks.flatbook.fx.common.account.order.ManagedOrder;
 import java.util.*;
@@ -13,7 +12,7 @@ import chuks.flatbook.fx.backend.account.contract.OrderNettingAccountBuilder;
 import chuks.flatbook.fx.backend.task.netting.NettingCloseTask;
 import chuks.flatbook.fx.backend.task.netting.NettingMarketOrderTask;
 import chuks.flatbook.fx.backend.task.netting.NettingModifyOrderTask;
-import chuks.flatbook.fx.backend.task.netting.NettingTask;
+import chuks.flatbook.fx.backend.task.Task;
 import chuks.flatbook.fx.common.account.order.SymbolInfo;
 import chuks.flatbook.fx.common.account.persist.OrderDB;
 import chuks.flatbook.fx.common.account.order.OrderException;
@@ -31,11 +30,9 @@ public class OrderNettingAccount extends Broker {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(OrderNettingAccount.class.getName());
 
-    private final OrderNettingTaskManager taskHandler;
-
+    
     public OrderNettingAccount(String settings_filename) throws ConfigError {
         super(settings_filename);
-        taskHandler = new OrderNettingTaskManager();
     }
 
     public void sendResultToTrader(boolean success, String result){
@@ -100,7 +97,7 @@ public class OrderNettingAccount extends Broker {
         }
 
         var marketOrderTask = new NettingMarketOrderTask(this, req_identifier, order);        
-        taskHandler.addTask(marketOrderTask);
+        taskManager.addTask(marketOrderTask);
     }
 
     @Override
@@ -139,7 +136,7 @@ public class OrderNettingAccount extends Broker {
 
         var closePositionTask = new NettingCloseTask(this, req_identifier, order, lot_size, price, slippage);
 
-        taskHandler.addTask(closePositionTask);
+        taskManager.addTask(closePositionTask);
 
     }
 
@@ -174,7 +171,7 @@ public class OrderNettingAccount extends Broker {
 
         var modifyOrderTask = new NettingModifyOrderTask(this, req_identifier, order, stoploss_price, target_price);
      
-        taskHandler.addTask(modifyOrderTask);
+        taskManager.addTask(modifyOrderTask);
 
     }
 
@@ -277,7 +274,7 @@ public class OrderNettingAccount extends Broker {
 
     @Override
     public void onNewOrder(String clOrdID) {
-        NettingTask task = taskHandler.getCurrennTask();        
+        Task task = taskManager.getCurrennTask();        
         if (task != null) {
             task.onNewOrder(clOrdID);
         }
@@ -323,7 +320,7 @@ public class OrderNettingAccount extends Broker {
 
     @Override
     public void onRejectedOrder(String clOrdID, String errMsg) {
-        NettingTask task = taskHandler.getCurrennTask();        
+        Task task = taskManager.getCurrennTask();        
         if (task != null) {
             task.onRejectedOrder(clOrdID, errMsg);
         }
@@ -385,7 +382,7 @@ public class OrderNettingAccount extends Broker {
 
     @Override
     public void onCancelledOrder(String clOrdID) {
-        NettingTask task = taskHandler.getCurrennTask();        
+        Task task = taskManager.getCurrennTask();        
         if (task != null) {
             task.onCancelledOrder(clOrdID);
         }
@@ -407,7 +404,7 @@ public class OrderNettingAccount extends Broker {
 
     @Override
     public void onOrderCancelRequestRejected(String clOrdID, String reason) {
-        NettingTask task = taskHandler.getCurrennTask();
+        Task task = taskManager.getCurrennTask();
         if (task != null) {
             task.onOrderCancelRequestRejected(clOrdID, reason);
         }
@@ -415,7 +412,7 @@ public class OrderNettingAccount extends Broker {
 
     @Override
     public void onExecutedOrder(String clOrdID, double price) {
-        NettingTask task = taskHandler.getCurrennTask();
+        Task task = taskManager.getCurrennTask();
         if (task != null) {
             task.onExecutedOrder(clOrdID, price);
         }
@@ -424,7 +421,7 @@ public class OrderNettingAccount extends Broker {
 
     @Override
     public void onPositionReport(Position position) {
-        NettingTask task = taskHandler.getCurrennTask();
+        Task task = taskManager.getCurrennTask();
         if (task != null) {
             task.onPositionReport(position);
         }
@@ -432,7 +429,7 @@ public class OrderNettingAccount extends Broker {
 
     @Override
     public void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders) {
-        NettingTask task = taskHandler.getCurrennTask();
+        Task task = taskManager.getCurrennTask();
         if (task != null) {
             task.onOrderReport(unfilledOrder, totalOrders);
         }
