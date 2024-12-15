@@ -97,6 +97,85 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     protected List<Position> positionAtLPList = Collections.synchronizedList(new LinkedList());
     protected List<UnfilledOrder> unfilledOrderAtLPList = Collections.synchronizedList(new LinkedList());
 
+    private PositionRequestAck posReqAck = new PositionRequestAck();
+
+    private class PositionRequestAck {
+
+        String posMaintRptID;
+        String posReqID;
+        int totalNumPosReports;
+        int posReqResult;
+        int posReqStatus;
+        String account;
+        int accountType;
+        String text;
+
+        public String getPosMaintRptID() {
+            return posMaintRptID;
+        }
+
+        public void setPosMaintRptID(String posMaintRptID) {
+            this.posMaintRptID = posMaintRptID;
+        }
+
+        public String getPosReqID() {
+            return posReqID;
+        }
+
+        public void setPosReqID(String posReqID) {
+            this.posReqID = posReqID;
+        }
+
+        public int getTotalNumPosReports() {
+            return totalNumPosReports;
+        }
+
+        public void setTotalNumPosReports(int totalNumPosReports) {
+            this.totalNumPosReports = totalNumPosReports;
+        }
+
+        public int getPosReqResult() {
+            return posReqResult;
+        }
+
+        public void setPosReqResult(int posReqResult) {
+            this.posReqResult = posReqResult;
+        }
+
+        public int getPosReqStatus() {
+            return posReqStatus;
+        }
+
+        public void setPosReqStatus(int posReqStatus) {
+            this.posReqStatus = posReqStatus;
+        }
+
+        public String getAccount() {
+            return account;
+        }
+
+        public void setAccount(String account) {
+            this.account = account;
+        }
+
+        public int getAccountType() {
+            return accountType;
+        }
+
+        public void setAccountType(int accountType) {
+            this.accountType = accountType;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+    }
+
     static {
         String[] supported_symbols = {
             "EURUSD", "USDJPY", "GBPUSD", "USDCHF", "AUDUSD", "USDCAD", "NZDUSD", "EURJPY",
@@ -110,7 +189,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         for (String symbol : supported_symbols) {
             Broker.fullSymbolInfoMap.put(symbol, null);
         }
-    }    
+    }
 
     protected Broker(String settings_filename) throws ConfigError {
         initAndRun(settings_filename);
@@ -521,7 +600,8 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
         // Subscribe to market data upon logon to the quoting session
         if (sessionId.equals(quoteSessionID)) {
-            subscribeToMarketData(Broker.fullSymbolInfoMap.keySet());
+            // TO BE UNCOMMENTED LATER
+            //subscribeToMarketData(Broker.fullSymbolInfoMap.keySet());// TO BE UNCOMMENTED LATER
         }
 
     }
@@ -566,7 +646,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public void fromApp(quickfix.Message message, SessionID sessionId) throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
-        //logger.debug("From App: " + message);
+        logger.debug("From App: " + message);
         if (!customResponse(message)) {
             crack(message, sessionId);
         }
@@ -606,43 +686,50 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             }
             if (message.isSetField(AccountInfoResponse.CURRENCY_FIELD)) {
                 String currency = message.getString(AccountInfoResponse.CURRENCY_FIELD);
+                brokerAccountInfo.setCurrency(currency);
                 logger.debug("Currency: " + currency);
+
             }
 
             if (message.isSetField(AccountInfoResponse.BALANCE_FIELD)) {
                 double balance = message.getDouble(AccountInfoResponse.BALANCE_FIELD);
+                brokerAccountInfo.setBalance(balance);
                 logger.debug("Balance: " + balance);
             }
 
             if (message.isSetField(AccountInfoResponse.EQUITY_FIELD)) {
                 double equity = message.getDouble(AccountInfoResponse.EQUITY_FIELD);
+                brokerAccountInfo.setEquity(equity);
                 logger.debug("Equity: " + equity);
             }
 
             if (message.isSetField(AccountInfoResponse.CREDIT_FIELD)) {
                 double credit = message.getDouble(AccountInfoResponse.CREDIT_FIELD);
+                brokerAccountInfo.setCredit(credit);
                 logger.debug("Credit: " + credit);
             }
 
             if (message.isSetField(AccountInfoResponse.MARGIN_FIELD)) {
                 double margin = message.getDouble(AccountInfoResponse.MARGIN_FIELD);
+                brokerAccountInfo.setMargin(margin);
                 logger.debug("Margin: " + margin);
             }
 
             if (message.isSetField(AccountInfoResponse.FREE_MARGIN_FIELD)) {
                 double free_margin = message.getDouble(AccountInfoResponse.FREE_MARGIN_FIELD);
+                brokerAccountInfo.setFreeMargin(free_margin);
                 logger.debug("Free Margin: " + free_margin);
             }
 
             if (message.isSetField(AccountInfoResponse.PROFIT_FIELD)) {
                 double profit = message.getDouble(AccountInfoResponse.PROFIT_FIELD);
+                brokerAccountInfo.setProfit(profit);
                 logger.debug("Profit: " + profit);
             }
         } catch (FieldNotFound ex) {
             logger.error("An error occurred", ex);
         }
-         
-        
+
         onAccountInfoReport(brokerAccountInfo);
 
         // Handle other custom fields as needed
@@ -764,6 +851,41 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         return clOrdID.substring(dash_index + 1);
     }
 
+    public void onMessage(RequestForPositionsAck reqPosAck, SessionID sessionId) throws FieldNotFound {
+
+        posReqAck = new PositionRequestAck();
+        posReqAck.account = reqPosAck.isSetField(Account.FIELD)
+                ? reqPosAck.getString(Account.FIELD) : "";
+        posReqAck.accountType = reqPosAck.isSetField(AccountType.FIELD)
+                ? reqPosAck.getInt(AccountType.FIELD) : -1;
+        posReqAck.posMaintRptID = reqPosAck.isSetField(PosMaintRptID.FIELD)
+                ? reqPosAck.getString(PosMaintRptID.FIELD) : "";
+        posReqAck.posReqID = reqPosAck.isSetField(PosReqID.FIELD)
+                ? reqPosAck.getString(PosReqID.FIELD) : "";
+        posReqAck.posReqResult = reqPosAck.isSetField(PosReqResult.FIELD)
+                ? reqPosAck.getInt(PosReqResult.FIELD) : -1;
+        posReqAck.posReqStatus = reqPosAck.isSetField(PosReqStatus.FIELD)
+                ? reqPosAck.getInt(PosReqStatus.FIELD) : -1;
+        posReqAck.text = reqPosAck.isSetField(Text.FIELD)
+                ? reqPosAck.getString(Text.FIELD) : "";
+        posReqAck.totalNumPosReports = reqPosAck.isSetField(TotalNumPosReports.FIELD)
+                ? reqPosAck.getInt(TotalNumPosReports.FIELD) : -1;
+
+        positionAtLPList.clear(); //initialize
+
+        if (posReqAck.posReqResult == 1) {// Invalid/Unsupported request 
+
+            onPositionReport(positionAtLPList, "Invalid Position Request - " + posReqAck.text);
+        } else if (posReqAck.posReqResult == 0) {// Valid request 
+            if (posReqAck.totalNumPosReports == 0) {
+                //We know because TotalNumPosReports is zero the FIX server
+                //will not send any PositionReport let's handle zero report
+                onPositionReport(positionAtLPList, null);
+            }
+        }
+
+    }
+
     public void onMessage(PositionReport positionReport, SessionID sessionId) throws FieldNotFound {
 
         // Body Fields in PositionReport
@@ -825,13 +947,12 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
         positionAtLPList.add(positon);
 
-        Task task = taskManager.getCurrennTask();
-        if (task != null) {
-            task.onPositionReport(positon);
+        if (positionAtLPList.size() == posReqAck.totalNumPosReports) {
+            onPositionReport(positionAtLPList, null);
         }
-        onPositionReport(positon);
 
     }
+
 
     private void orderMassStatusReport(ExecutionReport executionReport) throws FieldNotFound {
 
@@ -902,13 +1023,11 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     @Override
     public void onOrderMassStatusReport(List<UnfilledOrder> unfilledOrderList) {
-            Task task = taskManager.getCurrennTask();
-            if (task != null) {
-                task.onOrderMassStatusReport(unfilledOrderList);
-            }
+        Task task = taskManager.getCurrennTask();
+        if (task != null) {
+            task.onOrderMassStatusReport(unfilledOrderList);
+        }
     }
-    
-    
 
     @Override
     public void onAccountInfoReport(BrokerAccountInfo brokerAccountInfo) {
@@ -918,8 +1037,6 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         }
     }
 
-    
-    
     void recreateOpenOrders() {
 
         positionAtLPList.forEach((Position position) -> {
@@ -998,7 +1115,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     public abstract void onExecutedOrder(String clOrdID, double price);
 
     @Override
-    public abstract void onPositionReport(Position position);
+    public abstract void onPositionReport(List<Position> positionlist, String error);
 
     @Override
     public abstract void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders);

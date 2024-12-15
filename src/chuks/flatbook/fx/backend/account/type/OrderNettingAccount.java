@@ -420,10 +420,10 @@ public class OrderNettingAccount extends Broker {
     }
 
     @Override
-    public void onPositionReport(Position position) {
+    public void onPositionReport(List<Position> positionlist, String error) {
         Task task = taskManager.getCurrennTask();
         if (task != null) {
-            task.onPositionReport(position);
+            task.onPositionReport(positionlist, error);
         }
     }
 

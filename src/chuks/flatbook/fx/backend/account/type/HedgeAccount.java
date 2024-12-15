@@ -14,6 +14,7 @@ import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -129,7 +130,7 @@ public class HedgeAccount extends Broker{
     }
 
     @Override
-    public void onPositionReport(Position position) {
+    public void onPositionReport(List<Position> positionlist, String error) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

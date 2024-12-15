@@ -13,6 +13,7 @@ import java.util.concurrent.CompletableFuture;
 import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 import chuks.flatbook.fx.backend.listener.BrokerFixActionListener;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -25,7 +26,7 @@ abstract public class Task implements BrokerFixActionListener{
     
     public Task(Broker account, String identifier){
         this.account = account;
-        this.identifier = identifier;
+        this.identifier = identifier;          
     }
     
     protected Broker getAccount(){
@@ -49,7 +50,7 @@ abstract public class Task implements BrokerFixActionListener{
     public void onRejectedOrder(String clOrdID, String errMsg){}
 
     @Override
-    public void onPositionReport(Position position){}
+    public void onPositionReport(List<Position> positionlist, String error){}
 
     @Override
     public void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders) {}

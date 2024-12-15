@@ -6,6 +6,7 @@ package chuks.flatbook.fx.backend.task;
 
 import chuks.flatbook.fx.backend.account.Broker;
 import chuks.flatbook.fx.common.account.order.Position;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,9 +29,15 @@ public class PositionRequestTask extends Task {
     }
 
     @Override
-    public void onPositionReport(Position position) {
-        future.complete(new TaskResult(true, "Position Report"));
-        logger.debug("PositionReport");
+    public void onPositionReport(List<Position> positionlist, String error) {
+
+        if (error == null) {
+            future.complete(new TaskResult(true, "Position Report"));
+            logger.debug("PositionReport");
+        } else {
+            future.complete(new TaskResult(false, error));
+            logger.error("PositionReport error - "+error);
+        }
     }
 
     @Override

@@ -25,7 +25,7 @@ public interface BrokerFixActionListener {
 
     void onExecutedOrder(String clOrdID, double price);
     
-    void onPositionReport(Position position);
+    void onPositionReport(List<Position> positionlist, String error);
     
     void onOrderReport(UnfilledOrder unfilledOrder, int totalOrders);
     

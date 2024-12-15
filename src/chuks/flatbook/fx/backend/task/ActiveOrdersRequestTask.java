@@ -5,9 +5,14 @@
 package chuks.flatbook.fx.backend.task;
 
 import chuks.flatbook.fx.backend.account.Broker;
+import chuks.flatbook.fx.backend.exception.OrderActionException;
+import chuks.flatbook.fx.backend.exception.TaskTimeoutException;
 import chuks.flatbook.fx.common.account.order.UnfilledOrder;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,8 +29,11 @@ public class ActiveOrdersRequestTask extends Task {
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(ActiveOrdersRequestTask.class.getName());
 
+    String ACTIVE_ORDERS_REQUEST_TIMEOUT = "ACTIVE_ORDERS_REQUEST_TIMEOUT";
+
     public ActiveOrdersRequestTask(Broker account, String identifier) {
         super(account, identifier);
+        //future.completeOnTimeout(new TaskResult(false, ACTIVE_ORDERS_REQUEST_TIMEOUT), 5, TimeUnit.SECONDS);
     }
 
     @Override
@@ -38,8 +46,14 @@ public class ActiveOrdersRequestTask extends Task {
     protected CompletableFuture<TaskResult> run() {
         try {
             future = FixUtil.sendActiveOrdersRequest(account);
-        } catch (ConfigError | SessionNotFound ex) {
-            future.complete(new TaskResult(false, "Active Orders Request Failed"));
+            try {
+                future.get(5, TimeUnit.SECONDS);
+            } catch (TimeoutException ex) {
+                throw new TaskTimeoutException(ACTIVE_ORDERS_REQUEST_TIMEOUT);
+            }
+
+        } catch (ConfigError | SessionNotFound | TaskTimeoutException | InterruptedException | ExecutionException ex) {
+            future.complete(new TaskResult(false, "Active Orders Request Failed - "+ex.getMessage()));
             logger.error(ex.getMessage(), ex);
         }
 

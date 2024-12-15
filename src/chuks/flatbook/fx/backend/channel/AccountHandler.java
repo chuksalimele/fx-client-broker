@@ -782,7 +782,7 @@ class AccountHandler extends SharableTransportHandler {
     }
 
     public static void main(String[] args) throws IOException, ScanException {
-        /* String ipAddress = "127.0.0.1";
+        String ipAddress = "127.0.0.1";
 
         logger.info(MARKER_SUSPICIOUS_IP,
                 concatLogMsg(ipAddress, "Testing Max. connection exceeded"));
@@ -798,7 +798,7 @@ class AccountHandler extends SharableTransportHandler {
             throw new IllegalStateException("The is another error");
         } catch (IllegalStateException ex) {
             logger.error("The is the error i caught", ex);
-        }*/
+        }
 
  /*Path logDir = Paths.get(System.getProperty("user.dir"), "logs");
         LocalDateTime startTime = LocalDateTime.of(2024, 10, 10, 8, 0, 0);

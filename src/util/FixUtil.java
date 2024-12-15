@@ -140,7 +140,7 @@ public class FixUtil {
         request.set(new Account(OrderNettingAccount.getSettings().getString("Account"))); //The account for which positions are requested
         request.setField(new StringField(715, "CURRENT"));//According to LP doc : ClearingBusinessDate, Local DateTime – currently not used ‘CURRENT’ or any other text will fit the requirements
         request.set(new AccountType(AccountType.ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_THE_BOOKS));
-        request.set(new ClearingBusinessDate());
+        //request.set(new ClearingBusinessDate());
         request.set(new TransactTime());
 
         Session.sendToTarget(request, account.getTradingSessionID());
@@ -155,8 +155,6 @@ public class FixUtil {
         request.setAccount(Broker.getSettings().getString("Account"));
 
         Session.sendToTarget(request, account.getTradingSessionID());
-
-        Session.sendToTarget(request, account.getTradingSessionID());
         return new CompletableFuture();
     }
 
@@ -166,8 +164,6 @@ public class FixUtil {
         request.set(new MassStatusReqID("active-orders-" + System.currentTimeMillis()));
         request.set(new MassStatusReqType(6));
         request.set(new Account(Broker.getSettings().getString("Account"))); //The account for which positions are requested
-
-        Session.sendToTarget(request, account.getTradingSessionID());
 
         Session.sendToTarget(request, account.getTradingSessionID());
         return new CompletableFuture();

@@ -438,3 +438,404 @@ quickfix.FieldNotFound: Field was not found in message, field=34
 20241209-00:52:13: Pending connection not established after 14087 ms.
 20241209-00:52:17: Pending connection not established after 18103 ms.
 20241209-00:52:20: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241211-02:55:27: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-02:55:27: Session state is not current; resetting FIX.4.4:TRD82841->QFXTRADES
+20241211-02:55:27: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-02:55:28: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-02:55:28: MINA session created: local=/192.168.148.58:55988, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-02:55:30: Initiated logon request
+20241211-02:55:30: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-02:55:30: Received logon
+20241211-02:55:30: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241211-02:55:31: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241211-22:15:50: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:15:50: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:15:51: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:15:52: MINA session created: local=/192.168.148.58:56796, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-22:15:52: Initiated logon request
+20241211-22:15:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-22:15:53: Received logon
+20241211-22:15:53: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241211-22:15:53: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241211-22:32:21: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:32:21: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:32:21: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:32:22: MINA session created: local=/192.168.148.58:56926, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-22:32:23: Initiated logon request
+20241211-22:32:23: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-22:32:23: Received logon
+20241211-22:32:24: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241211-22:32:24: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241211-22:37:15: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:37:15: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:37:16: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:37:18: Pending connection not established after 2023 ms.
+20241211-22:37:22: Pending connection not established after 6045 ms.
+20241211-22:37:26: Pending connection not established after 10061 ms.
+20241211-22:37:30: Pending connection not established after 13743 ms.
+20241211-22:37:33: Pending connection not established after 16757 ms.
+20241211-22:37:36: Pending connection not established after 19777 ms.
+20241211-22:37:37: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241211-22:38:50: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:38:50: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:38:51: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:38:51: MINA session created: local=/192.168.148.58:56957, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-22:38:52: Initiated logon request
+20241211-22:38:52: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-22:38:52: Received logon
+20241211-22:39:16: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241211-22:39:17: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241211-22:39:44: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:39:44: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:39:44: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:39:45: MINA session created: local=/192.168.148.58:56968, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-22:39:45: Initiated logon request
+20241211-22:39:46: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-22:39:46: Received logon
+20241211-22:39:49: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241211-22:39:49: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241211-22:40:56: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:40:56: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:40:56: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:40:57: MINA session created: local=/192.168.148.58:56970, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-22:40:58: Initiated logon request
+20241211-22:40:58: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-22:40:58: Received logon
+20241211-22:44:50: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:44:50: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:44:51: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:44:51: MINA session created: local=/192.168.148.58:57015, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-22:44:52: Initiated logon request
+20241211-22:44:52: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-22:44:52: Received logon
+20241211-22:45:09: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241211-22:45:10: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241211-22:45:35: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:45:35: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:45:36: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:45:36: MINA session created: local=/192.168.148.58:57021, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-22:45:37: Initiated logon request
+20241211-22:45:37: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-22:45:37: Received logon
+20241211-22:45:43: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241211-22:45:43: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241211-22:48:48: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241211-22:48:48: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241211-22:48:49: Configured socket addresses for session: [/144.91.67.90:5001]
+20241211-22:48:49: MINA session created: local=/192.168.148.58:57034, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241211-22:48:50: Initiated logon request
+20241211-22:48:50: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241211-22:48:50: Received logon
+20241211-22:49:03: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241211-22:49:04: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241212-23:33:20: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241212-23:33:20: Session state is not current; resetting FIX.4.4:TRD82841->QFXTRADES
+20241212-23:33:20: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241212-23:33:21: Configured socket addresses for session: [/144.91.67.90:5001]
+20241212-23:33:21: MINA session created: local=/192.168.148.58:53758, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241212-23:33:22: Initiated logon request
+20241212-23:33:22: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241212-23:33:23: Received logon
+20241212-23:33:23: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241212-23:33:24: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241212-23:35:57: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241212-23:35:57: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241212-23:35:58: Configured socket addresses for session: [/144.91.67.90:5001]
+20241212-23:35:58: MINA session created: local=/192.168.148.58:53769, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241212-23:35:59: Initiated logon request
+20241212-23:36:00: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241212-23:36:00: Received logon
+20241212-23:36:04: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241212-23:36:05: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241212-23:37:24: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241212-23:37:24: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241212-23:37:25: Configured socket addresses for session: [/144.91.67.90:5001]
+20241212-23:37:25: MINA session created: local=/192.168.148.58:53777, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241212-23:37:26: Initiated logon request
+20241212-23:37:26: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241212-23:37:26: Received logon
+20241212-23:37:48: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241212-23:37:48: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241212-23:38:37: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241212-23:38:37: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241212-23:38:37: Configured socket addresses for session: [/144.91.67.90:5001]
+20241212-23:38:38: MINA session created: local=/192.168.148.58:53785, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241212-23:38:39: Initiated logon request
+20241212-23:38:39: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241212-23:38:39: Received logon
+20241212-23:38:51: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241212-23:38:51: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241212-23:44:27: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241212-23:44:27: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241212-23:44:27: Configured socket addresses for session: [/144.91.67.90:5001]
+20241212-23:44:28: MINA session created: local=/192.168.148.58:53811, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241212-23:44:29: Initiated logon request
+20241212-23:44:29: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241212-23:44:29: Received logon
+20241212-23:44:30: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241212-23:44:30: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241212-23:53:30: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241212-23:53:30: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241212-23:53:31: Configured socket addresses for session: [/144.91.67.90:5001]
+20241212-23:53:31: MINA session created: local=/192.168.148.58:53898, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241212-23:53:32: Initiated logon request
+20241212-23:53:32: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241212-23:53:32: Received logon
+20241212-23:53:33: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241212-23:53:33: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241212-23:53:46: Rejecting invalid message: quickfix.IncorrectTagValue: Value is incorrect (out of range) for this tag, field=35 field=35: 8=FIX.4.49=49635=UAB34=449=QFXTRADES52=20241212-23:53:46.49656=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17340476264093337=010=065
+20241212-23:53:46: Reject sent for message 4: Value is incorrect (out of range) for this tag, field=35
+20241212-23:53:46: Rejecting invalid message: quickfix.IncorrectTagValue: Value is incorrect (out of range) for this tag, field=35 field=35: 8=FIX.4.49=49635=UAB34=549=QFXTRADES52=20241212-23:53:46.51356=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17340476264093337=010=056
+20241212-23:53:46: Reject sent for message 5: Value is incorrect (out of range) for this tag, field=35
+20241214-00:13:25: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-00:13:25: Session state is not current; resetting FIX.4.4:TRD82841->QFXTRADES
+20241214-00:13:25: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-00:13:26: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-00:13:28: Pending connection not established after 2030 ms.
+20241214-00:13:28: MINA session created: local=/192.168.30.58:51349, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-00:13:30: Initiated logon request
+20241214-00:13:31: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-00:13:31: Received logon
+20241214-00:13:37: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-00:13:40: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-00:13:52: Rejecting invalid message: quickfix.IncorrectTagValue: Value is incorrect (out of range) for this tag, field=35 field=35: 8=FIX.4.49=49635=UAB34=449=QFXTRADES52=20241214-00:13:50.18856=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17341352309003337=010=036
+20241214-00:13:52: Reject sent for message 4: Value is incorrect (out of range) for this tag, field=35
+20241214-00:13:52: Rejecting invalid message: quickfix.IncorrectTagValue: Value is incorrect (out of range) for this tag, field=35 field=35: 8=FIX.4.49=49635=UAB34=549=QFXTRADES52=20241214-00:13:50.20456=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17341352309003337=010=026
+20241214-00:13:52: Reject sent for message 5: Value is incorrect (out of range) for this tag, field=35
+20241214-00:15:46: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-00:15:46: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-00:15:47: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-00:15:47: MINA session created: local=/192.168.30.58:51367, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-00:15:48: Initiated logon request
+20241214-00:15:49: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-00:15:49: Received logon
+20241214-00:15:52: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-00:15:53: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-00:16:04: Rejecting invalid message: quickfix.IncorrectTagValue: Value is incorrect (out of range) for this tag, field=35 field=35: 8=FIX.4.49=49635=UAB34=449=QFXTRADES52=20241214-00:16:03.79356=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17341353644913337=010=052
+20241214-00:16:04: Reject sent for message 4: Value is incorrect (out of range) for this tag, field=35
+20241214-00:16:05: Rejecting invalid message: quickfix.IncorrectTagValue: Value is incorrect (out of range) for this tag, field=35 field=35: 8=FIX.4.49=49635=UAB34=549=QFXTRADES52=20241214-00:16:03.81056=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17341353644913337=010=043
+20241214-00:16:05: Reject sent for message 5: Value is incorrect (out of range) for this tag, field=35
+20241214-00:34:27: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-00:34:27: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-00:34:27: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-00:34:31: Pending connection not established after 2010 ms.
+20241214-00:34:35: Pending connection not established after 6026 ms.
+20241214-00:34:36: MINA session created: local=/192.168.30.58:51603, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-00:34:37: Initiated logon request
+20241214-00:34:43: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-00:34:43: Received logon
+20241214-00:34:50: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-00:34:55: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-00:42:22: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-00:42:22: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-00:42:23: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-00:42:26: MINA session created: local=/192.168.30.58:51926, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-00:42:26: Initiated logon request
+20241214-00:42:31: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-00:42:31: Received logon
+20241214-00:42:38: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-00:42:41: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-00:47:00: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-00:47:00: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-00:47:00: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-00:47:02: MINA session created: local=/192.168.30.58:52039, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-00:47:02: Initiated logon request
+20241214-00:47:02: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-00:47:02: Received logon
+20241214-00:47:13: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-00:47:13: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-00:47:38: Reject sent for message 6: Unsupported Message Type
+20241214-21:29:58: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-21:29:58: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-21:29:58: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-21:29:59: MINA session created: local=/192.168.215.58:50305, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-21:30:00: Initiated logon request
+20241214-21:30:00: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-21:30:00: Received logon
+20241214-21:30:03: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-21:30:04: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-21:30:30: Reject sent for message 6: Conditionally Required Field Missing: tag=58
+20241214-21:31:23: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-21:31:23: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-21:31:23: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-21:31:24: MINA session created: local=/192.168.215.58:50316, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-21:31:25: Initiated logon request
+20241214-21:31:25: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-21:31:25: Received logon
+20241214-21:32:39: Reject sent for message 4: Conditionally Required Field Missing: tag=73
+20241214-21:32:39: Reject sent for message 5: Conditionally Required Field Missing: tag=73
+20241214-21:32:57: Reject sent for message 8: Conditionally Required Field Missing: tag=58
+20241214-21:41:29: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-21:41:29: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-21:41:29: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-21:41:30: MINA session created: local=/192.168.215.58:50355, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-21:41:31: Initiated logon request
+20241214-21:41:32: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-21:41:32: Received logon
+20241214-21:41:39: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-21:41:39: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-21:41:58: Reject sent for message 6: Conditionally Required Field Missing: tag=58
+20241214-21:51:56: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-21:51:56: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-21:51:56: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-21:51:57: MINA session created: local=/192.168.215.58:50405, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-21:51:58: Initiated logon request
+20241214-21:51:58: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-21:51:58: Received logon
+20241214-21:56:02: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-21:56:02: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-21:56:03: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-21:56:03: MINA session created: local=/192.168.215.58:50438, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-21:56:04: Initiated logon request
+20241214-21:56:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-21:56:04: Received logon
+20241214-21:56:14: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-21:56:15: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-21:56:57: Reject sent for message 6: Conditionally Required Field Missing: tag=58
+20241214-21:57:59: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-21:57:59: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-21:57:59: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-21:57:59: MINA session created: local=/192.168.215.58:50445, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-21:58:01: Initiated logon request
+20241214-21:58:11: Disconnecting: Timed out waiting for logon response
+20241214-21:58:19: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-21:58:19: Received logon
+20241214-21:59:00: MINA session created: local=/192.168.215.58:50448, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-21:59:00: Initiated logon request
+20241214-21:59:00: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-21:59:00: Received logon
+20241214-21:59:15: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-21:59:17: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-21:59:39: Reject sent for message 6: Conditionally Required Field Missing: tag=58
+20241214-22:00:23: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:00:23: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:00:24: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:00:24: MINA session created: local=/192.168.215.58:50455, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:00:25: Initiated logon request
+20241214-22:00:25: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:00:25: Received logon
+20241214-22:00:30: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:00:32: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-22:01:31: Sent test request TEST
+20241214-22:01:39: Reject sent for message 6: Conditionally Required Field Missing: tag=58
+20241214-22:14:06: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:14:06: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:14:07: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:14:07: MINA session created: local=/192.168.215.58:50501, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:14:09: Initiated logon request
+20241214-22:14:12: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:14:12: Received logon
+20241214-22:14:14: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:14:16: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-22:14:31: Reject sent for message 6: Conditionally Required Field Missing: tag=58
+20241214-22:15:04: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:15:04: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:15:05: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:15:05: MINA session created: local=/192.168.215.58:50503, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:15:06: Initiated logon request
+20241214-22:15:07: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:15:07: Received logon
+20241214-22:15:52: Sent test request TEST
+20241214-22:15:58: Reject sent for message 4: Conditionally Required Field Missing: tag=73
+20241214-22:16:00: Reject sent for message 5: Conditionally Required Field Missing: tag=73
+20241214-22:26:22: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:26:22: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:26:22: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:26:22: MINA session created: local=/192.168.215.58:50624, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:26:24: Initiated logon request
+20241214-22:26:24: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:26:24: Received logon
+20241214-22:26:28: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:26:29: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-22:32:22: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:32:22: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:32:23: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:32:25: Pending connection not established after 2016 ms.
+20241214-22:32:28: Pending connection not established after 5044 ms.
+20241214-22:32:31: Pending connection not established after 8057 ms.
+20241214-22:32:32: MINA session created: local=/192.168.215.58:50665, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:32:33: Initiated logon request
+20241214-22:32:33: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:32:33: Received logon
+20241214-22:32:34: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:32:34: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-22:35:02: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:35:02: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:35:03: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:35:07: Pending connection not established after 2010 ms.
+20241214-22:35:08: MINA session created: local=/192.168.215.58:50684, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:35:09: Initiated logon request
+20241214-22:35:20: Disconnecting: Timed out waiting for logon response
+20241214-22:35:42: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:35:42: Received logon
+20241214-22:36:07: Pending connection not established after 2012 ms.
+20241214-22:36:10: Pending connection not established after 5036 ms.
+20241214-22:36:13: Pending connection not established after 8055 ms.
+20241214-22:36:15: MINA session created: local=/192.168.215.58:50689, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:36:15: Initiated logon request
+20241214-22:36:15: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:36:15: Received logon
+20241214-22:36:15: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:36:17: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-22:37:03: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:37:03: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:37:03: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:37:04: MINA session created: local=/192.168.215.58:50692, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:37:05: Initiated logon request
+20241214-22:37:06: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:37:06: Received logon
+20241214-22:37:06: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:37:06: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-22:38:59: Sent test request TEST
+20241214-22:39:51: Sent test request TEST
+20241214-22:40:18: Disconnecting: Timed out waiting for heartbeat
+20241214-22:40:19: MINA session created: local=/192.168.215.58:50704, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:40:19: Initiated logon request
+20241214-22:40:20: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:40:20: Received logon
+20241214-22:40:25: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:40:25: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-22:44:02: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:44:02: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:44:03: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:44:03: MINA session created: local=/192.168.215.58:50714, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:44:04: Initiated logon request
+20241214-22:44:05: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:44:05: Received logon
+20241214-22:44:05: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:44:05: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241214-22:45:42: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241214-22:45:42: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241214-22:45:42: Configured socket addresses for session: [/144.91.67.90:5001]
+20241214-22:45:44: Pending connection not established after 2012 ms.
+20241214-22:45:47: Pending connection not established after 5035 ms.
+20241214-22:45:50: Pending connection not established after 8062 ms.
+20241214-22:45:53: Pending connection not established after 11088 ms.
+20241214-22:45:56: Pending connection not established after 14090 ms.
+20241214-22:45:59: Pending connection not established after 17094 ms.
+20241214-22:46:02: Pending connection not established after 20104 ms.
+20241214-22:46:03: java.net.ConnectException during connection to /144.91.67.90:5001: java.net.ConnectException: Connection timed out: getsockopt (Next retry in 60000 milliseconds)
+20241214-22:46:43: MINA session created: local=/192.168.215.58:50732, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241214-22:46:43: Initiated logon request
+20241214-22:46:43: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241214-22:46:43: Received logon
+20241214-22:46:45: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241214-22:46:45: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241215-16:01:32: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241215-16:01:32: Session state is not current; resetting FIX.4.4:TRD82841->QFXTRADES
+20241215-16:01:32: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241215-16:01:33: Configured socket addresses for session: [/144.91.67.90:5001]
+20241215-16:01:33: MINA session created: local=/192.168.215.58:55738, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241215-16:01:34: Initiated logon request
+20241215-16:01:34: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241215-16:01:34: Received logon
+20241215-16:01:35: Reject sent for message 2: Conditionally Required Field Missing: tag=73
+20241215-16:01:35: Reject sent for message 3: Conditionally Required Field Missing: tag=73
+20241215-16:04:51: Session FIX.4.4:TRD82841->QFXTRADES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241215-16:04:51: Created session: FIX.4.4:TRD82841->QFXTRADES
+20241215-16:04:52: Configured socket addresses for session: [/144.91.67.90:5001]
+20241215-16:04:52: MINA session created: local=/192.168.215.58:55782, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5001
+20241215-16:04:53: Initiated logon request
+20241215-16:04:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241215-16:04:53: Received logon
+20241215-16:04:54: Reject sent for message 2: Conditionally Required Field Missing: tag=73

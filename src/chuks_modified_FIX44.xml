@@ -4242,6 +4242,7 @@
       <value enum="BF" description="USER_RESPONSE"/>
       <value enum="BG" description="COLLATERAL_INQUIRY_ACK"/>
       <value enum="BH" description="CONFIRMATION_REQUEST"/>
+      <value enum="UAB" description="ACCOUNT_INFO"/><!-- by chuks-->
     </field>
     <field number="36" name="NewSeqNo" type="SEQNUM"/>
     <field number="37" name="OrderID" type="STRING"/>
@@ -6214,7 +6215,8 @@
     </field>
     <field number="713" name="OrigPosReqRefID" type="STRING"/>
     <field number="714" name="PosMaintRptRefID" type="STRING"/>
-    <field number="715" name="ClearingBusinessDate" type="LOCALMKTDATE"/>
+    <!--<field number="715" name="ClearingBusinessDate" type="LOCALMKTDATE"/>--><!--removed by chuks and replaced at line below by chuks-->
+    <field number="715" name="ClearingBusinessDate" type="STRING"/><!--added by chuks to replace line above because of the LP specification-->
     <field number="716" name="SettlSessID" type="STRING"/>
     <field number="717" name="SettlSessSubID" type="STRING"/>
     <field number="718" name="AdjustmentType" type="INT">
