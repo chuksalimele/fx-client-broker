@@ -85,6 +85,11 @@ abstract public class TraderAccountAdapter implements AccountListener{
     public Identifier onSignUpFail(String reason) {
         return idf;
     }
+
+    @Override
+    public Identifier onSignUpInitiated(String email) {
+        return idf;
+    }
     
     
 }

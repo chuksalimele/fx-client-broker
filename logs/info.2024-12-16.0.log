@@ -1,0 +1,30 @@
+2024-12-16 00:26:00 [main] INFO  quickfix.DefaultSessionSchedule - [FIX.4.4:TRD82841->QFXTRADES] daily, 00:00:00-UTC - 00:00:00-UTC
+2024-12-16 00:26:01 [main] INFO  quickfix.DefaultSessionSchedule - [FIX.4.4:PRC82841->QFXPRICES] daily, 00:00:00-UTC - 00:00:00-UTC
+2024-12-16 00:26:01 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketTcpNoDelay=true
+2024-12-16 00:26:01 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWrites=false
+2024-12-16 00:26:01 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWriteTimeout=30000
+2024-12-16 00:26:01 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketTcpNoDelay=true
+2024-12-16 00:26:01 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWrites=false
+2024-12-16 00:26:01 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWriteTimeout=30000
+2024-12-16 00:26:01 [main] INFO  quickfix.SocketInitiator - SessionTimer started
+2024-12-16 00:26:01 [QFJ Message Processor] INFO  quickfix.SocketInitiator - Started QFJ Message Processor
+2024-12-16 00:29:22 [main] INFO  quickfix.DefaultSessionSchedule - [FIX.4.4:TRD82841->QFXTRADES] daily, 00:00:00-UTC - 00:00:00-UTC
+2024-12-16 00:29:22 [main] INFO  quickfix.DefaultSessionSchedule - [FIX.4.4:PRC82841->QFXPRICES] daily, 00:00:00-UTC - 00:00:00-UTC
+2024-12-16 00:29:23 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketTcpNoDelay=true
+2024-12-16 00:29:23 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWrites=false
+2024-12-16 00:29:23 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWriteTimeout=30000
+2024-12-16 00:29:23 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketTcpNoDelay=true
+2024-12-16 00:29:23 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWrites=false
+2024-12-16 00:29:23 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWriteTimeout=30000
+2024-12-16 00:29:23 [main] INFO  quickfix.SocketInitiator - SessionTimer started
+2024-12-16 00:29:23 [QFJ Message Processor] INFO  quickfix.SocketInitiator - Started QFJ Message Processor
+2024-12-16 00:42:05 [main] INFO  quickfix.DefaultSessionSchedule - [FIX.4.4:TRD82841->QFXTRADES] daily, 00:00:00-UTC - 00:00:00-UTC
+2024-12-16 00:42:05 [main] INFO  quickfix.DefaultSessionSchedule - [FIX.4.4:PRC82841->QFXPRICES] daily, 00:00:00-UTC - 00:00:00-UTC
+2024-12-16 00:42:05 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketTcpNoDelay=true
+2024-12-16 00:42:05 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWrites=false
+2024-12-16 00:42:05 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWriteTimeout=30000
+2024-12-16 00:42:05 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketTcpNoDelay=true
+2024-12-16 00:42:05 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWrites=false
+2024-12-16 00:42:05 [main] INFO  quickfix.mina.NetworkingOptions - Socket option: SocketSynchronousWriteTimeout=30000
+2024-12-16 00:42:05 [main] INFO  quickfix.SocketInitiator - SessionTimer started
+2024-12-16 00:42:05 [QFJ Message Processor] INFO  quickfix.SocketInitiator - Started QFJ Message Processor

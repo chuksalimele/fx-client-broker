@@ -859,3 +859,64 @@ quickfix.FieldNotFound: Field was not found in message, field=34
 20241215-16:04:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20241215-16:04:53: Received logon
 20241215-16:04:54: Reject sent for message 2: Unsupported Message Type
+20241215-16:12:30: Session FIX.4.4:PRC82841->QFXPRICES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241215-16:12:30: Created session: FIX.4.4:PRC82841->QFXPRICES
+20241215-16:12:30: Configured socket addresses for session: [/144.91.67.90:5000]
+20241215-16:12:30: MINA session created: local=/192.168.215.58:55815, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5000
+20241215-16:12:31: Initiated logon request
+20241215-16:12:32: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241215-16:12:32: Received logon
+20241215-16:12:32: Reject sent for message 2: Unsupported Message Type
+20241215-16:13:17: Session FIX.4.4:PRC82841->QFXPRICES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241215-16:13:17: Created session: FIX.4.4:PRC82841->QFXPRICES
+20241215-16:13:18: Configured socket addresses for session: [/144.91.67.90:5000]
+20241215-16:13:18: MINA session created: local=/192.168.215.58:55822, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5000
+20241215-16:13:19: Initiated logon request
+20241215-16:13:19: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241215-16:13:19: Received logon
+20241215-16:13:20: Reject sent for message 2: Unsupported Message Type
+20241215-23:26:01: Session FIX.4.4:PRC82841->QFXPRICES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241215-23:26:01: Created session: FIX.4.4:PRC82841->QFXPRICES
+20241215-23:26:01: Configured socket addresses for session: [/144.91.67.90:5000]
+20241215-23:26:02: MINA session created: local=/192.168.215.58:61801, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5000
+20241215-23:26:02: Initiated logon request
+20241215-23:26:03: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241215-23:26:03: Received logon
+20241215-23:26:03: Reject sent for message 2: Unsupported Message Type
+20241215-23:29:22: Session FIX.4.4:PRC82841->QFXPRICES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241215-23:29:22: Created session: FIX.4.4:PRC82841->QFXPRICES
+20241215-23:29:23: Configured socket addresses for session: [/144.91.67.90:5000]
+20241215-23:29:24: MINA session created: local=/192.168.215.58:61817, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5000
+20241215-23:29:24: Initiated logon request
+20241215-23:29:24: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241215-23:29:24: Received logon
+20241215-23:29:25: Reject sent for message 2: Unsupported Message Type
+20241215-23:42:05: Session FIX.4.4:PRC82841->QFXPRICES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241215-23:42:05: Created session: FIX.4.4:PRC82841->QFXPRICES
+20241215-23:42:05: Configured socket addresses for session: [/144.91.67.90:5000]
+20241215-23:42:05: MINA session created: local=/192.168.215.58:61878, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5000
+20241215-23:42:06: Initiated logon request
+20241215-23:42:07: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241215-23:42:07: Received logon
+20241215-23:42:07: Reject sent for message 2: Unsupported Message Type
+20241216-00:00:00: Session state is not current; resetting FIX.4.4:PRC82841->QFXPRICES
+20241216-00:00:00: Initiated logout request
+20241216-00:00:00: Received logout response
+20241216-00:00:00: Disconnecting: Received logout response
+20241216-00:00:01: MINA session created: local=/192.168.215.58:61975, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5000
+20241216-00:00:01: Initiated logon request
+20241216-00:00:01: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241216-00:00:01: Received logon
+20241216-00:00:02: Reject sent for message 2: Unsupported Message Type
+20241216-03:20:13: Disconnecting: Timed out waiting for heartbeat
+20241216-03:20:15: java.net.NoRouteToHostException during connection to /144.91.67.90:5000: java.net.NoRouteToHostException: No route to host: getsockopt (Next retry in 60000 milliseconds)
+20241216-07:30:51: java.net.NoRouteToHostException during connection to /144.91.67.90:5000: java.net.NoRouteToHostException: No route to host: getsockopt (Next retry in 60000 milliseconds)
+20241217-09:49:33: Session FIX.4.4:PRC82841->QFXPRICES schedule is daily, 00:00:00-UTC - 00:00:00-UTC
+20241217-09:49:33: Session state is not current; resetting FIX.4.4:PRC82841->QFXPRICES
+20241217-09:49:33: Created session: FIX.4.4:PRC82841->QFXPRICES
+20241217-09:49:34: Configured socket addresses for session: [/144.91.67.90:5000]
+20241217-09:49:34: MINA session created: local=/192.168.191.58:60439, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/144.91.67.90:5000
+20241217-09:49:35: Initiated logon request
+20241217-09:49:35: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20241217-09:49:35: Received logon
+20241217-09:49:36: Reject sent for message 2: Unsupported Message Type

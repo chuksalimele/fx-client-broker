@@ -307,6 +307,14 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
     }
 
     @Override
+    public Identifier onSignUpInitiated(String email) {
+        ctx.writeAndFlush(MessageFactory
+                .create(MessageType.SIGN_UP_INITIATED)
+                .assign(email));
+        return idf;
+    }
+
+    @Override
     public Identifier onSignUpFail(String reason) {
         ctx.writeAndFlush(MessageFactory
                 .create(MessageType.SIGN_UP_FAILED)

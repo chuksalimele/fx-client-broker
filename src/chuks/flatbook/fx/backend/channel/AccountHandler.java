@@ -243,10 +243,19 @@ class AccountHandler extends SharableTransportHandler {
         profile.setPassword(hash_password);
         profile.setRegistrationTime(System.currentTimeMillis());
 
-        if (!brokerAccount.registerTrader(profile)) {
+        brokerAccount.registerTrader(profile, (Boolean success, String errMsg)->{
             Client client = new Client(NO_ACCOUNT_NUMBER, -1, ctx);
-            client.onSignUpFail("Could not sign up");
-        }
+            if(success){            
+                client.onSignUpInitiated(email);
+            }else{
+                client.onSignUpFail(errMsg);
+            }
+        });
+
+            
+        
+
+        
     }
 
     private void handleLogout(ChannelHandlerContext ctx, ChannelMessage msg) {

@@ -75,6 +75,31 @@ public class TraderDB {
 
         return maxAccountNumber + 1;
     }
+    
+    public static synchronized boolean isEmailExist(String email) throws SQLException {
+        String sql = "SELECT email FROM traders WHERE email=?";
+
+        try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        }
+        return false;
+    } 
+
+    public static synchronized boolean isApproved(String email) throws SQLException {
+        String sql = "SELECT email, approval_time FROM traders WHERE email=?";
+
+        try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {                
+                return rs.getLong("approval_time") > 0;
+            }
+        }
+        return false;
+    }     
 
     // Insert a trader
     static public void insertTraderRegistration(String email,

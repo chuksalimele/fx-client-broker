@@ -5,7 +5,6 @@
 package chuks.flatbook.fx.backend.listener;
 
 import chuks.flatbook.fx.backend.account.contract.Identifier;
-import chuks.flatbook.fx.common.account.profile.UserType;
 
 /**
  *
@@ -17,6 +16,7 @@ public interface AccountListener {
     Identifier onLogOut(int account_number);
     Identifier onLogOutFail(int account_number, String reason);
     Identifier onAccountOpen(int account_number);
+    Identifier onSignUpInitiated(String email);
     Identifier onSignUpFail(String reason);
     Identifier onPasswordChanged(int account_number, char[] new_password);
     Identifier onAccountActivated(String email);

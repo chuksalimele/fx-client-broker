@@ -5,6 +5,7 @@
 package chuks.flatbook.fx.backend.account.contract;
 
 import chuks.flatbook.fx.common.account.profile.TraderInfo;
+import java.util.function.BiConsumer;
 
 /**
  *
@@ -12,7 +13,7 @@ import chuks.flatbook.fx.common.account.profile.TraderInfo;
  */
 public interface BrokerAccount extends BrokerOperation{
 
-    public boolean registerTrader(TraderInfo account_profile);        
+    public void registerTrader(TraderInfo account_profile, BiConsumer<Boolean, String> result);        
     
     public boolean login(int account_number, byte[] password, int user_type);  
     

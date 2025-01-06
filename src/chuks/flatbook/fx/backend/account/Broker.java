@@ -45,6 +45,7 @@ import chuks.flatbook.fx.backend.task.ActiveOrdersRequestTask;
 import chuks.flatbook.fx.backend.task.PositionRequestTask;
 import chuks.flatbook.fx.backend.task.Task;
 import chuks.flatbook.fx.backend.task.TaskManager;
+import java.util.function.BiConsumer;
 
 /**
  *
@@ -252,22 +253,29 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     }
 
     @Override
-    public boolean registerTrader(TraderInfo account_profile) {
-        int account_number = account_profile.getAccountNumber();
+    public void registerTrader(TraderInfo account_profile, BiConsumer<Boolean, String> result) {
+
         try {
+            boolean email_exist = TraderDB.isEmailExist(account_profile.getEmail());
+            boolean account_approved = TraderDB.isApproved(account_profile.getEmail());
+            if (email_exist && !account_approved) {
+                result.accept(false, "Email '"+account_profile.getEmail()+"' already exist. Account awaiting approval");
+            }else if (email_exist && account_approved) {
+                result.accept(false, "User already exist!");
+            }
+
             TraderDB.insertTraderRegistration(account_profile.getEmail(),
                     account_profile.getAccountName(),
                     account_profile.getPassword(),
                     account_profile.getRegistrationTime());
 
-            accountListenersMap
-                    .getOrDefault(account_number, DO_NOTHING_TA)
-                    .onAccountOpen(account_number);
-            return true;
+            result.accept(true, null);
+
         } catch (SQLException ex) {
             logger.error("Could not signup", ex);
+            result.accept(false, "Could not signup");
         }
-        return false;
+
     }
 
     BasicInfo byUserType(int account_number, UserType user_type) {
@@ -303,7 +311,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
                 this.refreshContent(account_number);
                 return true;
             }
-            user.setIsLoggedIn(true);
+            user.setIsLoggedIn(false);
             accountListenersMap
                     .getOrDefault(account_number, DO_NOTHING_TA)
                     .onLogInFail(account_number, "Incorrect password");
@@ -952,7 +960,6 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         }
 
     }
-
 
     private void orderMassStatusReport(ExecutionReport executionReport) throws FieldNotFound {
 
