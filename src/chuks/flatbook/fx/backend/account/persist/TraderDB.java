@@ -75,31 +75,41 @@ public class TraderDB {
 
         return maxAccountNumber + 1;
     }
-    
+
     public static synchronized boolean isEmailExist(String email) throws SQLException {
-        String sql = "SELECT email FROM traders WHERE email=?";
+        String sql = "SELECT email FROM traders WHERE email = ?";
 
         try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return true;
+            // Set the parameter for the prepared statement
+            pstmt.setString(1, email);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                // Check if the query returned any results
+                return rs.next();
             }
         }
-        return false;
-    } 
+
+    }
 
     public static synchronized boolean isApproved(String email) throws SQLException {
         String sql = "SELECT email, approval_time FROM traders WHERE email=?";
 
         try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {                
-                return rs.getLong("approval_time") > 0;
+            // Set the parameter for the prepared statement
+            pstmt.setString(1, email);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                // Check if the query returned any results
+                //return rs.next() && rs.getLong("approval_time") > 0;
+                if(rs.next()){
+                    Date date = rs.getDate("approval_time");
+                    return  date != null && date.getTime() > 0;
+                }else{
+                    return false;
+                }
             }
         }
-        return false;
-    }     
+    }
 
     // Insert a trader
     static public void insertTraderRegistration(String email,
@@ -172,7 +182,7 @@ public class TraderDB {
 
     public static List queryTraderRange(int page_index, int page_size) throws SQLException {
         String sql = "SELECT * FROM traders"
-                + " LIMIT " + page_size 
+                + " LIMIT " + page_size
                 + " OFFSET " + (page_index * page_size);
         return queryTradersBySQL(sql);
     }
@@ -180,7 +190,7 @@ public class TraderDB {
     public static List queryDeactivatedAccountRange(int page_index, int page_size) throws SQLException {
         String sql = "SELECT * FROM traders"
                 + " WHERE is_active = FALSE"
-                + " LIMIT " + page_size 
+                + " LIMIT " + page_size
                 + " OFFSET " + (page_index * page_size);
         return queryTradersBySQL(sql);
     }
@@ -196,7 +206,7 @@ public class TraderDB {
     public static List queryUnapprovedAccountRange(int page_index, int page_size) throws SQLException {
         String sql = "SELECT * FROM traders"
                 + " WHERE approval_time IS NULL"
-                + " LIMIT  LIMIT " + page_size 
+                + " LIMIT  LIMIT " + page_size
                 + " OFFSET " + (page_index * page_size);
         return queryTradersBySQL(sql);
     }
@@ -204,7 +214,7 @@ public class TraderDB {
     public static List queryClosedAccountRange(int page_index, int page_size) throws SQLException {
         String sql = "SELECT * FROM traders"
                 + " WHERE closed_time IS NULL"
-                + " LIMIT " + page_size 
+                + " LIMIT " + page_size
                 + " OFFSET " + (page_index * page_size);
         return queryTradersBySQL(sql);
     }
@@ -318,8 +328,8 @@ public class TraderDB {
                 trader.setAccountName(rs.getString("account_name"));
                 trader.setEmail(rs.getString("email"));
                 trader.setPassword(rs.getBytes("password"));
-                trader.setRegistrationTime(rs.getLong("registration_time"));
-                trader.setApprovalTime(rs.getLong("approval_time"));
+                trader.setRegistrationTime(rs.getDate("registration_time") == null ? 0: rs.getDate("registration_time").getTime());
+                trader.setApprovalTime(rs.getDate("approval_time") == null ? 0: rs.getDate("approval_time").getTime());
                 trader.setApprovedBy(rs.getInt("approved_by"));
                 trader.setActive(rs.getBoolean("is_active"));
                 trader.setEnabled(rs.getBoolean("is_enabled"));
@@ -344,14 +354,14 @@ public class TraderDB {
                 trader.setAccountName(rs.getString("account_name"));
                 trader.setEmail(rs.getString("email"));
                 trader.setPassword(rs.getBytes("password"));
-                trader.setRegistrationTime(rs.getLong("registration_time"));
-                trader.setApprovalTime(rs.getLong("approval_time"));
+                trader.setRegistrationTime(rs.getDate("registration_time") == null ? 0: rs.getDate("registration_time").getTime());
+                trader.setApprovalTime(rs.getDate("approval_time") == null ? 0: rs.getDate("approval_time").getTime());
                 trader.setApprovedBy(rs.getInt("approved_by"));
                 trader.setActive(rs.getBoolean("is_active"));
                 trader.setEnabled(rs.getBoolean("is_enabled"));
             }
         }
-        
+
         return trader;
     }
 

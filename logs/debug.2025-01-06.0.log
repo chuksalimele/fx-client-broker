@@ -1,0 +1,956 @@
+2025-01-06 21:26:12 [main] DEBUG c.flatbook.fx.backend.account.Broker - Session created: FIX.4.4:TRD82841->QFXTRADES
+2025-01-06 21:26:13 [main] DEBUG c.flatbook.fx.backend.account.Broker - Session created: FIX.4.4:PRC82841->QFXPRICES
+2025-01-06 21:26:14 [main] DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - Java version: 21
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe base methods: all available
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+2025-01-06 21:26:14 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=11435=A34=149=PRC8284152=20250106-20:26:14.66856=QFXPRICES98=0108=30141=Y553=prices82841554=ibuefriurciuv5t10=110
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @cb51256
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: C:\Users\user\AppData\Local\Temp (java.io.tmpdir)
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent - Platform: Windows
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-01-06 21:26:14 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+2025-01-06 21:26:14 [main] DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+2025-01-06 21:26:14 [main] DEBUG io.netty.handler.ssl.OpenSsl - netty-tcnative not in the classpath; OpenSslEngine will be unavailable.
+2025-01-06 21:26:14 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=10935=A34=149=TRD8284152=20250106-20:26:14.87756=QFXTRADES98=0108=30141=Y553=real82841554=9hucfe4riucr10=004
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=100,rem=100,offset=0,state=1
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=100,rem=100,offset=0,state=1
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 78: pos=0,lim=100,rem=100,offset=15,state=3
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=100,lim=100,rem=0,offset=100,state=4 8=FIX.4.49=7835=A34=149=QFXTRADES52=20250106-20:26:16.93656=TRD8284198=0108=30141=Y10=216
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 78: pos=0,lim=100,rem=100,offset=15,state=3
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=100,lim=100,rem=0,offset=100,state=4 8=FIX.4.49=7835=A34=149=QFXPRICES52=20250106-20:26:16.91356=PRC8284198=0108=30141=Y10=209
+2025-01-06 21:26:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Trading session logged in: FIX.4.4:TRD82841->QFXTRADES
+2025-01-06 21:26:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Quote session logged in: FIX.4.4:PRC82841->QFXPRICES
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=128,rem=128,offset=0,state=1
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 105: pos=0,lim=128,rem=128,offset=16,state=3
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=128,rem=128,offset=121,state=4
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=128,rem=128,offset=121,state=4
+2025-01-06 21:26:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=128,lim=128,rem=0,offset=128,state=4 8=FIX.4.49=10535=j34=249=QFXPRICES52=20250106-20:26:17.35756=PRC8284145=258=Unsupported Message Type372=x380=310=017
+2025-01-06 21:26:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=10535=j34=249=QFXPRICES52=20250106-20:26:17.35756=PRC8284145=258=Unsupported Message Type372=x380=310=017
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=186,rem=186,offset=0,state=1
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 163: pos=0,lim=186,rem=186,offset=16,state=3
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=186,rem=186,offset=179,state=4
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=186,rem=186,offset=179,state=4
+2025-01-06 21:26:15 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=186,lim=186,rem=0,offset=186,state=4 8=FIX.4.49=16335=834=249=QFXTRADES52=20250106-20:26:17.37356=TRD828411=828416=011= 14=017= 37= 39=054=155= 150=I151=0584=active-orders-1736195175320911=0912=Y10=170
+2025-01-06 21:26:15 [main] DEBUG io.netty.handler.ssl.JdkSslContext - Default protocols (JDK): [TLSv1.3, TLSv1.2] 
+2025-01-06 21:26:15 [main] DEBUG io.netty.handler.ssl.JdkSslContext - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384]
+2025-01-06 21:26:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=16335=834=249=QFXTRADES52=20250106-20:26:17.37356=TRD828411=828416=011= 14=017= 37= 39=054=155= 150=I151=0584=active-orders-1736195175320911=0912=Y10=170
+2025-01-06 21:26:15 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+2025-01-06 21:26:15 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+2025-01-06 21:26:15 [main] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+2025-01-06 21:26:15 [main] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+2025-01-06 21:26:15 [main] DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@7efd28bd
+2025-01-06 21:26:15 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-01-06 21:26:15 [main] DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 8
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 8
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 9
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 4194304
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: false
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-01-06 21:26:15 [main] DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: false
+2025-01-06 21:26:15 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+2025-01-06 21:26:15 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+2025-01-06 21:26:15 [main] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-01-06 21:26:16 [main] DEBUG i.n.h.ssl.BouncyCastlePemReader - Bouncy Castle provider available
+2025-01-06 21:26:16 [main] DEBUG i.n.h.ssl.BouncyCastlePemReader - Parsed PEM object of type org.bouncycastle.asn1.pkcs.PrivateKeyInfo and assume key is not encrypted
+2025-01-06 21:26:16 [main] DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 8
+2025-01-06 21:26:16 [main] DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+2025-01-06 21:26:17 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+2025-01-06 21:26:17 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-01-06 21:26:17 [main] DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+2025-01-06 21:26:17 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 17760 (auto-detected)
+2025-01-06 21:26:17 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+2025-01-06 21:26:17 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+2025-01-06 21:26:17 [main] DEBUG i.netty.util.NetUtilInitializations - Loopback interface: loopback_0 (Software Loopback Interface 1, 0:0:0:0:0:0:0:1)
+2025-01-06 21:26:17 [main] DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+2025-01-06 21:26:17 [main] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: 10:e7:c6:ff:fe:e4:af:05 (auto-detected)
+2025-01-06 21:26:17 [main] DEBUG i.n.b.ChannelInitializerExtensions - -Dio.netty.bootstrap.extensions: null
+2025-01-06 21:26:20 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:26:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=519,rem=519,offset=0,state=1
+2025-01-06 21:26:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 496: pos=0,lim=519,rem=519,offset=16,state=3
+2025-01-06 21:26:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=519,rem=519,offset=512,state=4
+2025-01-06 21:26:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=519,rem=519,offset=512,state=4
+2025-01-06 21:26:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=519,lim=519,rem=0,offset=519,state=4 8=FIX.4.49=49635=UAB34=349=QFXTRADES52=20250106-20:26:22.39456=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17361951803553337=010=055
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=49635=UAB34=349=QFXTRADES52=20250106-20:26:22.39456=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17361951803553337=010=055
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Account Info: Recieved successfully
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Currency: USD
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Balance: 2391.06
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Equity: 2391.06
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Credit: 0.0
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Margin: 0.0
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Free Margin: 2391.06
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Profit: 0.0
+2025-01-06 21:26:20 [QFJ Message Processor] DEBUG c.f.f.b.task.AccountInfoRequestTask - Account Info Report
+2025-01-06 21:26:21 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:26:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=185,rem=185,offset=0,state=1
+2025-01-06 21:26:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 162: pos=0,lim=185,rem=185,offset=16,state=3
+2025-01-06 21:26:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=185,rem=185,offset=178,state=4
+2025-01-06 21:26:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=185,rem=185,offset=178,state=4
+2025-01-06 21:26:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=185,lim=185,rem=0,offset=185,state=4 8=FIX.4.49=16235=AO34=449=QFXTRADES52=20250106-20:26:22.79556=TRD828411=82841581=1710=open-positions-1736195180751721=ACKopen-positions-1736195180751727=0728=0729=010=111
+2025-01-06 21:26:21 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=16235=AO34=449=QFXTRADES52=20250106-20:26:22.79556=TRD828411=82841581=1710=open-positions-1736195180751721=ACKopen-positions-1736195180751727=0728=0729=010=111
+2025-01-06 21:26:21 [QFJ Message Processor] DEBUG c.f.f.b.task.PositionRequestTask - PositionReport
+2025-01-06 21:26:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=449=PRC8284152=20250106-20:26:45.65456=QFXPRICES10=120
+2025-01-06 21:26:46 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:26:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:26:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:26:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:26:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:26:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=349=QFXPRICES52=20250106-20:26:47.69856=PRC8284110=129
+2025-01-06 21:26:51 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=649=TRD8284152=20250106-20:26:51.65156=QFXTRADES10=118
+2025-01-06 21:26:52 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:26:52 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:26:52 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:26:52 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:26:52 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:26:52 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=549=QFXTRADES52=20250106-20:26:52.79456=TRD8284110=126
+2025-01-06 21:27:15 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=549=PRC8284152=20250106-20:27:15.65456=QFXPRICES10=119
+2025-01-06 21:27:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:27:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:27:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:27:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:27:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:27:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=449=QFXPRICES52=20250106-20:27:17.79456=PRC8284110=125
+2025-01-06 21:27:21 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:27:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:27:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:27:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:27:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:27:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=649=QFXTRADES52=20250106-20:27:22.79456=TRD8284110=125
+2025-01-06 21:27:21 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=749=TRD8284152=20250106-20:27:21.64956=QFXTRADES10=124
+2025-01-06 21:27:26 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+2025-01-06 21:27:26 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+2025-01-06 21:27:26 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.chunkSize: 32
+2025-01-06 21:27:26 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.blocking: false
+2025-01-06 21:27:26 [nioEventLoopGroup-3-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.batchFastThreadLocalOnly: true
+2025-01-06 21:27:26 [nioEventLoopGroup-3-1] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x0ebf1691, L:/127.0.0.1:7000 - R:/127.0.0.1:49307] HANDSHAKEN: protocol:TLSv1.3 cipher suite:TLS_AES_128_GCM_SHA256
+2025-01-06 21:27:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=649=PRC8284152=20250106-20:27:45.65356=QFXPRICES10=122
+2025-01-06 21:27:46 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:27:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:27:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:27:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:27:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:27:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=549=QFXPRICES52=20250106-20:27:47.79456=PRC8284110=129
+2025-01-06 21:27:51 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:27:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:27:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:27:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:27:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:27:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=749=QFXTRADES52=20250106-20:27:52.79456=TRD8284110=129
+2025-01-06 21:27:51 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=849=TRD8284152=20250106-20:27:51.64956=QFXTRADES10=128
+2025-01-06 21:28:15 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=749=PRC8284152=20250106-20:28:15.65056=QFXPRICES10=118
+2025-01-06 21:28:18 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:28:18 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:28:18 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:28:18 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:28:18 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:28:18 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=649=QFXPRICES52=20250106-20:28:17.79456=PRC8284110=128
+2025-01-06 21:28:21 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:28:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:28:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:28:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:28:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:28:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=849=QFXTRADES52=20250106-20:28:22.79456=TRD8284110=128
+2025-01-06 21:28:21 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=949=TRD8284152=20250106-20:28:21.66056=QFXTRADES10=120
+2025-01-06 21:28:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=849=PRC8284152=20250106-20:28:45.65656=QFXPRICES10=128
+2025-01-06 21:28:46 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:28:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:28:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:28:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:28:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:28:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=749=QFXPRICES52=20250106-20:28:47.79456=PRC8284110=132
+2025-01-06 21:28:52 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1049=TRD8284152=20250106-20:28:52.65256=QFXTRADES10=166
+2025-01-06 21:28:54 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:28:54 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:28:54 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:28:54 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:28:54 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:28:54 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=949=QFXTRADES52=20250106-20:28:52.79456=TRD8284110=132
+2025-01-06 21:29:15 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=949=PRC8284152=20250106-20:29:15.65956=QFXPRICES10=130
+2025-01-06 21:29:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:29:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:29:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:29:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:29:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:29:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=849=QFXPRICES52=20250106-20:29:17.79556=PRC8284110=132
+2025-01-06 21:29:20 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:29:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:29:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:29:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:29:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:29:20 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1049=QFXTRADES52=20250106-20:29:22.79556=TRD8284110=172
+2025-01-06 21:29:22 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1149=TRD8284152=20250106-20:29:22.65456=QFXTRADES10=167
+2025-01-06 21:29:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1049=PRC8284152=20250106-20:29:45.65656=QFXPRICES10=171
+2025-01-06 21:29:46 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:29:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:29:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:29:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:29:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:29:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=949=QFXPRICES52=20250106-20:29:47.79456=PRC8284110=135
+2025-01-06 21:29:50 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:29:50 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:29:50 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:29:50 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:29:50 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:29:50 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1149=QFXTRADES52=20250106-20:29:52.79456=TRD8284110=175
+2025-01-06 21:29:52 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1249=TRD8284152=20250106-20:29:52.65356=QFXTRADES10=170
+2025-01-06 21:30:15 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1149=PRC8284152=20250106-20:30:15.65356=QFXPRICES10=158
+2025-01-06 21:30:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:30:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:30:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:30:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:30:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:30:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1049=QFXPRICES52=20250106-20:30:17.79456=PRC8284110=165
+2025-01-06 21:30:21 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:30:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:30:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:30:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:30:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:30:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1249=QFXTRADES52=20250106-20:30:22.79456=TRD8284110=165
+2025-01-06 21:30:22 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1349=TRD8284152=20250106-20:30:22.65456=QFXTRADES10=161
+2025-01-06 21:30:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1249=PRC8284152=20250106-20:30:45.84356=QFXPRICES10=163
+2025-01-06 21:30:45 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:30:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:30:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:30:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:30:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:30:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1149=QFXPRICES52=20250106-20:30:47.79456=PRC8284110=169
+2025-01-06 21:30:46 [nioEventLoopGroup-3-2] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x938939e0, L:/127.0.0.1:7000 - R:/127.0.0.1:49320] HANDSHAKEN: protocol:TLSv1.3 cipher suite:TLS_AES_128_GCM_SHA256
+2025-01-06 21:30:51 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:30:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:30:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:30:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:30:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:30:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1349=QFXTRADES52=20250106-20:30:52.79556=TRD8284110=170
+2025-01-06 21:30:52 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1449=TRD8284152=20250106-20:30:52.65156=QFXTRADES10=162
+2025-01-06 21:31:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:31:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:31:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:31:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:31:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:31:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1249=QFXPRICES52=20250106-20:31:17.79456=PRC8284110=168
+2025-01-06 21:31:16 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1349=PRC8284152=20250106-20:31:16.25456=QFXPRICES10=159
+2025-01-06 21:31:21 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:31:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:31:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:31:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:31:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:31:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1449=QFXTRADES52=20250106-20:31:22.79456=TRD8284110=168
+2025-01-06 21:31:22 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1549=TRD8284152=20250106-20:31:22.64756=QFXTRADES10=166
+2025-01-06 21:31:46 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:31:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:31:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:31:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:31:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:31:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1349=QFXPRICES52=20250106-20:31:47.79456=PRC8284110=172
+2025-01-06 21:31:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1449=PRC8284152=20250106-20:31:46.65056=QFXPRICES10=163
+2025-01-06 21:31:51 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:31:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:31:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:31:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:31:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:31:51 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1549=QFXTRADES52=20250106-20:31:52.79456=TRD8284110=172
+2025-01-06 21:31:52 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1649=TRD8284152=20250106-20:31:52.65656=QFXTRADES10=170
+2025-01-06 21:32:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:32:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:32:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:32:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:32:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:32:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1449=QFXPRICES52=20250106-20:32:17.79456=PRC8284110=171
+2025-01-06 21:32:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1549=PRC8284152=20250106-20:32:16.65856=QFXPRICES10=170
+2025-01-06 21:32:21 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:32:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:32:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:32:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:32:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:32:21 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1649=QFXTRADES52=20250106-20:32:22.79556=TRD8284110=172
+2025-01-06 21:32:22 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1749=TRD8284152=20250106-20:32:22.65656=QFXTRADES10=169
+2025-01-06 21:32:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1649=PRC8284152=20250106-20:32:46.66256=QFXPRICES10=169
+2025-01-06 21:32:47 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:32:47 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:32:47 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:32:47 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:32:47 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:32:47 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1549=QFXPRICES52=20250106-20:32:47.79456=PRC8284110=175
+2025-01-06 21:32:52 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1849=TRD8284152=20250106-20:32:52.70856=QFXTRADES10=171
+2025-01-06 21:32:53 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:32:53 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:32:53 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:32:53 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:32:53 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:32:53 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1749=QFXTRADES52=20250106-20:32:52.79456=TRD8284110=175
+2025-01-06 21:33:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:33:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:33:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:33:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:33:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:33:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1649=QFXPRICES52=20250106-20:33:17.79456=PRC8284110=174
+2025-01-06 21:33:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1749=PRC8284152=20250106-20:33:16.65456=QFXPRICES10=169
+2025-01-06 21:33:23 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1949=TRD8284152=20250106-20:33:23.65956=QFXTRADES10=176
+2025-01-06 21:33:38 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=7035=134=2049=TRD8284152=20250106-20:33:38.66756=QFXTRADES112=TEST10=192
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=128,rem=128,offset=0,state=1
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=128,rem=128,offset=15,state=3
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=128,rem=128,offset=76,state=4
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=128,rem=128,offset=76,state=4
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=128,rem=45,offset=83,state=4 8=FIX.4.49=6135=034=1849=QFXTRADES52=20250106-20:33:22.79456=TRD8284110=174
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=83,lim=128,rem=45,offset=83,state=1
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - body length = 70: pos=83,lim=128,rem=45,offset=98,state=3
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 2
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=92,rem=92,offset=85,state=4
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=92,rem=92,offset=85,state=4
+2025-01-06 21:33:45 [NioProcessor-8] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=92,lim=92,rem=0,offset=92,state=4 8=FIX.4.49=7035=034=1949=QFXTRADES52=20250106-20:33:40.72056=TRD82841112=TEST10=182
+2025-01-06 21:33:46 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:33:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:33:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:33:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:33:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:33:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1749=QFXPRICES52=20250106-20:33:47.79556=PRC8284110=179
+2025-01-06 21:33:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1849=PRC8284152=20250106-20:33:46.66256=QFXPRICES10=172
+2025-01-06 21:34:09 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2149=TRD8284152=20250106-20:34:09.66056=QFXTRADES10=166
+2025-01-06 21:34:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:34:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:34:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:34:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:34:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:34:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1849=QFXPRICES52=20250106-20:34:17.79456=PRC8284110=177
+2025-01-06 21:34:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1949=PRC8284152=20250106-20:34:16.65556=QFXPRICES10=173
+2025-01-06 21:34:30 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=7035=134=2249=TRD8284152=20250106-20:34:30.66156=QFXTRADES112=TEST10=181
+2025-01-06 21:34:45 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:34:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:34:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:34:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:34:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:34:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1949=QFXPRICES52=20250106-20:34:47.79456=PRC8284110=181
+2025-01-06 21:34:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2049=PRC8284152=20250106-20:34:46.65356=QFXPRICES10=166
+2025-01-06 21:34:57 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - Trading session logged out: FIX.4.4:TRD82841->QFXTRADES
+2025-01-06 21:34:57 [QFJ Timer] DEBUG o.a.m.core.service.AbstractIoService - awaitTermination on (nio socket connector: managedSessionCount: 0) called by thread=[QFJ Timer]
+2025-01-06 21:34:57 [QFJ Timer] DEBUG o.a.m.core.service.AbstractIoService - awaitTermination on (nio socket connector: managedSessionCount: 0) finished
+2025-01-06 21:34:58 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=11035=A34=2349=TRD8284152=20250106-20:34:58.65756=QFXTRADES98=0108=30141=Y553=real82841554=9hucfe4riucr10=051
+2025-01-06 21:34:59 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:34:59 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=100,rem=100,offset=0,state=1
+2025-01-06 21:34:59 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 78: pos=0,lim=100,rem=100,offset=15,state=3
+2025-01-06 21:34:59 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:34:59 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:34:59 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=100,lim=100,rem=0,offset=100,state=4 8=FIX.4.49=7835=A34=149=QFXTRADES52=20250106-20:35:00.72156=TRD8284198=0108=30141=Y10=201
+2025-01-06 21:34:59 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Trading session logged in: FIX.4.4:TRD82841->QFXTRADES
+2025-01-06 21:35:00 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:35:00 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=186,rem=186,offset=0,state=1
+2025-01-06 21:35:00 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 163: pos=0,lim=186,rem=186,offset=16,state=3
+2025-01-06 21:35:00 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=186,rem=186,offset=179,state=4
+2025-01-06 21:35:00 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=186,rem=186,offset=179,state=4
+2025-01-06 21:35:00 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=186,lim=186,rem=0,offset=186,state=4 8=FIX.4.49=16335=834=249=QFXTRADES52=20250106-20:35:01.13656=TRD828411=828416=011= 14=017= 37= 39=054=155= 150=I151=0584=active-orders-1736195699082911=0912=Y10=176
+2025-01-06 21:35:00 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=16335=834=249=QFXTRADES52=20250106-20:35:01.13656=TRD828411=828416=011= 14=017= 37= 39=054=155= 150=I151=0584=active-orders-1736195699082911=0912=Y10=176
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=519,rem=519,offset=0,state=1
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 496: pos=0,lim=519,rem=519,offset=16,state=3
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=519,rem=519,offset=512,state=4
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=519,rem=519,offset=512,state=4
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=519,lim=519,rem=0,offset=519,state=4 8=FIX.4.49=49635=UAB34=349=QFXTRADES52=20250106-20:35:06.13056=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17361957040973337=010=050
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=49635=UAB34=349=QFXTRADES52=20250106-20:35:06.13056=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17361957040973337=010=050
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Account Info: Recieved successfully
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Currency: USD
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Balance: 2391.06
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Equity: 2391.06
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Credit: 0.0
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Margin: 0.0
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Free Margin: 2391.06
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Profit: 0.0
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.f.f.b.task.AccountInfoRequestTask - Account Info Report
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=185,rem=185,offset=0,state=1
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 162: pos=0,lim=185,rem=185,offset=16,state=3
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=185,rem=185,offset=178,state=4
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=185,rem=185,offset=178,state=4
+2025-01-06 21:35:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=185,lim=185,rem=0,offset=185,state=4 8=FIX.4.49=16235=AO34=449=QFXTRADES52=20250106-20:35:06.59756=TRD828411=82841581=1710=open-positions-1736195704529721=ACKopen-positions-1736195704529727=0728=0729=010=123
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=16235=AO34=449=QFXTRADES52=20250106-20:35:06.59756=TRD828411=82841581=1710=open-positions-1736195704529721=ACKopen-positions-1736195704529727=0728=0729=010=123
+2025-01-06 21:35:04 [QFJ Message Processor] DEBUG c.f.f.b.task.PositionRequestTask - PositionReport
+2025-01-06 21:35:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:35:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:35:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:35:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:35:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:35:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2049=QFXPRICES52=20250106-20:35:17.79456=PRC8284110=171
+2025-01-06 21:35:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2149=PRC8284152=20250106-20:35:16.65156=QFXPRICES10=163
+2025-01-06 21:35:34 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=649=TRD8284152=20250106-20:35:34.65156=QFXTRADES10=119
+2025-01-06 21:35:34 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:35:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:35:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:35:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:35:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:35:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=549=QFXTRADES52=20250106-20:35:36.68856=TRD8284110=130
+2025-01-06 21:35:45 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:35:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:35:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:35:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:35:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:35:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2149=QFXPRICES52=20250106-20:35:47.79456=PRC8284110=175
+2025-01-06 21:35:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2249=PRC8284152=20250106-20:35:46.66256=QFXPRICES10=169
+2025-01-06 21:36:04 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=749=TRD8284152=20250106-20:36:04.65356=QFXTRADES10=120
+2025-01-06 21:36:04 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:36:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:36:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:36:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:36:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:36:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=649=QFXTRADES52=20250106-20:36:06.70456=TRD8284110=118
+2025-01-06 21:36:15 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:36:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:36:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:36:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:36:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:36:15 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2249=QFXPRICES52=20250106-20:36:17.79556=PRC8284110=175
+2025-01-06 21:36:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2349=PRC8284152=20250106-20:36:16.66156=QFXPRICES10=167
+2025-01-06 21:36:34 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=849=TRD8284152=20250106-20:36:34.65656=QFXTRADES10=127
+2025-01-06 21:36:34 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:36:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:36:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:36:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:36:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:36:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=749=QFXTRADES52=20250106-20:36:36.79556=TRD8284110=132
+2025-01-06 21:36:45 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:36:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:36:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:36:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:36:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:36:45 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2349=QFXPRICES52=20250106-20:36:47.79456=PRC8284110=178
+2025-01-06 21:36:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2449=PRC8284152=20250106-20:36:46.66156=QFXPRICES10=171
+2025-01-06 21:37:04 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=949=TRD8284152=20250106-20:37:04.65756=QFXTRADES10=127
+2025-01-06 21:37:04 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:37:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:37:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:37:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:37:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:37:04 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=849=QFXTRADES52=20250106-20:37:06.79556=TRD8284110=131
+2025-01-06 21:37:05 [nioEventLoopGroup-3-3] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x8bb338a8, L:/127.0.0.1:7000 - R:/127.0.0.1:49343] HANDSHAKEN: protocol:TLSv1.3 cipher suite:TLS_AES_128_GCM_SHA256
+2025-01-06 21:37:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:37:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:37:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:37:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:37:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:37:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2449=QFXPRICES52=20250106-20:37:17.79556=PRC8284110=178
+2025-01-06 21:37:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2549=PRC8284152=20250106-20:37:16.65856=QFXPRICES10=176
+2025-01-06 21:37:34 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1049=TRD8284152=20250106-20:37:34.65256=QFXTRADES10=166
+2025-01-06 21:37:34 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:37:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:37:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:37:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:37:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:37:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=949=QFXTRADES52=20250106-20:37:36.79556=TRD8284110=135
+2025-01-06 21:37:46 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:37:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:37:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:37:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:37:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:37:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2549=QFXPRICES52=20250106-20:37:47.79456=PRC8284110=181
+2025-01-06 21:37:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2649=PRC8284152=20250106-20:37:46.66056=QFXPRICES10=173
+2025-01-06 21:38:04 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1149=TRD8284152=20250106-20:38:04.64956=QFXTRADES10=171
+2025-01-06 21:38:06 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:38:06 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:38:06 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:38:06 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:38:06 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:38:06 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1049=QFXTRADES52=20250106-20:38:06.79456=TRD8284110=173
+2025-01-06 21:38:16 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:38:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:38:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:38:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:38:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:38:16 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2649=QFXPRICES52=20250106-20:38:17.79456=PRC8284110=180
+2025-01-06 21:38:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2749=PRC8284152=20250106-20:38:16.65256=QFXPRICES10=173
+2025-01-06 21:38:34 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1249=TRD8284152=20250106-20:38:34.64956=QFXTRADES10=175
+2025-01-06 21:38:34 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:38:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:38:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:38:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:38:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:38:34 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1149=QFXTRADES52=20250106-20:38:36.79456=TRD8284110=177
+2025-01-06 21:38:46 [NioProcessor-2] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 1
+2025-01-06 21:38:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:38:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:38:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:38:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:38:46 [NioProcessor-2] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2749=QFXPRICES52=20250106-20:38:47.79456=PRC8284110=184
+2025-01-06 21:38:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2849=PRC8284152=20250106-20:38:46.66256=QFXPRICES10=178
+2025-01-06 21:39:04 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1349=TRD8284152=20250106-20:39:04.65056=QFXTRADES10=166
+2025-01-06 21:39:05 [NioProcessor-14] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 3
+2025-01-06 21:39:05 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:39:05 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:39:05 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:39:05 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:39:05 [NioProcessor-14] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1249=QFXTRADES52=20250106-20:39:06.79556=TRD8284110=177
+2025-01-06 21:39:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2949=PRC8284152=20250106-20:39:16.66156=QFXPRICES10=176
+2025-01-06 21:39:31 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=7035=134=3049=PRC8284152=20250106-20:39:31.65356=QFXPRICES112=TEST10=185
+2025-01-06 21:39:34 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1449=TRD8284152=20250106-20:39:34.64856=QFXTRADES10=177
+2025-01-06 21:39:50 [NioProcessor-2] DEBUG c.flatbook.fx.backend.account.Broker - Quote session logged out: FIX.4.4:PRC82841->QFXPRICES
+2025-01-06 21:39:50 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=7035=134=1549=TRD8284152=20250106-20:39:50.65456=QFXTRADES112=TEST10=192
+2025-01-06 21:39:51 [QFJ Timer] DEBUG o.a.m.core.service.AbstractIoService - awaitTermination on (nio socket connector: managedSessionCount: 0) called by thread=[QFJ Timer]
+2025-01-06 21:39:51 [QFJ Timer] DEBUG o.a.m.core.service.AbstractIoService - awaitTermination on (nio socket connector: managedSessionCount: 0) finished
+2025-01-06 21:40:06 [NioProcessor-14] DEBUG c.flatbook.fx.backend.account.Broker - Trading session logged out: FIX.4.4:TRD82841->QFXTRADES
+2025-01-06 21:40:08 [QFJ Timer] DEBUG o.a.m.core.service.AbstractIoService - awaitTermination on (nio socket connector: managedSessionCount: 0) called by thread=[QFJ Timer]
+2025-01-06 21:40:08 [QFJ Timer] DEBUG o.a.m.core.service.AbstractIoService - awaitTermination on (nio socket connector: managedSessionCount: 0) finished
+2025-01-06 21:40:52 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=11535=A34=3149=PRC8284152=20250106-20:40:52.65256=QFXPRICES98=0108=30141=Y553=prices82841554=ibuefriurciuv5t10=153
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=100,rem=100,offset=0,state=1
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 78: pos=0,lim=100,rem=100,offset=15,state=3
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=100,lim=100,rem=0,offset=100,state=4 8=FIX.4.49=7835=A34=149=QFXPRICES52=20250106-20:40:54.70456=PRC8284198=0108=30141=Y10=205
+2025-01-06 21:40:54 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Quote session logged in: FIX.4.4:PRC82841->QFXPRICES
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=128,rem=128,offset=0,state=1
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 105: pos=0,lim=128,rem=128,offset=16,state=3
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=128,rem=128,offset=121,state=4
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=128,rem=128,offset=121,state=4
+2025-01-06 21:40:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=128,lim=128,rem=0,offset=128,state=4 8=FIX.4.49=10535=j34=249=QFXPRICES52=20250106-20:40:56.39156=PRC8284145=258=Unsupported Message Type372=x380=310=014
+2025-01-06 21:40:54 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=10535=j34=249=QFXPRICES52=20250106-20:40:56.39156=PRC8284145=258=Unsupported Message Type372=x380=310=014
+2025-01-06 21:41:09 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=11035=A34=1649=TRD8284152=20250106-20:41:09.66256=QFXTRADES98=0108=30141=Y553=real82841554=9hucfe4riucr10=043
+2025-01-06 21:41:09 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:41:09 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=100,rem=100,offset=0,state=1
+2025-01-06 21:41:09 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 78: pos=0,lim=100,rem=100,offset=15,state=3
+2025-01-06 21:41:09 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:41:09 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=100,rem=100,offset=93,state=4
+2025-01-06 21:41:09 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=100,lim=100,rem=0,offset=100,state=4 8=FIX.4.49=7835=A34=149=QFXTRADES52=20250106-20:41:11.73256=TRD8284198=0108=30141=Y10=202
+2025-01-06 21:41:09 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Trading session logged in: FIX.4.4:TRD82841->QFXTRADES
+2025-01-06 21:41:10 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:41:10 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=186,rem=186,offset=0,state=1
+2025-01-06 21:41:10 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 163: pos=0,lim=186,rem=186,offset=16,state=3
+2025-01-06 21:41:10 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=186,rem=186,offset=179,state=4
+2025-01-06 21:41:10 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=186,rem=186,offset=179,state=4
+2025-01-06 21:41:10 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=186,lim=186,rem=0,offset=186,state=4 8=FIX.4.49=16335=834=249=QFXTRADES52=20250106-20:41:12.03056=TRD828411=828416=011= 14=017= 37= 39=054=155= 150=I151=0584=active-orders-1736196069977911=0912=Y10=173
+2025-01-06 21:41:10 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=16335=834=249=QFXTRADES52=20250106-20:41:12.03056=TRD828411=828416=011= 14=017= 37= 39=054=155= 150=I151=0584=active-orders-1736196069977911=0912=Y10=173
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=519,rem=519,offset=0,state=1
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 496: pos=0,lim=519,rem=519,offset=16,state=3
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=519,rem=519,offset=512,state=4
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=519,rem=519,offset=512,state=4
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=519,lim=519,rem=0,offset=519,state=4 8=FIX.4.49=49635=UAB34=349=QFXTRADES52=20250106-20:41:17.03056=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17361960749853337=010=055
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=49635=UAB34=349=QFXTRADES52=20250106-20:41:17.03056=TRD828411=8284115=USD898=1797693134862315700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003330=2391.063331=2391.063332=03333=03334=2391.063335=03336=account_info_req_id17361960749853337=010=055
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Account Info: Recieved successfully
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Currency: USD
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Balance: 2391.06
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Equity: 2391.06
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Credit: 0.0
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Margin: 0.0
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Free Margin: 2391.06
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - Profit: 0.0
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.f.f.b.task.AccountInfoRequestTask - Account Info Report
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=185,rem=185,offset=0,state=1
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 162: pos=0,lim=185,rem=185,offset=16,state=3
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=185,rem=185,offset=178,state=4
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=185,rem=185,offset=178,state=4
+2025-01-06 21:41:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=185,lim=185,rem=0,offset=185,state=4 8=FIX.4.49=16235=AO34=449=QFXTRADES52=20250106-20:41:17.24256=TRD828411=82841581=1710=open-positions-1736196075202721=ACKopen-positions-1736196075202727=0728=0729=010=089
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - From App: 8=FIX.4.49=16235=AO34=449=QFXTRADES52=20250106-20:41:17.24256=TRD828411=82841581=1710=open-positions-1736196075202721=ACKopen-positions-1736196075202727=0728=0729=010=089
+2025-01-06 21:41:15 [QFJ Message Processor] DEBUG c.f.f.b.task.PositionRequestTask - PositionReport
+2025-01-06 21:41:24 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=449=PRC8284152=20250106-20:41:24.65856=QFXPRICES10=118
+2025-01-06 21:41:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:41:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:41:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:41:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:41:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:41:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=349=QFXPRICES52=20250106-20:41:26.70256=PRC8284110=109
+2025-01-06 21:41:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=649=TRD8284152=20250106-20:41:45.65256=QFXTRADES10=119
+2025-01-06 21:41:45 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:41:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:41:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:41:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:41:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:41:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=549=QFXTRADES52=20250106-20:41:47.70256=TRD8284110=116
+2025-01-06 21:41:54 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=549=PRC8284152=20250106-20:41:54.66156=QFXPRICES10=116
+2025-01-06 21:41:54 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:41:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:41:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:41:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:41:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:41:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=449=QFXPRICES52=20250106-20:41:56.71756=PRC8284110=119
+2025-01-06 21:42:15 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=749=TRD8284152=20250106-20:42:15.66256=QFXTRADES10=119
+2025-01-06 21:42:15 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:42:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:42:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:42:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:42:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:42:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=649=QFXTRADES52=20250106-20:42:17.72256=TRD8284110=117
+2025-01-06 21:42:24 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:42:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:42:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:42:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:42:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:42:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=549=QFXPRICES52=20250106-20:42:26.79456=PRC8284110=123
+2025-01-06 21:42:24 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=649=PRC8284152=20250106-20:42:24.94456=QFXPRICES10=119
+2025-01-06 21:42:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=849=TRD8284152=20250106-20:42:45.65356=QFXTRADES10=123
+2025-01-06 21:42:45 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:42:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:42:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:42:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:42:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:42:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=749=QFXTRADES52=20250106-20:42:47.79556=TRD8284110=131
+2025-01-06 21:42:54 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:42:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:42:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:42:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:42:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:42:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=649=QFXPRICES52=20250106-20:42:56.79456=PRC8284110=127
+2025-01-06 21:42:54 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=749=PRC8284152=20250106-20:42:54.99356=QFXPRICES10=127
+2025-01-06 21:43:15 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=949=TRD8284152=20250106-20:43:15.64756=QFXTRADES10=125
+2025-01-06 21:43:15 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:43:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:43:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:43:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:43:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:43:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=849=QFXTRADES52=20250106-20:43:17.79656=TRD8284110=131
+2025-01-06 21:43:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:43:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:43:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:43:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:43:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:43:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=749=QFXPRICES52=20250106-20:43:26.79456=PRC8284110=126
+2025-01-06 21:43:25 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=849=PRC8284152=20250106-20:43:25.15556=QFXPRICES10=117
+2025-01-06 21:43:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1049=TRD8284152=20250106-20:43:45.65156=QFXTRADES10=164
+2025-01-06 21:43:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:43:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:43:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:43:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:43:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:43:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=949=QFXTRADES52=20250106-20:43:47.79556=TRD8284110=134
+2025-01-06 21:43:55 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:43:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:43:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:43:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:43:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:43:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=849=QFXPRICES52=20250106-20:43:56.79456=PRC8284110=130
+2025-01-06 21:43:55 [QFJ Message Processor] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6035=034=949=PRC8284152=20250106-20:43:55.27656=QFXPRICES10=125
+2025-01-06 21:44:15 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1149=TRD8284152=20250106-20:44:15.64956=QFXTRADES10=170
+2025-01-06 21:44:16 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:44:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:44:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:44:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:44:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:44:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1049=QFXTRADES52=20250106-20:44:17.79556=TRD8284110=173
+2025-01-06 21:44:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1049=PRC8284152=20250106-20:44:25.65356=QFXPRICES10=163
+2025-01-06 21:44:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:44:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=82,rem=82,offset=0,state=1
+2025-01-06 21:44:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 60: pos=0,lim=82,rem=82,offset=15,state=3
+2025-01-06 21:44:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:44:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=82,rem=82,offset=75,state=4
+2025-01-06 21:44:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=82,lim=82,rem=0,offset=82,state=4 8=FIX.4.49=6035=034=949=QFXPRICES52=20250106-20:44:26.79456=PRC8284110=129
+2025-01-06 21:44:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1249=TRD8284152=20250106-20:44:45.65456=QFXTRADES10=170
+2025-01-06 21:44:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:44:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:44:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:44:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:44:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:44:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1149=QFXTRADES52=20250106-20:44:47.79556=TRD8284110=177
+2025-01-06 21:44:54 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:44:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:44:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:44:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:44:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:44:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1049=QFXPRICES52=20250106-20:44:56.79456=PRC8284110=173
+2025-01-06 21:44:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1149=PRC8284152=20250106-20:44:55.65456=QFXPRICES10=168
+2025-01-06 21:45:15 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1349=TRD8284152=20250106-20:45:15.65056=QFXTRADES10=165
+2025-01-06 21:45:16 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:45:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:45:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:45:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:45:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:45:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1249=QFXTRADES52=20250106-20:45:17.79456=TRD8284110=175
+2025-01-06 21:45:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:45:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:45:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:45:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:45:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:45:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1149=QFXPRICES52=20250106-20:45:26.79456=PRC8284110=172
+2025-01-06 21:45:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1249=PRC8284152=20250106-20:45:25.65056=QFXPRICES10=163
+2025-01-06 21:45:45 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1449=TRD8284152=20250106-20:45:45.66256=QFXTRADES10=172
+2025-01-06 21:45:47 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:45:47 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:45:47 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:45:47 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:45:47 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:45:47 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1349=QFXTRADES52=20250106-20:45:47.79856=TRD8284110=183
+2025-01-06 21:45:55 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:45:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:45:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:45:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:45:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:45:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1249=QFXPRICES52=20250106-20:45:56.79456=PRC8284110=176
+2025-01-06 21:45:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1349=PRC8284152=20250106-20:45:55.65256=QFXPRICES10=169
+2025-01-06 21:46:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1549=TRD8284152=20250106-20:46:16.64956=QFXTRADES10=177
+2025-01-06 21:46:17 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:46:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:46:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:46:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:46:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:46:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1449=QFXTRADES52=20250106-20:46:17.79656=TRD8284110=180
+2025-01-06 21:46:24 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:46:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:46:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:46:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:46:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:46:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1349=QFXPRICES52=20250106-20:46:26.79456=PRC8284110=175
+2025-01-06 21:46:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1449=PRC8284152=20250106-20:46:25.64856=QFXPRICES10=173
+2025-01-06 21:46:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:46:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:46:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:46:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:46:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:46:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1549=QFXTRADES52=20250106-20:46:47.79556=TRD8284110=183
+2025-01-06 21:46:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1649=TRD8284152=20250106-20:46:46.64956=QFXTRADES10=181
+2025-01-06 21:46:55 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:46:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:46:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:46:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:46:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:46:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1449=QFXPRICES52=20250106-20:46:56.79456=PRC8284110=179
+2025-01-06 21:46:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1549=PRC8284152=20250106-20:46:55.64856=QFXPRICES10=177
+2025-01-06 21:47:15 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:47:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:47:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:47:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:47:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:47:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1649=QFXTRADES52=20250106-20:47:17.79556=TRD8284110=182
+2025-01-06 21:47:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1749=TRD8284152=20250106-20:47:16.65356=QFXTRADES10=175
+2025-01-06 21:47:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:47:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:47:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:47:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:47:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:47:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1549=QFXPRICES52=20250106-20:47:26.79456=PRC8284110=178
+2025-01-06 21:47:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1649=PRC8284152=20250106-20:47:25.65856=QFXPRICES10=177
+2025-01-06 21:47:45 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:47:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:47:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:47:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:47:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:47:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1749=QFXTRADES52=20250106-20:47:47.79556=TRD8284110=186
+2025-01-06 21:47:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1849=TRD8284152=20250106-20:47:46.64956=QFXTRADES10=184
+2025-01-06 21:47:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1749=PRC8284152=20250106-20:47:55.65756=QFXPRICES10=180
+2025-01-06 21:47:56 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:47:56 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:47:56 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:47:56 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:47:56 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:47:56 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1649=QFXPRICES52=20250106-20:47:56.79456=PRC8284110=182
+2025-01-06 21:48:16 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:48:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:48:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:48:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:48:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:48:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1849=QFXTRADES52=20250106-20:48:17.79556=TRD8284110=185
+2025-01-06 21:48:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1949=TRD8284152=20250106-20:48:16.64856=QFXTRADES10=182
+2025-01-06 21:48:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1849=PRC8284152=20250106-20:48:25.64956=QFXPRICES10=180
+2025-01-06 21:48:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:48:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:48:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:48:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:48:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:48:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1749=QFXPRICES52=20250106-20:48:26.79456=PRC8284110=181
+2025-01-06 21:48:45 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:48:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:48:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:48:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:48:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:48:45 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1949=QFXTRADES52=20250106-20:48:47.79556=TRD8284110=189
+2025-01-06 21:48:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2049=TRD8284152=20250106-20:48:46.65956=QFXTRADES10=179
+2025-01-06 21:48:54 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:48:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:48:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:48:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:48:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:48:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1849=QFXPRICES52=20250106-20:48:56.79456=PRC8284110=185
+2025-01-06 21:48:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=1949=PRC8284152=20250106-20:48:55.65156=QFXPRICES10=177
+2025-01-06 21:49:16 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:49:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:49:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:49:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:49:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:49:16 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2049=QFXTRADES52=20250106-20:49:17.79556=TRD8284110=179
+2025-01-06 21:49:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2149=TRD8284152=20250106-20:49:16.65756=QFXTRADES10=176
+2025-01-06 21:49:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:49:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:49:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:49:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:49:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:49:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=1949=QFXPRICES52=20250106-20:49:26.79456=PRC8284110=184
+2025-01-06 21:49:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2049=PRC8284152=20250106-20:49:25.65256=QFXPRICES10=168
+2025-01-06 21:49:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2249=TRD8284152=20250106-20:49:46.65656=QFXTRADES10=179
+2025-01-06 21:49:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:49:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:49:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:49:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:49:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:49:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2149=QFXTRADES52=20250106-20:49:47.79556=TRD8284110=183
+2025-01-06 21:49:55 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:49:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:49:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:49:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:49:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:49:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2049=QFXPRICES52=20250106-20:49:56.79456=PRC8284110=179
+2025-01-06 21:49:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2149=PRC8284152=20250106-20:49:55.66256=QFXPRICES10=173
+2025-01-06 21:50:15 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:50:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:50:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:50:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:50:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:50:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2249=QFXTRADES52=20250106-20:50:17.79556=TRD8284110=173
+2025-01-06 21:50:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2349=TRD8284152=20250106-20:50:16.65056=QFXTRADES10=163
+2025-01-06 21:50:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2249=PRC8284152=20250106-20:50:25.65356=QFXPRICES10=163
+2025-01-06 21:50:27 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:50:27 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:50:27 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:50:27 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:50:27 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:50:27 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2149=QFXPRICES52=20250106-20:50:26.79456=PRC8284110=169
+2025-01-06 21:50:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:50:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:50:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:50:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:50:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:50:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2349=QFXTRADES52=20250106-20:50:47.79656=TRD8284110=178
+2025-01-06 21:50:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2449=TRD8284152=20250106-20:50:46.65156=QFXTRADES10=168
+2025-01-06 21:50:54 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:50:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:50:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:50:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:50:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:50:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2249=QFXPRICES52=20250106-20:50:56.79456=PRC8284110=173
+2025-01-06 21:50:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2349=PRC8284152=20250106-20:50:55.66056=QFXPRICES10=165
+2025-01-06 21:51:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2549=TRD8284152=20250106-20:51:16.65356=QFXTRADES10=169
+2025-01-06 21:51:17 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:51:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:51:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:51:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:51:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:51:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2449=QFXTRADES52=20250106-20:51:17.79556=TRD8284110=176
+2025-01-06 21:51:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2449=PRC8284152=20250106-20:51:25.66156=QFXPRICES10=165
+2025-01-06 21:51:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:51:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:51:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:51:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:51:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:51:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2349=QFXPRICES52=20250106-20:51:26.79456=PRC8284110=172
+2025-01-06 21:51:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:51:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:51:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:51:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:51:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:51:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2549=QFXTRADES52=20250106-20:51:47.79556=TRD8284110=180
+2025-01-06 21:51:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2649=TRD8284152=20250106-20:51:46.65956=QFXTRADES10=179
+2025-01-06 21:51:55 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:51:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:51:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:51:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:51:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:51:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2449=QFXPRICES52=20250106-20:51:56.79456=PRC8284110=176
+2025-01-06 21:51:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2549=PRC8284152=20250106-20:51:55.65756=QFXPRICES10=174
+2025-01-06 21:51:59 [nioEventLoopGroup-3-4] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xb6c47a5f, L:/127.0.0.1:7000 - R:/127.0.0.1:49630] HANDSHAKEN: protocol:TLSv1.3 cipher suite:TLS_AES_128_GCM_SHA256
+2025-01-06 21:52:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2749=TRD8284152=20250106-20:52:16.65056=QFXTRADES10=169
+2025-01-06 21:52:17 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:52:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:52:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:52:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:52:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:52:17 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2649=QFXTRADES52=20250106-20:52:17.79556=TRD8284110=179
+2025-01-06 21:52:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:52:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:52:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:52:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:52:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:52:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2549=QFXPRICES52=20250106-20:52:26.79456=PRC8284110=175
+2025-01-06 21:52:25 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2649=PRC8284152=20250106-20:52:25.65656=QFXPRICES10=172
+2025-01-06 21:52:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:52:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:52:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:52:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:52:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:52:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2749=QFXTRADES52=20250106-20:52:47.79556=TRD8284110=183
+2025-01-06 21:52:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2849=TRD8284152=20250106-20:52:46.64956=QFXTRADES10=181
+2025-01-06 21:52:54 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:52:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:52:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:52:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:52:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:52:54 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2649=QFXPRICES52=20250106-20:52:56.79456=PRC8284110=179
+2025-01-06 21:52:55 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2749=PRC8284152=20250106-20:52:55.71056=QFXPRICES10=167
+2025-01-06 21:53:04 [nioEventLoopGroup-3-5] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x4afa03e1, L:/127.0.0.1:7000 - R:/127.0.0.1:49644] HANDSHAKEN: protocol:TLSv1.3 cipher suite:TLS_AES_128_GCM_SHA256
+2025-01-06 21:53:15 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:53:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:53:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:53:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:53:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:53:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2849=QFXTRADES52=20250106-20:53:17.79556=TRD8284110=182
+2025-01-06 21:53:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2949=TRD8284152=20250106-20:53:16.65556=QFXTRADES10=177
+2025-01-06 21:53:24 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:53:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:53:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:53:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:53:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:53:24 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2749=QFXPRICES52=20250106-20:53:26.79456=PRC8284110=178
+2025-01-06 21:53:26 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2849=PRC8284152=20250106-20:53:26.66156=QFXPRICES10=172
+2025-01-06 21:53:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:53:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:53:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:53:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:53:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:53:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2949=QFXTRADES52=20250106-20:53:47.79556=TRD8284110=186
+2025-01-06 21:53:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=3049=TRD8284152=20250106-20:53:46.65956=QFXTRADES10=176
+2025-01-06 21:53:46 [nioEventLoopGroup-3-6] DEBUG io.netty.handler.ssl.SslHandler - [id: 0xde8f0386, L:/127.0.0.1:7000 - R:/127.0.0.1:49650] HANDSHAKEN: protocol:TLSv1.3 cipher suite:TLS_AES_128_GCM_SHA256
+2025-01-06 21:53:55 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:53:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:53:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:53:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:53:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:53:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2849=QFXPRICES52=20250106-20:53:56.79456=PRC8284110=182
+2025-01-06 21:53:56 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=2949=PRC8284152=20250106-20:53:56.66156=QFXPRICES10=176
+2025-01-06 21:54:15 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:54:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:54:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:54:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:54:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:54:15 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=3049=QFXTRADES52=20250106-20:54:17.79556=TRD8284110=176
+2025-01-06 21:54:16 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=3149=TRD8284152=20250106-20:54:16.65656=QFXTRADES10=172
+2025-01-06 21:54:25 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:54:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:54:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:54:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:54:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:54:25 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=2949=QFXPRICES52=20250106-20:54:26.79456=PRC8284110=181
+2025-01-06 21:54:27 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=3049=PRC8284152=20250106-20:54:27.66256=QFXPRICES10=168
+2025-01-06 21:54:30 [nioEventLoopGroup-3-7] DEBUG io.netty.handler.ssl.SslHandler - [id: 0x54a87b56, L:/127.0.0.1:7000 - R:/127.0.0.1:49655] HANDSHAKEN: protocol:TLSv1.3 cipher suite:TLS_AES_128_GCM_SHA256
+2025-01-06 21:54:46 [NioProcessor-21] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 5
+2025-01-06 21:54:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:54:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:54:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:54:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:54:46 [NioProcessor-21] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=3149=QFXTRADES52=20250106-20:54:47.79556=TRD8284110=180
+2025-01-06 21:54:46 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=3249=TRD8284152=20250106-20:54:46.64856=QFXTRADES10=177
+2025-01-06 21:54:55 [NioProcessor-20] DEBUG o.a.m.f.codec.ProtocolCodecFilter - Processing a MESSAGE_RECEIVED for session 4
+2025-01-06 21:54:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - detected header: pos=0,lim=83,rem=83,offset=0,state=1
+2025-01-06 21:54:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - body length = 61: pos=0,lim=83,rem=83,offset=15,state=3
+2025-01-06 21:54:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - message body found: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:54:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - found checksum: pos=0,lim=83,rem=83,offset=76,state=4
+2025-01-06 21:54:55 [NioProcessor-20] DEBUG q.mina.message.FIXMessageDecoder - parsed message: pos=83,lim=83,rem=0,offset=83,state=4 8=FIX.4.49=6135=034=3049=QFXPRICES52=20250106-20:54:56.79456=PRC8284110=176
+2025-01-06 21:54:57 [QFJ Timer] DEBUG c.flatbook.fx.backend.account.Broker - To Admin: 8=FIX.4.49=6135=034=3149=PRC8284152=20250106-20:54:57.66156=QFXPRICES10=171

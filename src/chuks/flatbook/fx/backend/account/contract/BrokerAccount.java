@@ -15,8 +15,8 @@ public interface BrokerAccount extends BrokerOperation{
 
     public void registerTrader(TraderInfo account_profile, BiConsumer<Boolean, String> result);        
     
-    public boolean login(int account_number, byte[] password, int user_type);  
+    public void login(int account_number, byte[] password, int user_type, BiConsumer<Boolean, String> result);  
     
-    public boolean logout(int account_number, int user_type);  
+    public void logout(int account_number, int user_type, BiConsumer<Boolean, String> result);  
 
 }

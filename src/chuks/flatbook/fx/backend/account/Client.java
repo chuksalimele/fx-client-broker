@@ -254,7 +254,7 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
         ctx.writeAndFlush(
                 MessageFactory
                         .create(MessageType.FULL_SYMBOL_LIST)
-                        .assign(symbol_list.toArray()));
+                        .assign((Object)symbol_list.toArray(String[]::new)));
         return idf;
     }
 

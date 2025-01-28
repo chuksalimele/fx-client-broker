@@ -18,6 +18,7 @@ import quickfix.*;
 import quickfix.field.*;
 import quickfix.fix44.*;
 import chuks.flatbook.fx.backend.account.contract.BrokerAccount;
+import chuks.flatbook.fx.backend.account.persist.AdminDB;
 import chuks.flatbook.fx.common.account.profile.TraderInfo;
 import chuks.flatbook.fx.backend.account.persist.TraderDB;
 import chuks.flatbook.fx.backend.listener.ConnectionAdapter;
@@ -77,8 +78,8 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(Broker.class.getName());
 
-    final private Map<Integer, TraderInfo> UsersMap = Collections.synchronizedMap(new LinkedHashMap());
-    final private Map<Integer, AdminInfo> AdminsMap = Collections.synchronizedMap(new LinkedHashMap());
+    final private Map<Integer, TraderInfo> traderInfoMap = Collections.synchronizedMap(new LinkedHashMap());
+    final private Map<Integer, AdminInfo> adminInfoMap = Collections.synchronizedMap(new LinkedHashMap());
 
     static protected Map<String, SymbolInfo> fullSymbolInfoMap = Collections.synchronizedMap(new LinkedHashMap());
 
@@ -260,8 +261,10 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             boolean account_approved = TraderDB.isApproved(account_profile.getEmail());
             if (email_exist && !account_approved) {
                 result.accept(false, "Email '"+account_profile.getEmail()+"' already exist. Account awaiting approval");
+                return;
             }else if (email_exist && account_approved) {
                 result.accept(false, "User already exist!");
+                return;
             }
 
             TraderDB.insertTraderRegistration(account_profile.getEmail(),
@@ -278,7 +281,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
     }
 
-    BasicInfo byUserType(int account_number, UserType user_type) {
+    BasicInfo byUserType(int account_number, UserType user_type) throws SQLException {
         if (user_type == null) {
             logger.warn("UNKNOWN USER TYPE - THIS SHOULD NOT HAPPEN AT ALL");
             return null;
@@ -286,10 +289,24 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
 
         switch (user_type) {
             case UserType.TRADER -> {
-                return UsersMap.get(account_number);
+            TraderInfo trader = traderInfoMap.get(account_number);
+            if(trader == null){
+                trader = TraderDB.queryTraderByAccountNumber(account_number);
+                if(trader !=null){
+                    traderInfoMap.put(trader.getAccountNumber(), trader);
+                }
+            }
+                return trader;
             }
             case UserType.ADMIN -> {
-                return AdminsMap.get(account_number);
+            AdminInfo admin = adminInfoMap.get(account_number);
+            if(admin == null){
+                admin = AdminDB.queryAdminByID(account_number);
+                if(admin !=null){
+                    adminInfoMap.put(admin.getAccountNumber(), admin);
+                }
+            }
+                return admin;
             }
             default -> {
                 logger.warn("UNKNOWN USER TYPE - THIS SHOULD NOT HAPPEN");
@@ -300,40 +317,42 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
     }
 
     @Override
-    public boolean login(int account_number, byte[] hash_password, int user_type) {
-        BasicInfo user = byUserType(account_number, UserType.fromValue(user_type));
-        if (user != null) {
-            if (Arrays.equals(user.getPassword(), hash_password)) {
-                user.setIsLoggedIn(true);
-                accountListenersMap
-                        .getOrDefault(account_number, DO_NOTHING_TA)
-                        .onLogIn(account_number);
-                this.refreshContent(account_number);
-                return true;
+    public void login(int account_number, byte[] hash_password, int user_type, BiConsumer<Boolean, String> result) {
+        try {
+            BasicInfo user = byUserType(account_number, UserType.fromValue(user_type));
+            if (user != null) {
+                if (Arrays.equals(user.getPassword(), hash_password)) {
+                    user.setIsLoggedIn(true);                    
+                    result.accept(true, null);                    
+                    return;
+                }
+                user.setIsLoggedIn(false);
+                result.accept(false, "Incorrect password");                
+            }else{
+                result.accept(false, "User does not exist");  
             }
-            user.setIsLoggedIn(false);
-            accountListenersMap
-                    .getOrDefault(account_number, DO_NOTHING_TA)
-                    .onLogInFail(account_number, "Incorrect password");
-
+        } catch (SQLException ex) {
+            logger.error("Could not login", ex);
+            result.accept(false, "Could not login");
         }
-
-        return false;
     }
 
     @Override
-    public boolean logout(int account_number, int user_type) {
-        BasicInfo user = byUserType(account_number, UserType.fromValue(user_type));
-
-        if (user != null) {
-            user.setIsLoggedIn(false);
-            accountListenersMap
-                    .getOrDefault(account_number, DO_NOTHING_TA)
-                    .onLogOut(account_number);
-            return true;
+    public void logout(int account_number, int user_type, BiConsumer<Boolean, String> result) {
+        try {
+            BasicInfo user = byUserType(account_number, UserType.fromValue(user_type));
+            
+            if (user != null) {
+                user.setIsLoggedIn(false);
+                result.accept(true, null); 
+            }else{
+                result.accept(false, "Logout status unknown as user not found"); 
+            }
+            
+        } catch (SQLException ex) {
+            logger.error("Could not logout", ex);
+            result.accept(false, "Could not logout");
         }
-
-        return false;
     }
 
     @Override

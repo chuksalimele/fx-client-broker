@@ -221,12 +221,17 @@ class AccountHandler extends SharableTransportHandler {
         byte[] hash_password = msg.getByteArray(1);
         int user_type = msg.isInt(2) ? msg.getInt(2) : UserType.TRADER.getValue();
 
-        Client client = new Client(account_number, user_type, ctx);
-        clientsMap.put(account_number, client);
-        this.brokerAccount.addListeners(client);
-        if (!this.brokerAccount.login(account_number, hash_password, user_type)) {
-            client.onLogInFail(account_number, "Account not found");
-        }
+        this.brokerAccount.login(account_number, hash_password, user_type, (Boolean success, String errMsg) -> {
+            Client client = new Client(account_number, user_type, ctx);
+            if (success) {
+                clientsMap.put(account_number, client);
+                this.brokerAccount.addListeners(client);
+                client.onLogIn(account_number);
+                this.brokerAccount.refreshContent(account_number);
+            } else {
+                client.onLogInFail(account_number, errMsg);
+            }
+        });
 
     }
 
@@ -243,19 +248,15 @@ class AccountHandler extends SharableTransportHandler {
         profile.setPassword(hash_password);
         profile.setRegistrationTime(System.currentTimeMillis());
 
-        brokerAccount.registerTrader(profile, (Boolean success, String errMsg)->{
+        brokerAccount.registerTrader(profile, (Boolean success, String errMsg) -> {
             Client client = new Client(NO_ACCOUNT_NUMBER, -1, ctx);
-            if(success){            
+            if (success) {
                 client.onSignUpInitiated(email);
-            }else{
+            } else {
                 client.onSignUpFail(errMsg);
             }
         });
 
-            
-        
-
-        
     }
 
     private void handleLogout(ChannelHandlerContext ctx, ChannelMessage msg) {
@@ -263,8 +264,18 @@ class AccountHandler extends SharableTransportHandler {
         if (msg != null) {
             int account_number = msg.isInt(0) ? msg.getInt(0) : NO_ACCOUNT_NUMBER;
             int user_type = msg.isInt(1) ? msg.getInt(1) : UserType.TRADER.getValue();
-            this.brokerAccount.logout(account_number, user_type);
-            clientsMap.remove(account_number);
+            this.brokerAccount.logout(account_number, user_type, (Boolean success, String errMsg) -> {
+                Client client = clientsMap.remove(account_number);
+                if (client != null) {
+                    if (success) {
+                        client.onLogOut(account_number);
+                    } else {
+                        client.onLogOutFail(account_number, errMsg);
+                    }
+                }
+
+            });
+
         } else {
             //safely remove the client        
             for (Map.Entry<Integer, Client> client : clientsMap.entrySet()) {
@@ -699,7 +710,7 @@ class AccountHandler extends SharableTransportHandler {
                     Config.LOG_DIR,
                     startTime,
                     endTime);
-            
+
             client.onLogs(level, logs);
 
         } catch (IOException ex) {
@@ -809,7 +820,7 @@ class AccountHandler extends SharableTransportHandler {
             logger.error("The is the error i caught", ex);
         }
 
- /*Path logDir = Paths.get(System.getProperty("user.dir"), "logs");
+        /*Path logDir = Paths.get(System.getProperty("user.dir"), "logs");
         LocalDateTime startTime = LocalDateTime.of(2024, 10, 10, 8, 0, 0);
         LocalDateTime endTime = LocalDateTime.of(2024, 10, 26, 18, 16, 59);
 
