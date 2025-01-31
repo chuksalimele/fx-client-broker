@@ -272,7 +272,7 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
         ctx.writeAndFlush(
                 MessageFactory
                         .create(MessageType.SELECTED_SYMBOL_INFO_LIST)
-                        .assign((Object[]) info_str_arr));
+                        .assign((Object) info_str_arr));
         return idf;
     }
 
@@ -444,13 +444,13 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
     public void onWhitelistedIPs(String[] ip_arr) {
         ctx.writeAndFlush(MessageFactory
                 .create(MessageType.WHITELISTED_IPS)
-                .assign((Object[]) ip_arr));
+                .assign((Object) ip_arr));
     }
 
     public void onBlacklistedIPs(String[] ip_arr) {
         ctx.writeAndFlush(MessageFactory
                 .create(MessageType.BLACKLISTED_IPS)
-                .assign((Object[]) ip_arr));
+                .assign((Object) ip_arr));
     }
 
     public void onMaxConnectionPerIP(int max) {
@@ -507,7 +507,7 @@ public class Client implements Identifier, OrderActionListener, SymbolUpdateList
 
         ctx.writeAndFlush(MessageFactory
                 .create(msgType)
-                .assign((Object[])logs.toArray(String[]::new)));
+                .assign((Object)logs.toArray(String[]::new)));
     }
 
 }

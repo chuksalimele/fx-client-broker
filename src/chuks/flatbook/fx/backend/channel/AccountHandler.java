@@ -355,7 +355,10 @@ class AccountHandler extends SharableTransportHandler {
         String[] symbols = msg.getStringArray(1);
 
         Client client = clientsMap.get(account_number);
-
+               
+        if (client == null) {
+            return;//client unknown
+        }
         client.onSelectedSymbolInfoList(account_number,
                 brokerAccount.getSymbolInfoList(symbols));
     }
@@ -365,8 +368,14 @@ class AccountHandler extends SharableTransportHandler {
         String[] symbols = msg.getStringArray(1);
 
         Client client = clientsMap.get(account_number);
-
+        if (client == null) {
+            return;//client unknown
+        }
+        
         client.setSelectedSymbols(symbols);
+                
+        client.onSelectedSymbolInfoList(account_number,
+                brokerAccount.getSymbolInfoList(symbols));
     }
 
     private void handleApproveAccount(ChannelMessage msg) {

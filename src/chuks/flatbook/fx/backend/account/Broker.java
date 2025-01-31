@@ -184,7 +184,8 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
             "GBPJPY", "CHFJPY", "AUDJPY", "EURGBP", "EURAUD", "EURCAD", "EURNZD", "GBPAUD",
             "GBPCAD", "GBPNZD", "AUDCAD", "AUDNZD", "NZDCAD", "NZDCHF", "CADCHF", "AUDCHF",
             "EURCHF", "EURNOK", "USDNOK", "USDSGD", "USDHKD", "USDMXN", "USDTRY", "USDZAR",
-            "USDRUB", "USDINR", "USDKRW", "USDCNH", "USDPLN", "USDTHB", "USDCZK", "USDHUF"
+            "USDRUB", "USDINR", "USDKRW", "USDCNH", "USDPLN", "USDTHB", "USDCZK", "USDHUF",
+            "XAUUSD", "XAGUSD"
         };
 
         // Populate the map with keys from the symbols array and null values
@@ -386,7 +387,8 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         List<SymbolInfo> symbInfoList = new LinkedList();
         for (Entry<String, SymbolInfo> sybInfo : fullSymbolInfoMap.entrySet()) {
             for (String symbol : symbols) {
-                if (symbol.equals(sybInfo.getKey())) {
+                if (symbol.equals(sybInfo.getKey()) 
+                        && sybInfo.getValue() != null) {
                     symbInfoList.add(sybInfo.getValue());
                     break;
                 }
@@ -628,7 +630,7 @@ public abstract class Broker extends quickfix.MessageCracker implements quickfix
         // Subscribe to market data upon logon to the quoting session
         if (sessionId.equals(quoteSessionID)) {
             // TO BE UNCOMMENTED LATER
-            //subscribeToMarketData(Broker.fullSymbolInfoMap.keySet());// TO BE UNCOMMENTED LATER
+            subscribeToMarketData(Broker.fullSymbolInfoMap.keySet());// TO BE UNCOMMENTED LATER
         }
 
     }
